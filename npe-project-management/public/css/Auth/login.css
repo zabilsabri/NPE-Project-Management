@@ -1,0 +1,51 @@
+.container{
+    box-shadow: 0px 4px 20px 2px #A7C2FF;
+    border-radius: 50px;
+    width: auto;
+    height: 500px;
+    color: #0061C7
+}
+
+
+.container-mid{
+    font-size: 13px;
+}
+
+.btn{
+    background: #0061C7 !important;
+}
+
+
+.login-title{
+    font-weight: 700;
+    font-size: 38px;
+    font-family: 'Montserrat';
+    font-style: normal;
+}
+
+.login-desc{
+    font-weight: 400;
+    font-size: 11px;
+    font-family: 'Montserrat';
+    font-style: normal;
+}
+
+.input-label{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.form-control{
+    border: 2px solid #0061C7 !important;
+    border-left: 0 !important;
+    padding: 15px !important;
+    color: #0061C7 !important;
+}
+
+.input-group-text{
+    border: 2px solid #0061C7 !important;
+    border-right: 0 !important;
+    background-color: white !important;
+}
