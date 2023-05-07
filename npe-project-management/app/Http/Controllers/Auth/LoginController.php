@@ -29,7 +29,7 @@ class LoginController extends Controller
 
         dd('gagal');
         /* return back()->withError([ */
-        /*     'email' => 'Email dan password tidak sesuai', */
+        /*     'email' => 'Email atau password salah', */
         /* ])->onlyInput('email'); */
     }
 }
