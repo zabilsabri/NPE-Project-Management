@@ -25,8 +25,8 @@
                     <p class="login-desc" >Welcome to NPE Digital Project Management</p>
                 </div>
                 <div class="container-body mt-4">
-                    <form method="POST" action="{{ route('login.post') }}"
-                    {{ csrf_field() }}
+                    <form method="POST" action="{{ route('login.post') }}">
+                    @csrf
                     <p class="input-label mb-1">Email</p>
                     <div class="input-group flex-nowrap">
                         <span class="input-group-text" id="addon-wrapping">
