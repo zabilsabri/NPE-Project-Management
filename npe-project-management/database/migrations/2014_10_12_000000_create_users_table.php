@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('divisi');
             $table->string('jabatan');
             $table->string('password');
+            $table->string('user_image');
             $table->rememberToken();
             $table->timestamps();
         });
