@@ -6,6 +6,9 @@
   <title>Home Page</title>
 
   <!-- General CSS Files -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
@@ -14,47 +17,42 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{ asset('Stisla/assets/css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('Stisla/assets/css/components.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/Admin/sidebar.css') }}">
 </head>
 
 <body>
-  <div id="app">
     <div class="main-wrapper">
-      <div class="navbar-bg"></div>
       <nav class="navbar navbar-expand-lg main-navbar">
         <ul class="navbar-nav mr-3">
-            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
-            <li><div class="d-sm-none d-lg-inline-block">Home</div></a></li>
+            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars" style="color: #000"></i></a></li>
         </ul>
       </nav>
       <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
+          <div>
           <div class="sidebar-brand">
-            <a href="index.html">NPE Digital</a>
+            <a href="index.html"><img src="{{ asset('img/Admin/logo npe.svg') }}" alt=""><span>NPE DIGITAL</span></a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">NPE</a>
+            <img src="{{ asset('img/Admin/logo npe.svg') }}" alt="">
           </div>
           <ul class="sidebar-menu">
               <li class="active"><a class="nav-link" href="blank.html"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
               <li><a class="nav-link" href="blank.html"><i class="fas fa-clipboard-list"></i> <span>Project</span></a></li>
               <li><a class="nav-link" href="blank.html"><i class="fas fa-users"></i> <span>Employees</span></a></li>
             </ul>
+          </div>
+            <ul class="sidebar-menu">
+              <li><a class="nav-link" href="blank.html"><i class="fas fa-user" id="photo-profile"></i> 
+                <span>
+                  <p class="m-0" id="username">admin</p>
+                  <p class="m-0" id="email">admin@email.com</p>
+                </span>
+              </a></li>
+            </ul>
+          </div>
         </aside>
       </div>
-
-      <!-- Main Content -->
-      <div class="main-content">
-        <section class="section">
-          <div class="section-header">
-            <h1>Blank Page</h1>
-          </div>
-
-          <div class="section-body">
-          </div>
-        </section>
-      </div>
-    </div>
-  </div>
 
   <!-- General JS Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
