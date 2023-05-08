@@ -19,7 +19,8 @@ return new class extends Migration
 
             $table->foreign('milestone_id')
                 ->references('id')
-                ->on('milestones');
+                ->on('milestones')
+                ->onDelete('cascade');
         });
     }
 
