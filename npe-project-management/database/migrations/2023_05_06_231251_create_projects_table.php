@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('klien');
             $table->string('tipe');
-            $table->unsignedBigInteger('pm_id');
+            $table->unsignedBigInteger('pm_id')->nullable();
             $table->date('deadline');
             $table->boolean('status');
             $table->string('detail');
@@ -24,7 +24,8 @@ return new class extends Migration
 
             $table->foreign('pm_id')
                 ->references('id')
-                ->on('users');
+                ->on('users')
+                ->onDelete('set null');
         });
     }
 
