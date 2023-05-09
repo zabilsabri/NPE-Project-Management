@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('project_id');
             $table->unsignedBigInteger('employee_id');
+            $table->string('performance_review');
             $table->timestamps();
 
             $table->foreign('project_id')

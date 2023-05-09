@@ -23,13 +23,9 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            /* return redirect()->intended('dashboard'); */
-            dd('sukses');
+            return redirect()->intended('home');
         }
 
-        dd('gagal');
-        /* return back()->withError([ */
-        /*     'email' => 'Email atau password salah', */
-        /* ])->onlyInput('email'); */
+        return back()->with('loginError', 'Your email or password is incorrect!');
     }
 }

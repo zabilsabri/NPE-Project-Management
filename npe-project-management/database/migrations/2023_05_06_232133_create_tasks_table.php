@@ -15,12 +15,21 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->unsignedBigInteger('milestone_id');
+            $table->unsignedBigInteger('assign_to_id')->nullable();
+            $table->date('deadline');
+            $table->boolean('status');
+            $table->string('detail');
             $table->timestamps();
 
             $table->foreign('milestone_id')
                 ->references('id')
                 ->on('milestones')
                 ->onDelete('cascade');
+
+            $table->foreign('assign_to_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('set null');
         });
     }
 

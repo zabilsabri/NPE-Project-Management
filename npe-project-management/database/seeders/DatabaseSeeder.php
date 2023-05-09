@@ -26,6 +26,8 @@ class DatabaseSeeder extends Seeder
             'nomorTelpon' => '0123456789',
             'divisi' => 'admin',
             'jabatan' => 'admin',
+            'credit' => 10,
+            'user_image' => '/path/to/user/image',
             'password' => Hash::make('password'),
         ]);
     }
