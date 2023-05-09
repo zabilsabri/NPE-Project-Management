@@ -26,8 +26,6 @@ class LoginController extends Controller
             return redirect()->intended('home');
         }
 
-        return back()->withError([
-            'email' => 'Email atau password salah',
-        ])->onlyInput('email');
+        return back()->with('loginError', 'Your email or password is incorrect!');
     }
 }
