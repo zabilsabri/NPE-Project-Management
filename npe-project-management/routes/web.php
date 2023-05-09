@@ -16,9 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/blank', function () {
     return view('blank');
 });
+
 Route::get('/home', function () {
     return view('Admin.home');
 });
+
 Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], function () {
 
     Route::get('', 'LoginController@index')->name('login');
