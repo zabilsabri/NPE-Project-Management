@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('divisi');
             $table->string('jabatan');
             $table->string('password');
-            $table->integer('credit');
+            $table->integer('credit')->default(10);
+            $table->boolean('isAdmin')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
