@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('jabatan');
             $table->string('password');
             $table->integer('credit');
-            $table->string('user_image');
             $table->rememberToken();
             $table->timestamps();
         });
