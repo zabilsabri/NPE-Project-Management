@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Home Page</title>
+  <title>{{$title}}</title>
 
   <!-- General CSS Files -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +31,7 @@
         <aside id="sidebar-wrapper">
           <div>
           <div class="sidebar-brand">
-            <a href="index.html"><img src="{{ asset('img/Admin/logo npe.svg') }}" alt=""><span>NPE DIGITAL</span></a>
+            <a href="index.html"><img src="{{ asset('img/Admin/main logo.jpg') }}" alt=""></a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
             <img src="{{ asset('img/Admin/logo npe.svg') }}" alt="">
@@ -53,6 +53,11 @@
           </div>
         </aside>
       </div>
+      <div class="main-content">
+        @yield('content')
+      </div>
+
+
 
   <!-- General JS Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
