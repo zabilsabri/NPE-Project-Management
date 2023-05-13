@@ -1,0 +1,22 @@
+.card-body #p1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.card-body #p2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+}
+
+.card {
+    padding-bottom: 5%;
+}
+
+.img-fluid {
+    padding-top: 5%;
+}
+
+#inputDetail {
+    height: 160px;
+}

@@ -13,12 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/blank', function () {
-    return view('blank');
-});
-
 Route::get('/home', function () {
     return view('Admin.home');
+});
+
+Route::get('/project', function () {
+    return view('Admin.project');
+});
+
+Route::get('/project/new', function () {
+    return view('Admin.new-project');
 });
 
 Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], function () {

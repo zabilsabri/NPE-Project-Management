@@ -17,7 +17,7 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{ asset('Stisla/assets/css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('Stisla/assets/css/components.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/Admin/sidebar.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/Layout/sidebar.css') }}">
 </head>
 
 <body>
@@ -31,14 +31,14 @@
         <aside id="sidebar-wrapper">
           <div>
           <div class="sidebar-brand">
-            <a href="index.html"><img src="{{ asset('img/Admin/main logo.jpg') }}" alt=""></a>
+            <a href="index.html"><img id="main-logo" src="{{ asset('img/Admin/main logo.jpg') }}" alt=""></a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
             <img src="{{ asset('img/Admin/logo npe.svg') }}" alt="">
           </div>
           <ul class="sidebar-menu">
-              <li class="active"><a class="nav-link" href="blank.html"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
-              <li><a class="nav-link" href="blank.html"><i class="fas fa-clipboard-list"></i> <span>Project</span></a></li>
+              <li class="{{ (request()->is('home')) ? 'active' : '' }}"><a class="nav-link" href="blank.html"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
+              <li class="{{ (request()->is('project')) || (request()->is('project/new')) ? 'active' : '' }}"><a class="nav-link" href="blank.html"><i class="fas fa-clipboard-list"></i> <span>Project</span></a></li>
               <li><a class="nav-link" href="blank.html"><i class="fas fa-users"></i> <span>Employees</span></a></li>
             </ul>
           </div>
@@ -54,8 +54,15 @@
         </aside>
       </div>
       <div class="main-content">
-        @yield('content')
-      </div>
+        <section class="section">
+          <div class="section-header mb-0">
+            <h1>{{$title}}</h1>
+          </div>
+
+          <div class="section-body mt-0">
+            @yield('content')
+          </div>
+        </section>
 
 
 
