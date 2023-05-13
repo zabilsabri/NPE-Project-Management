@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('project_users', function (Blueprint $table) {
+        Schema::create('project_user', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('project_id');
             $table->unsignedBigInteger('employee_id');
-            $table->string('performance_review');
+            $table->string('performance_review')->nullable();
             $table->timestamps();
 
             $table->foreign('project_id')

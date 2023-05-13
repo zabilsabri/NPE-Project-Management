@@ -3,6 +3,11 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Milestone;
+use App\Models\Project;
+use App\Models\Task;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -14,21 +19,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        User::factory()->count(20)->create();
+        /*  */
+        /* Project::factory()->count(5)->has(User::factory()->count(5), 'users', function ($attributes, $project) { */
+        /*     $user = User::find(rand(1, 20));  */
+        /*     return [ */
+        /*         'employee_id' => $user->id, */
+        /*     ]; */
+        /* })->create(); */
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-        DB::table('users')->insert([
-            'nama' => 'admin',
-            'email' => 'admin@gmail.com',
-            'nomorTelpon' => '0123456789',
-            'divisi' => 'admin',
-            'jabatan' => 'admin',
-            'credit' => 10,
-            'user_image' => '/path/to/user/image',
-            'password' => Hash::make('password'),
-        ]);
+        $user = User::all()->pluck('id');
+
+        Project::factory(10)->create()->each(function ($project) use ($user) {
+            $project->users()->attach($user->random(rand(1, 19)));
+        });
+
+        Milestone::factory()->count(30)->create();
+
     }
 }
