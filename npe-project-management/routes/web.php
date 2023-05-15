@@ -27,5 +27,9 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], funct
 
 Route::group(['prefix' => '/project', 'namespace' => 'App\Http\Controllers'], function () {
     Route::get('', 'ProjectController@index')->name('project');
-    Route::get('/new', 'ProjectController@addForm')->name('project.add');
+    Route::get('/new', 'ProjectController@addForm')->name('project.new');
+});
+
+Route::group(['prefix' => '/employee', 'namespace' => 'App\Http\Controllers'], function () {
+    Route::get('', 'EmployeeController@index')->name('employee');
 });
