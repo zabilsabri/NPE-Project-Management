@@ -1,0 +1,31 @@
+div.dataTables_wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+
+th, td{
+    background-color: white !important;
+    font-size: small;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    border-radius: 35px !important;
+    width: 35px;
+    height: 35px;
+}
+
+.current{
+    background-color: #0061C7 !important;
+    color: #fff !important;
+}
+
+.dataTables_paginate{
+    color: black !important;
+    display: flex;
+    justify-content: center;
+    font-size: large !important;
+}
+
+.dataTables_scrollHeadInner, .table{
+    width:100%!important
+};

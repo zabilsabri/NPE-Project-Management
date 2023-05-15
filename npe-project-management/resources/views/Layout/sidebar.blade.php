@@ -12,7 +12,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-  <!-- CSS Libraries -->
+  <!-- Datatables -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{ asset('Stisla/assets/css/style.css') }}">
@@ -37,28 +38,29 @@
             <img src="{{ asset('img/Admin/logo npe.svg') }}" alt="">
           </div>
           <ul class="sidebar-menu">
-              <li class="{{ (request()->is('home')) ? 'active' : '' }}"><a class="nav-link" href="blank.html"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
-              <li class="{{ (request()->is('project')) || (request()->is('project/new')) ? 'active' : '' }}"><a class="nav-link" href="blank.html"><i class="fas fa-clipboard-list"></i> <span>Project</span></a></li>
+              <li class="{{ Route::is('home.admin') ? 'active' : '' }}"><a class="nav-link" href="{{ route('home.admin') }}"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
+              <li class="{{ Route::is('project.admin') || Route::is('project-create.admin') ? 'active' : '' }}"><a class="nav-link" href="{{ route('project.admin') }}"><i class="fas fa-clipboard-list"></i> <span>Project</span></a></li>
               <li><a class="nav-link" href="blank.html"><i class="fas fa-users"></i> <span>Employees</span></a></li>
             </ul>
           </div>
             <ul class="sidebar-menu">
-              <li><a class="nav-link" href="blank.html"><i class="fas fa-user" id="photo-profile"></i> 
-                <span>
-                  <p class="m-0" id="username">admin</p>
-                  <p class="m-0" id="email">admin@email.com</p>
-                </span>
-              </a></li>
+              <li>
+                <a class="nav-link" href="blank.html"><i class="fas fa-user" id="photo-profile"></i> 
+                  <span>
+                    <p class="m-0" id="username">admin</p>
+                    <p class="m-0" id="email">admin@email.com</p>
+                  </span>
+                </a>
+              </li>
+              <div class="d-grid gap-2">
+                <a href="{{ route('logout') }}" class="btn btn-primary w-100" type="button">Logout</a>
+              </div>
             </ul>
           </div>
         </aside>
       </div>
       <div class="main-content">
         <section class="section">
-          <div class="section-header mb-0">
-            <h1>{{$title}}</h1>
-          </div>
-
           <div class="section-body mt-0">
             @yield('content')
           </div>
@@ -74,7 +76,22 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="../assets/js/stisla.js"></script>
 
-  <!-- JS Libraies -->
+  <!-- Datatables -->
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+
+  <script>
+    $(document).ready( function () {
+        $('#tableProject').DataTable({
+          scrollX: true,
+          language: { search: '', searchPlaceholder: "Search...",
+              paginate: {
+                next: ">",
+                previous: "<"
+              }},
+          responsive: true,
+        });
+    } );
+  </script>
 
   <!-- Template JS File -->
   <script src="{{ asset('Stisla/assets/js/scripts.js') }}"></script>

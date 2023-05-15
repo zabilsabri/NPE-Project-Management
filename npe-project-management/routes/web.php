@@ -14,24 +14,40 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/home', function () {
-    return view('Admin.home');
+    return view('Admin.home.home');
 })->middleware('auth');
-
-Route::get('/project', function () {
-    return view('Admin.project');
-});
-
-Route::get('/project/new', function () {
-    return view('Admin.new-project');
-});
 
 Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], function () {
 
     Route::get('', 'LoginController@index')->name('login');
     Route::post('/loginProcess', 'LoginController@authenticate')->name('login.post');
-    // Route::get('/logout', 'LoginController@logout')->name('logout');
+    Route::get('/logout', 'LoginController@logout')->name('logout');
 });
 
-Route::group(['prefix' => '/project', 'namespace' => 'App\Http\Controllers'], function () {
-    Route::get('', 'ProjectController@index');
+// Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['auth', 'Admin']], function () {
+
+//     Route::group(['prefix' => 'admin'], function(){
+//         Route::get('/', 'HomeController@index')->name('home.admin');
+        
+//         Route::group(['prefix' => 'project'], function(){
+//             Route::get('/', 'ProjectController@index')->name('project.admin');
+//             Route::get('/create', 'ProjectController@create')->name('project-create.admin');
+//         });
+
+//     });
+
+// });
+
+Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], function () {
+
+    Route::group(['prefix' => 'admin'], function(){
+        Route::get('/', 'HomeController@index')->name('home.admin');
+        
+        Route::group(['prefix' => 'project'], function(){
+            Route::get('/', 'ProjectController@index')->name('project.admin');
+            Route::get('/create', 'ProjectController@create')->name('project-create.admin');
+        });
+
+    });
+
 });

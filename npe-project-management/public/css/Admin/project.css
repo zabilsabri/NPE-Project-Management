@@ -20,3 +20,25 @@
 #inputDetail {
     height: 160px;
 }
+
+.status-op{
+    text-align: center;
+    background: rgba(0, 97, 199, 0.15);
+    border-radius: 99px;
+    padding: 3px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    color: #0061C7;
+}
+
+.status-f{
+    text-align: center;
+    background: rgba(30, 158, 82, 0.15);
+    border-radius: 99px;
+    padding: 3px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    color: #1E9E52;
+}
