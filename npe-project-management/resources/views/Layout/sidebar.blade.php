@@ -90,6 +90,30 @@
               }},
           responsive: true,
         });
+
+        $('#tableHomeProject').DataTable({
+          "dom": '<"toolbar">frt',
+          scrollX: true,
+          language: { search: '', searchPlaceholder: "Search...",
+              paginate: {
+                next: ">",
+                previous: "<"
+              }},
+          responsive: true,
+        });
+        $('div.toolbar').html('<h5 class="float-left">Data manajemen projek NPE Digital</h5>');
+
+        $('#tableHomeEmployee').DataTable({
+          "dom": '<"toolbar">frt',
+          scrollX: true,
+          language: { search: '', searchPlaceholder: "Search...",
+              paginate: {
+                next: ">",
+                previous: "<"
+              }},
+          responsive: true,
+        });
+        $('div.toolbar').html('<h5 class="float-left">Daftar Karyawan NPE Digital</h5>');
     } );
   </script>
 

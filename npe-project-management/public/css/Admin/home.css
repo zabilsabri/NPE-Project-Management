@@ -1,0 +1,15 @@
+.table-responsive{
+    padding: 30px;
+    border: 1px solid #C1C6CC;
+    border-radius: 12px;
+    width: 95% !important;
+    border-top-color: #6694FA;
+    border-top-width: 13px;
+}
+
+.table-title{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    color: #313D4E;
+}
