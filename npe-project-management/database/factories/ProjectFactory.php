@@ -23,7 +23,7 @@ class ProjectFactory extends Factory
             'tipe' => 'web',
             'pm_id' => rand(1, 20),
             'deadline' => fake()->dateTimeBetween('now', '+5 months', null),
-            'status' => fake()->numberBetween(0, 2),
+            'status' => fake()->numberBetween(0, 1),
             'detail' => fake()->text(40),
         ];
     }
