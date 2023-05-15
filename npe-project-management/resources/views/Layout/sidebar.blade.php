@@ -40,7 +40,7 @@
                     <ul class="sidebar-menu">
                         <li class="{{ (request()->is('dashboard')) ? 'active' : '' }}"><a class="nav-link" href="{{route('dashboard')}}"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
                         <li class="{{ (request()->is('project')) || (request()->is('project/new')) ? 'active' : '' }}"><a class="nav-link" href="{{route('project')}}"><i class="fas fa-clipboard-list"></i> <span>Project</span></a></li>
-                        <li class="{{ (request()->is('dashboard')) ? 'active' : '' }}"><a class="nav-link" href="{{route('employee')}}"><i class="fas fa-users"></i> <span>Employee</span></a></li>
+                        <li class="{{ (request()->is('employee')) ? 'active' : '' }}"><a class="nav-link" href="{{route('employee')}}"><i class="fas fa-users"></i> <span>Employee</span></a></li>
                     </ul>
                 </div>
                 <ul class="sidebar-menu">
