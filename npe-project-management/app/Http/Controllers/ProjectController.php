@@ -10,7 +10,11 @@ class ProjectController extends Controller
 
     public function index()
     {
-        $project = Project::all();
-        dd($project->get(0)->users()->get());
+        return view('Admin.project');
+    }
+
+    public function addForm()
+    {
+        return view('Admin.new-project');
     }
 }

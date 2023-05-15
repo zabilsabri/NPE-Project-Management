@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,17 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', function () {
+Route::get('/dashboard', function () {
     return view('Admin.home');
-})->middleware('auth');
-
-Route::get('/project', function () {
-    return view('Admin.project');
-});
-
-Route::get('/project/new', function () {
-    return view('Admin.new-project');
-});
+})->middleware('auth')->name('dashboard');
 
 Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], function () {
 
@@ -33,5 +26,6 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], funct
 });
 
 Route::group(['prefix' => '/project', 'namespace' => 'App\Http\Controllers'], function () {
-    Route::get('', 'ProjectController@index');
+    Route::get('', 'ProjectController@index')->name('project');
+    Route::get('/new', 'ProjectController@addForm')->name('project.add');
 });
