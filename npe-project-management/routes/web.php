@@ -17,6 +17,14 @@ Route::get('/home', function () {
     return view('Admin.home');
 })->middleware('auth');
 
+Route::get('/project', function () {
+    return view('Admin.project');
+});
+
+Route::get('/project/new', function () {
+    return view('Admin.new-project');
+});
+
 Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], function () {
 
     Route::get('', 'LoginController@index')->name('login');
