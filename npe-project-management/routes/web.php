@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', function () {
-    return view('Admin.home.home');
-})->middleware('auth');
-
 Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], function () {
 
     Route::get('', 'LoginController@index')->name('login');
@@ -28,7 +24,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], funct
 
 //     Route::group(['prefix' => 'admin'], function(){
 //         Route::get('/', 'HomeController@index')->name('home.admin');
-        
+
 //         Route::group(['prefix' => 'project'], function(){
 //             Route::get('/', 'ProjectController@index')->name('project.admin');
 //             Route::get('/create', 'ProjectController@create')->name('project-create.admin');
@@ -42,7 +38,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], func
 
     Route::group(['prefix' => 'admin'], function(){
         Route::get('/', 'HomeController@index')->name('home.admin');
-        
+
         Route::group(['prefix' => 'project'], function(){
             Route::get('/', 'ProjectController@index')->name('project.admin');
             Route::get('/create', 'ProjectController@create')->name('project-create.admin');
