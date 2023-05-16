@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/detail', function () {
+    return view('Admin.project.detail-project');
+});
+
 Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], function () {
 
     Route::get('', 'LoginController@index')->name('login');
@@ -36,14 +40,12 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], funct
 
 Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], function () {
 
-    Route::group(['prefix' => 'admin'], function(){
+    Route::group(['prefix' => 'admin'], function () {
         Route::get('/', 'HomeController@index')->name('home.admin');
 
-        Route::group(['prefix' => 'project'], function(){
+        Route::group(['prefix' => 'project'], function () {
             Route::get('/', 'ProjectController@index')->name('project.admin');
             Route::get('/create', 'ProjectController@create')->name('project-create.admin');
         });
-
     });
-
 });
