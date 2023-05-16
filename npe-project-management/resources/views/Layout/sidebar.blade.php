@@ -49,8 +49,8 @@
             <img src="{{ asset('img/Admin/logo npe.svg') }}" alt="">
           </div>
           <ul class="sidebar-menu">
-            <li class="{{ Route::is('home.admin') ? 'active' : '' }}"><a class="nav-link"
-                href="{{ route('home.admin') }}"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
+            <li class="{{ Route::is('home') ? 'active' : '' }}"><a class="nav-link"
+                href="{{ route('home') }}"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
             <li class="{{ Route::is('project.admin') || Route::is('project-create.admin') ? 'active' : '' }}"><a
                 class="nav-link" href="{{ route('project.admin') }}"><i class="fas fa-clipboard-list"></i>
                 <span>Project</span></a></li>

@@ -11,7 +11,7 @@ class LoginController extends Controller
     public function index()
     {
         if (Auth::check()) {
-            return redirect('/admin');
+            return redirect('/');
         }
         return view('Auth.login');
     }
@@ -26,7 +26,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('admin');
+            return redirect()->intended('/');
         }
 
         return back()->with('loginError', 'Your email or password is incorrect!');
