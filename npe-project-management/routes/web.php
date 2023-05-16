@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', function () {
-    return view('Admin.home.home');
-})->middleware('auth');
-
 Route::get('/detail', function () {
     return view('Admin.project.detail-project');
 });
