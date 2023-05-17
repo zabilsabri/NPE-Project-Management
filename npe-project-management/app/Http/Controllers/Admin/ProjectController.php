@@ -10,9 +10,9 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        // $project = Project::all();
+        $projects = Project::all();
         // dd($project->get(0)->users()->get());
-        return view('Admin.project.project');
+        return view('Admin.project.project', compact('projects'));
     }
 
     public function show($id)
