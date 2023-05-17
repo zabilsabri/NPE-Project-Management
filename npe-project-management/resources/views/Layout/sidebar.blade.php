@@ -135,8 +135,8 @@
     <!-- Template JS File -->
     <script src="{{ asset('Stisla/assets/js/scripts.js') }}"></script>
     <script src="{{ asset('Stisla/assets/js/custom.js') }}"></script>
-
     <!-- Page Specific JS File -->
+    @yield('script')
 </body>
 
 </html>

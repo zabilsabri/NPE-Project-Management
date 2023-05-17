@@ -28,7 +28,7 @@
                 <tbody>
                     <?php $counter = 1; ?>
                     @foreach ($projects as $project)
-                    <tr>
+                    <tr class="project-row" data-id="{{ $project->id }}">
                         <th style="text-align: center" scope="row">{{ $counter++ }}</th>
                         <td>{{ $project->nama }}</td>
                         <td>{{ $project->klien }}</td>
@@ -87,4 +87,16 @@
 
     </div>
 </div>
+@endsection
+
+@section('script')
+<script>
+    $(document).ready(function() {
+        $(".project-row").click(function() {
+            let id = $(this).data('id');
+
+            window.location.href = "admin/project/detail/" + id;
+        });
+    });
+</script>
 @endsection
