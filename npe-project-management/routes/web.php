@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], function () {
-    Route::get('/login', 'LoginController@index')->name('login');
+    Route::get('/', 'LoginController@index')->name('login');
     Route::post('/login', 'LoginController@authenticate')->name('login.post');
     Route::get('/logout', 'LoginController@logout')->name('logout');
 });
@@ -33,13 +33,22 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], funct
 
 // });
 
-Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
 
     Route::group(['prefix' => 'project'], function () {
         Route::get('/', 'ProjectController@index')->name('project.admin');
         Route::get('/create', 'ProjectController@create')->name('project-create.admin');
-        Route::get('/detail/{id}', 'ProjectController@detail')->name('project.detail');
-
+        Route::get('/detail/{id}', 'ProjectController@show')->name('project.detail');
     });
+});
+
+Route::group(['prefix' => '/user', 'namespace' => 'App\Http\Controllers\User', 'middleware' => ['auth']], function () {
+    /* Route::get('/', 'HomeController@index')->name('home'); */
+    /*  */
+    /* Route::group(['prefix' => 'project'], function () { */
+    /*     Route::get('/', 'ProjectController@index')->name('project.admin'); */
+    /*     Route::get('/create', 'ProjectController@create')->name('project-create.admin'); */
+    /*     Route::get('/detail/{id}', 'ProjectController@show')->name('project.detail'); */
+    /* }); */
 });
