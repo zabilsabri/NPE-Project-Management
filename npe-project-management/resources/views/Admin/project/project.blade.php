@@ -59,8 +59,8 @@
                         @endif
                         <td class="text-center">
                             <!-- pensil -->
-                            <a href=""><img src="{{ asset('img/Admin/pensil.png') }}" alt="pensil"></a>
-                            <a href=""><img class="px-2" src="{{ asset('img/Admin/mata.png') }}" alt="pensil"></a>
+                            <a href="{{ route('project-edit.admin', ['id' => $project->id]) }}"><img src="{{ asset('img/Admin/pensil.png') }}" alt="pensil"></a>
+                            <a href="{{ route('project.detail', ['id' => $project->id]) }}"><img class="px-2" src="{{ asset('img/Admin/mata.png') }}" alt="pensil"></a>
                             <a href=""><img src="{{ asset('img/Admin/aflah.png') }}" alt="pensil"></a>
                         </td>
                     </tr>
@@ -70,14 +70,4 @@
         </div>
     </div>
 </div>
-@endsection
-
-@section('script')
-<script>
-    $(".project-row").click(function() {
-        let id = $(this).data('id');
-
-        window.location.href = "project/detail/" + id;
-    });
-</script>
 @endsection

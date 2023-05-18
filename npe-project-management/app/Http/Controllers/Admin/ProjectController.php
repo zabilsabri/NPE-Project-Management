@@ -24,8 +24,13 @@ class ProjectController extends Controller
 
     public function create()
     {
-        // $project = Project::all();
-        // dd($project->get(0)->users()->get());
         return view('Admin.project.new-project');
+    }
+
+    public function edit($id)
+    {
+        $project = Project::find($id);
+
+        return view('Admin.project.new-project', compact('project'));
     }
 }

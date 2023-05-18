@@ -39,6 +39,7 @@ Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin',
     Route::group(['prefix' => 'project'], function () {
         Route::get('/', 'ProjectController@index')->name('project.admin');
         Route::get('/create', 'ProjectController@create')->name('project-create.admin');
+        Route::get('/edit/{id}', 'ProjectController@edit')->name('project-edit.admin');
         Route::get('/detail/{id}', 'ProjectController@show')->name('project.detail');
     });
 });
