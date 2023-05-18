@@ -71,3 +71,13 @@
     </div>
 </div>
 @endsection
+
+@section('script')
+<script>
+    $(".project-row").click(function() {
+        let id = $(this).data('id');
+
+        window.location.href = "project/detail/" + id;
+    });
+</script>
+@endsection
