@@ -19,6 +19,27 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        DB::table('users')->insert([
+            'nama' => 'admin',
+            'email' => 'admin@gmail.com',
+            'nomorTelpon' => '0123456789',
+            'divisi' => 'admin',
+            'jabatan' => 'admin',
+            'credit' => 999,
+            'isAdmin' => 1,
+            'password' => Hash::make('password'),
+        ]);
+
+        DB::table('users')->insert([
+            'nama' => 'user',
+            'email' => 'user@gmail.com',
+            'nomorTelpon' => '0123456789',
+            'divisi' => 'Mobile',
+            'jabatan' => 'Junior Developer',
+            'credit' => 23,
+            'isAdmin' => 0,
+            'password' => Hash::make('password'),
+        ]);
         User::factory()->count(20)->create();
         /*  */
         /* Project::factory()->count(5)->has(User::factory()->count(5), 'users', function ($attributes, $project) { */
@@ -35,6 +56,5 @@ class DatabaseSeeder extends Seeder
         });
 
         Milestone::factory()->count(30)->create();
-
     }
 }
