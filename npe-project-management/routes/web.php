@@ -17,8 +17,8 @@ Route::get('/home', function () {
     return view('Admin.home.home');
 })->middleware('auth');
 
-Route::get('/employee', function () {
-    return view('Admin.employee.empty-employee');
+Route::get('/detail', function () {
+    return view('Admin.project.detail-project');
 });
 
 Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], function () {
