@@ -54,7 +54,7 @@
             <li class="{{ Route::is('project.admin') || Route::is('project-create.admin') ? 'active' : '' }}"><a
                 class="nav-link" href="{{ route('project.admin') }}"><i class="fas fa-clipboard-list"></i>
                 <span>Project</span></a></li>
-            <li><a class="nav-link" href="blank.html"><i class="fas fa-users"></i> <span>Employees</span></a></li>
+            <li class="{{ Route::is('employee.admin') ? 'active' : '' }}"><a class="nav-link" href="{{ route('employee.admin') }}"><i class="fas fa-users"></i> <span>Employees</span></a></li>
           </ul>
         </div>
         <ul class="sidebar-menu">
@@ -107,7 +107,7 @@
         });
 
         $('#tableHomeProject').DataTable({
-          "dom": '<"toolbar">frt',
+          "dom": '<"toolbar-project">frt',
           scrollX: true,
           language: { search: '', searchPlaceholder: "Search...",
               paginate: {
@@ -116,7 +116,7 @@
               }},
           responsive: true,
         });
-        $('div.toolbar').html('<h5 class="float-left">Data manajemen projek NPE Digital</h5>');
+        $('div.toolbar-project').html('<h5 class="float-left">Data manajemen projek NPE Digital</h5>');
 
         $('#tableHomeEmployee').DataTable({
           "dom": '<"toolbar">frt',

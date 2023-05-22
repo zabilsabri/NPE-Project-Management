@@ -42,6 +42,10 @@ Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin',
         Route::get('/edit/{id}', 'ProjectController@edit')->name('project-edit.admin');
         Route::get('/detail/{id}', 'ProjectController@show')->name('project.detail');
     });
+
+    Route::group(['prefix' => 'employee'], function () {
+        Route::get('/', 'EmployeeController@index')->name('employee.admin');
+    });
 });
 
 Route::group(['prefix' => '/user', 'namespace' => 'App\Http\Controllers\User', 'middleware' => ['auth']], function () {

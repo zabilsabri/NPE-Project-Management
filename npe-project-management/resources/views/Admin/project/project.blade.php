@@ -30,10 +30,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $counter = 1; ?>
                     @foreach ($projects as $project)
                     <tr class="project-row" data-id="{{ $project->id }}">
-                        <th style="text-align: center" scope="row">{{ $counter++ }}</th>
+                        <th></th>
                         <td>{{ $project->nama }}</td>
                         <td>{{ $project->klien }}</td>
                         <td>{{ $project->tipe }}</td>
@@ -70,4 +69,33 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script>
+    $(document).ready(function() {
+        var t = $('#tableProject').DataTable({
+            retrieve: true,
+            columnDefs: [{
+                searchable: false,
+                orderable: false,
+                targets: 0,
+            }, ],
+            order: [
+                [1, 'asc']
+            ],
+        });
+
+        t.on('order.dt search.dt', function() {
+            let i = 1;
+
+            t.cells(null, 0, {
+                search: 'applied',
+                order: 'applied'
+            }).every(function(cell) {
+                this.data(i++);
+            });
+        }).draw();
+    });
+</script>
 @endsection
