@@ -18,6 +18,9 @@
   <!-- Datatables -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
 
+  <!-- Multi Search -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/css/bootstrap-select.min.css">
+
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{ asset('Stisla/assets/css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('Stisla/assets/css/components.css') }}">
@@ -136,6 +139,8 @@
     <script src="{{ asset('Stisla/assets/js/scripts.js') }}"></script>
     <script src="{{ asset('Stisla/assets/js/custom.js') }}"></script>
     <!-- Page Specific JS File -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/i18n/defaults-*.min.js"></script>
     @yield('script')
 </body>
 

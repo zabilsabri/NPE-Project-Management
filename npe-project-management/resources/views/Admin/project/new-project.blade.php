@@ -11,9 +11,9 @@
       </div>
       <div class="form-group col-md-6">
         <label for="inputState">Employee</label>
-        <select id="inputState" class="form-control">
-          <option selected="">Pilih Employee</option>
-          <option>...</option>
+        <select class="selectpicker form-control" id="inputState" data-live-search="true" multiple>
+          <option data-tokens="mustard">Zabil</option>
+          <option data-tokens="frosting">Erwin</option>
         </select>
       </div>
     </div>
@@ -49,9 +49,10 @@
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputState">Project Manager</label>
-        <select id="inputState" class="form-control">
-          <option selected="">Pilih Project Manager</option>
-          <option>...</option>
+        <select class="selectpicker form-control" id="inputState" data-live-search="true">
+          <option data-tokens="">-- Select Your PM</option>
+          <option data-tokens="mustard">Zabil</option>
+          <option data-tokens="frosting">Erwin</option>
         </select>
       </div>
 
