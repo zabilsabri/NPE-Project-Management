@@ -23,19 +23,28 @@ class DatabaseSeeder extends Seeder
             'nama' => 'admin',
             'email' => 'admin@gmail.com',
             'nomorTelpon' => '0123456789',
-            'divisi' => 'admin',
-            'jabatan' => 'admin',
             'credit' => 999,
             'isAdmin' => 1,
             'password' => Hash::make('password'),
         ]);
 
+        /**
+         * Divisi:
+         * 0 -> web
+         * 1 -> Mobile
+         * 2 -> ui/ux
+         *
+         * Jabatan:
+         * 0 -> senior
+         * 1 -> junior
+         * 2 -> trainee
+         */
         DB::table('users')->insert([
             'nama' => 'user',
             'email' => 'user@gmail.com',
             'nomorTelpon' => '0123456789',
-            'divisi' => 'Mobile',
-            'jabatan' => 'Junior Developer',
+            'divisi' => 2,
+            'jabatan' => 0,
             'credit' => 23,
             'isAdmin' => 0,
             'password' => Hash::make('password'),
