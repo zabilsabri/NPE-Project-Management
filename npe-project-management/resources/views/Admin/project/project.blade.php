@@ -60,7 +60,7 @@
                             <!-- pensil -->
                             <a href="{{ route('project-edit.admin', ['id' => $project->id]) }}"><img src="{{ asset('img/Admin/pensil.png') }}" alt="pensil"></a>
                             <a href="{{ route('project.detail', ['id' => $project->id]) }}"><img class="px-2" src="{{ asset('img/Admin/mata.png') }}" alt="pensil"></a>
-                            <a href=""><img src="{{ asset('img/Admin/aflah.png') }}" alt="pensil"></a>
+                            <a href=""><img src="{{ asset('img/Admin/zabil.png') }}" alt="pensil"></a>
                         </td>
                     </tr>
                     @endforeach
