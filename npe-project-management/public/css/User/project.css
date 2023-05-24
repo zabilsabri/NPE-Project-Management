@@ -1,0 +1,66 @@
+@import './root.css';
+
+span#header-line{
+    background-color: var(--primary-color);
+    width: .3rem;
+    height: 4rem;
+}
+
+.project-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    justify-items: center;
+}
+
+.project-card-container .project-card {
+    max-width: 550px;
+    min-width: 420px;
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px;
+}
+
+.project-card #card-story-set{
+    height: fit-content;
+    max-width: 140px;
+}
+
+.description-section {
+    width: auto;
+}
+
+.description-section h5 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.description-section h5 span {
+    color: var(--error-color);
+}
+
+.description-section p.h6 {
+    font-size: .7rem;
+}
+
+.description-section .date-section h6{
+    font-size: .7rem;
+    color: var(--placeholder-color);
+}
+
+.status-container {
+    margin-right: -.5rem;
+}
+
+.status-container .status-section {
+    background-color: var(--secondary-color);
+    width: fit-content;
+    border-radius: 20px;
+
+}
+
+.status-section h6 {
+    font-size: .6rem;
+    color: var(--primary-color);
+}
