@@ -69,7 +69,6 @@
                                     src="{{ asset('img/Admin/mata.png') }}" alt="pensil"></a>
                             <a href="#"><img src="{{ asset('img/Admin/zabil.png') }}" alt="pensil" data-toggle="modal"
                                     data-target="#modal-hapus"></a>
-
                         </td>
                     </tr>
                     @endforeach
