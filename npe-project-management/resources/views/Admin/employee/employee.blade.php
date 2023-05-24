@@ -1,4 +1,4 @@
-@extends('Layout.sidebar', ['title' => 'Project'])
+@extends('Layout.sidebar', ['title' => 'Employees'])
 <link rel="stylesheet" href="{{ asset('css/Admin/project.css') }}">
 <link rel="stylesheet" href="{{ asset('css/Layout/datatables.css') }}">
 
@@ -7,12 +7,13 @@
 <div class="card">
     <div class="section-header mb-0 d-flex justify-content-between">
         <div class="title">
-            <h1>Project</h1>
+            <h1>Employees</h1>
             <br>
             <small>Data Manejemen Projek NPE Digital</small>
         </div>
-        <a href="{{ route('employee-create.admin') }}" class="btn btn-lg btn-outline-dark btn-icon icon-left float-right"><i class="fas fa-plus"></i>Buat
-            Projek</a>
+        <a href="{{ route('employee-create.admin') }}"
+            class="btn btn-lg btn-outline-dark btn-icon icon-left float-right"><i class="fas fa-plus"></i>Tambah
+            Karyawan</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -42,21 +43,44 @@
                         <td class="text-center">
                             <!-- pensil -->
                             <a href=""><img src="{{ asset('img/Admin/pensil.png') }}" alt="pensil"></a>
-                            <a href=""><img class="px-2" src="{{ asset('img/Admin/mata.png') }}" alt="pensil"></a>
-                            <a href=""><img src="{{ asset('img/Admin/zabil.png') }}" alt="pensil"></a>
+                            <a href="#"><img src="{{ asset('img/Admin/zabil.png') }}" alt="pensil" data-toggle="modal"
+                                    data-target="#modal-hapus"></a>
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
+
         </div>
     </div>
-</div>
-@endsection
+    @endsection
+    <div class="modal fade" id="modal-hapus" aria-modal="true" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="row">
+                        <span class="col align-self-center"><img src="{{ asset('img/Admin/icon.svg')}}" alt=""></span>
+                        <h4 class="modal-title ml-3 align-self-center">Hapus Data Karwayan</h4>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">x</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Data yang sudah dihapus tidak bisa dikembalikan</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="btn-tambah">Hapus</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+    </div>
 
-@section('script')
-<script>
-    $(document).ready(function() {
+    @section('script')
+    <script>
+        $(document).ready(function() {
         var t = $('#tableProject').DataTable({
             retrieve: true,
             columnDefs: [{
@@ -80,5 +104,5 @@
             });
         }).draw();
     });
-</script>
-@endsection
+    </script>
+    @endsection
