@@ -3,10 +3,17 @@
 @section('content')
 
 <div class="card">
+    <div class="section-header mb-0 d-flex justify-content-between">
+        <div class="title">
+            <h1>New Employees</h1>
+            <br>
+            <small>Karyawan Baru NPE Digital</small>
+        </div>
+    </div>
     <div class="card-body">
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="inputEmail4">Nama Projek</label>
+                <label for="inputEmail4">Nama Karyawan</label>
                 <input type="text" class="form-control" id="inputNama" placeholder="Nama">
             </div>
             <div class="form-group col-md-6">
@@ -34,12 +41,6 @@
             <div class="form-group col-md-6">
                 <label for="inputEmail4">No Handphone</label>
                 <input type="text" class="form-control" id="inputEmail" placeholder="+62 816-280-445">
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="inputUser">User</label>
-                <input type="text" class="form-control" id="inputUser" placeholder="Username">
             </div>
             <div class="form-group col-md-6">
                 <label for="inputPassword">Password</label>

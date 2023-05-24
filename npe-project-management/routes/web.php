@@ -45,7 +45,7 @@ Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin',
 
     Route::group(['prefix' => 'employee'], function () {
         Route::get('/', 'EmployeeController@index')->name('employee.admin');
-        Route::get('/create', 'ProjectController@create')->name('employee-create.admin');
+        Route::get('/create', 'EmployeeController@create')->name('employee-create.admin');
     });
 });
 

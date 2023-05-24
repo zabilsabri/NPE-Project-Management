@@ -19,7 +19,8 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
 
   <!-- Multi Search -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/css/bootstrap-select.min.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/css/bootstrap-select.min.css">
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{ asset('Stisla/assets/css/style.css') }}">
@@ -57,8 +58,10 @@
             <li class="{{ Route::is('project.admin') || Route::is('project-create.admin') ? 'active' : '' }}"><a
                 class="nav-link" href="{{ route('project.admin') }}"><i class="fas fa-clipboard-list"></i>
                 <span>Project</span></a></li>
-            <li class="{{ Route::is('employee.admin') ? 'active' : '' }}"><a class="nav-link" href="{{ route('employee.admin') }}"><i class="fas fa-users"></i> <span>Employees</span></a></li>
-            
+            <li class="{{ Route::is('employee.admin') || Route::is('employee-create.admin') ? 'active' : '' }}"><a
+                class="nav-link" href="{{ route('employee.admin') }}"><i class="fas fa-users"></i>
+                <span>Employees</span></a></li>    
+                
             <!-- user sidebar -->
             <li class="{{ Route::is('home.user') ? 'active' : '' }}"><a class="nav-link"
                 href="{{ route('home.user') }}"><i class="fas fa-home"></i> <span>Home</span></a></li>
@@ -66,7 +69,7 @@
                 class="nav-link" href="{{ route('user.projects') }}"><i class="fas fa-clipboard-list"></i>
                 <span>My Project</span></a></li>
             <li class="{{ Route::is('employee.admin') ? 'active' : '' }}"><a class="nav-link" href="{{ route('employee.admin') }}"><i class="fas fa-tasks"></i><span>My Task</span></a></li>
-            
+
           </ul>
         </div>
         <ul class="sidebar-menu">
