@@ -13,6 +13,7 @@
         <p class="m-0 text-center" id="p2">Untuk membuat permohonan bebas lab, tekan tombol “Tambah Karyawan” di pojok
             kanan
             atas.</p>
+
     </div>
 </div>
 @endsection
