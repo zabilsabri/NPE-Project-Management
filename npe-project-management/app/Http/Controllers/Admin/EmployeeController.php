@@ -13,4 +13,8 @@ class EmployeeController extends Controller
 
         return view('Admin.employee.employee', compact('employees'));
     }
+
+    public function create() {
+        return view('Admin.employee.new-employee');
+    }
 }

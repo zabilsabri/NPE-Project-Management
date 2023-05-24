@@ -11,7 +11,7 @@
             <br>
             <small>Data Manejemen Projek NPE Digital</small>
         </div>
-        <a href="{{ route('project-create.admin') }}" class="btn btn-lg btn-outline-dark btn-icon icon-left float-right"><i class="fas fa-plus"></i>Buat
+        <a href="{{ route('employee-create.admin') }}" class="btn btn-lg btn-outline-dark btn-icon icon-left float-right"><i class="fas fa-plus"></i>Buat
             Projek</a>
     </div>
     <div class="card-body">
@@ -43,7 +43,7 @@
                             <!-- pensil -->
                             <a href=""><img src="{{ asset('img/Admin/pensil.png') }}" alt="pensil"></a>
                             <a href=""><img class="px-2" src="{{ asset('img/Admin/mata.png') }}" alt="pensil"></a>
-                            <a href=""><img src="{{ asset('img/Admin/aflah.png') }}" alt="pensil"></a>
+                            <a href=""><img src="{{ asset('img/Admin/zabil.png') }}" alt="pensil"></a>
                         </td>
                     </tr>
                     @endforeach

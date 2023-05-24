@@ -34,7 +34,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], funct
 // });
 
 Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['auth']], function () {
-    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/', 'HomeController@index')->name('home.admin');
 
     Route::group(['prefix' => 'project'], function () {
         Route::get('/', 'ProjectController@index')->name('project.admin');
@@ -45,15 +45,17 @@ Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin',
 
     Route::group(['prefix' => 'employee'], function () {
         Route::get('/', 'EmployeeController@index')->name('employee.admin');
+        Route::get('/create', 'ProjectController@create')->name('employee-create.admin');
     });
 });
 
-Route::group(['prefix' => '/user', 'namespace' => 'App\Http\Controllers\User', 'middleware' => ['auth']], function () {
-    /* Route::get('/', 'HomeController@index')->name('home'); */
-    /*  */
-    /* Route::group(['prefix' => 'project'], function () { */
-    /*     Route::get('/', 'ProjectController@index')->name('project.admin'); */
-    /*     Route::get('/create', 'ProjectController@create')->name('project-create.admin'); */
-    /*     Route::get('/detail/{id}', 'ProjectController@show')->name('project.detail'); */
-    /* }); */
+Route::group(['prefix' => '/user', 'namespace' => 'App\Http\Controllers\User'], function () {
+    Route::get('/', 'HomeController@index')->name('home.user');
+
+    Route::group(['prefix' => 'project'], function () {
+        Route::get('/', 'ProjectController@index')->name('user.projects');
+        Route::get('/detail/id', 'ProjectController@detail')->name('user.projects.detail');
+        Route::get('/finished', 'ProjectController@finished')->name('user.projects.finished');
+
+    });
 });

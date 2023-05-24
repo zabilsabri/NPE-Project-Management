@@ -22,8 +22,8 @@ class UserFactory extends Factory
             'nama' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'nomorTelpon' => fake()->phoneNumber(),
-            'divisi' => 'web',
-            'jabatan' => 'junior',
+            'divisi' => fake()->numberBetween(0, 2),
+            'jabatan' => fake()->numberBetween(0, 2),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
         ];
