@@ -46,6 +46,12 @@ Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin',
     Route::group(['prefix' => 'employee'], function () {
         Route::get('/', 'EmployeeController@index')->name('employee.admin');
         Route::get('/create', 'EmployeeController@create')->name('employee-create.admin');
+        Route::post('/create', 'EmployeeController@store')->name('employee-store.admin');
+
+        Route::get('/edit/{id}', 'EmployeeController@edit')->name('employee-edit.admin');
+        Route::post('/edit', 'EmployeeController@update')->name('employee-update.admin');
+
+        Route::delete('/delete/{id}', 'EmployeeController@destroy')->name('employee-destroy.admin');
     });
 });
 
