@@ -18,7 +18,7 @@ class EmployeeController extends Controller
     public function create() {
         return view('Admin.employee.new-employee');
     }
-    
+
     public function store(Request $request) {
         $validated = $request->validate([
             'nama' => ['required', 'max:255'],
@@ -58,11 +58,11 @@ class EmployeeController extends Controller
         $user->divisi = $validated['divisi'];
         $user->jabatan = $validated['jabatan'];
         $user->nomorTelpon = $validated['nomorTelpon'];
-        
+
         if (!is_null($request['password'])) {
             $user->password = Hash::make($request['password']);
-        } 
-        
+        }
+
         $user->save();
 
         return redirect(route('employee.admin'))->with('success', 'Data employee berhasil diupdate');
@@ -71,6 +71,5 @@ class EmployeeController extends Controller
     public function destroy($id) {
         User::find($id)->delete();
 
-        return redirect(route('employee.admin'))->with('success', 'Data employee berhasil dihapus');
     }
 }
