@@ -30,7 +30,7 @@
                         <td>{{ $project->nama }}</td>
                         <td>{{ $project->klien }}</td>
                         <td>{{ $project->tipe }}</td>
-                        <td>{{ $project->pm->nama }}</td>
+                        <td>{!! $project->pm->nama ?? '<b>No PM yet</b>' !!}</td>
                         <td>{{ $project->deadline }}</td>
                         <td>
                             <p class="status-op m-0"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">

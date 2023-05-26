@@ -37,7 +37,7 @@
                         <td>{{ $project->nama }}</td>
                         <td>{{ $project->klien }}</td>
                         <td>{{ $project->tipe }}</td>
-                        <td>{{ $project->pm->nama }}</td>
+                        <td>{!! $project->pm->nama ?? '<b>No PM yet</b>' !!}</td>
                         <td>{{ $project->deadline }}</td>
                         @if ($project->status == 0)
                         <td>
