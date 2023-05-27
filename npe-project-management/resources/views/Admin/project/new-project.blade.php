@@ -4,8 +4,21 @@
 
 <div class="card">
     <div class="card-body">
+        @if($errors->any())
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        @endif
         <form method="post" action="{{ route('project-store.admin') }}" id="project-form">
             @csrf
+            <input name="id" type="text" class="form-control d-none" id="inputId">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Nama Projek</label>
@@ -52,7 +65,7 @@
                 <div class="form-group col-md-6">
                     <label for="inputState">Project Manager</label>
                     <select name="pm_id" class="selectpicker form-control" id="inputState" data-live-search="true">
-                        <option data-tokens="">-- Select Your PM</option>
+                        <option data-tokens="">Select Your PM</option>
                         @foreach ($employees as $employee)
                             @if (isset($project))
                                 <option data-tokens="mustard" value="{{ $employee->id }}" {{ $employee->id == $project->pm->id ? 'selected' : ''}}>{{$employee->nama . ' (' . $employee->credit . ')'}}</option>
@@ -77,6 +90,7 @@
 @section('script')
 <script>
     @if(isset($project))
+        $('#inputId').val("{{$project->id}}");
         $('#inputNama').val("{{$project->nama}}");
         $('#inputKlien').val("{{$project->klien}}");
         $('#inputTipe').val("{{$project->tipe}}");

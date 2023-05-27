@@ -46,6 +46,8 @@ Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin',
         Route::post('/edit', 'ProjectController@update')->name('project-update.admin');
 
         Route::get('/detail/{id}', 'ProjectController@show')->name('project.detail');
+
+        Route::delete('/delete/{id}', 'ProjectController@destroy')->name('project.delete');
     });
 
     Route::group(['prefix' => 'employee'], function () {
