@@ -51,7 +51,7 @@
         <label for="inputState">Project Manager</label>
         <select class="selectpicker form-control" id="inputState" data-live-search="true">
           <option data-tokens="">-- Select Your PM</option>
-          <option data-tokens="mustard">Zabil</option>
+          <option data-tokens="mustard"><i class="fas fa-medal text-warning">halo</i> Zabil</option>
           <option data-tokens="frosting">Erwin</option>
         </select>
       </div>

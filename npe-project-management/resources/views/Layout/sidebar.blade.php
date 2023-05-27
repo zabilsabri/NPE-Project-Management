@@ -61,6 +61,9 @@
             <li class="{{ Route::is('employee.admin') || Route::is('employee-create.admin') ? 'active' : '' }}"><a
                 class="nav-link" href="{{ route('employee.admin') }}"><i class="fas fa-users"></i>
                 <span>Employees</span></a></li>
+            <li class="{{ Route::is('employee.admin') || Route::is('employee-create.admin') ? 'active' : '' }}"><a
+                class="nav-link" href=""><i class="far fa-file"></i>
+                <span>Reports</span></a></li>
           </ul>
         </div>
         <ul class="sidebar-menu">

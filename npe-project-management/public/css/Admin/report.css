@@ -1,0 +1,95 @@
+#span-ontime,
+#span-late {
+    color: #313d4e;
+    background-color: #c7d3e6;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 4px;
+}
+
+h4 {
+    color: black !important;
+}
+
+#col-report .card .card-header {
+    min-height: 40px;
+}
+
+#col-report .card {
+    border: 1px solid #7e8dae !important;
+    border-radius: 16px;
+}
+
+#col-report .card .text-danger {
+    background-color: #eb455f26;
+    color: #eb455f;
+    padding: 0px 15px !important;
+    border-radius: 99px;
+}
+
+#col-report .card .text-success {
+    background-color: #1e9e5226;
+    color: #1e9e52;
+    padding: 0px 15px !important;
+    border-radius: 99px;
+}
+
+#col-report .card .text-warning {
+    background-color: wheat;
+    color: orange;
+    padding: 0px 15px !important;
+    border-radius: 99px;
+}
+
+#col-report .card h4 {
+    font-size: 20px;
+}
+
+.col p {
+    line-height: 20px;
+    margin: 0%;
+}
+
+.col p.p1 {
+    font-size: 20px;
+    font-weight: bold !important;
+}
+
+.col p.p2 {
+    font-size: small;
+}
+
+.accordion {
+    margin-bottom: 5px !important;
+}
+
+.accordion .accordion-header {
+    background-color: #0061c708 !important;
+}
+
+.accordion .accordion-header:hover {
+    background-color: #0061c7 !important;
+}
+
+.accordion .accordion-header:hover h4 {
+    color: #94a3b8 !important;
+}
+
+.accordion .accordion-header,
+.accordion .accordion-body {
+    padding: 15px 20px !important;
+}
+
+.accordion .accordion-header[aria-expanded="true"] {
+    box-shadow: 0 2px 6px #acb5f6;
+    background-color: #0061c71a !important;
+}
+
+.accordion .accordion-header h4 {
+    font-size: 25px !important;
+    font-weight: 400 !important;
+}
+
+.acc-title {
+    font-size: 20px;
+}

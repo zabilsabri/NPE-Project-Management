@@ -91,3 +91,20 @@ p {
 span.p2 {
     font-weight: normal;
 }
+
+#statusProject1 {
+    background-color: #1e9e5226;
+    color: #1e9e52;
+}
+
+#statusProject1 circle {
+    fill: #1e9e52;
+}
+
+#statusProject0 {
+    background-color: #0061c726;
+    color: #0061c7;
+}
+#statusProject0 circle {
+    fill: #0061c7;
+}
