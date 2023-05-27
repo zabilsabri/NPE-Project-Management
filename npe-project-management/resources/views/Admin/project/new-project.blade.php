@@ -4,8 +4,21 @@
 
 <div class="card">
     <div class="card-body">
-        <form method="post" action="{{ route('project-store.admin') }}" >
+        @if($errors->any())
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        @endif
+        <form method="post" action="{{ route('project-store.admin') }}" id="project-form">
             @csrf
+            <input name="id" type="text" class="form-control d-none" id="inputId">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Nama Projek</label>
@@ -14,9 +27,12 @@
                 <div class="form-group col-md-6">
                     <label for="inputState">Employee</label>
                     <select name="employees[]" class="selectpicker form-control" id="inputState" data-live-search="true" multiple>
-                        @foreach ($employees as $employee) 
-                        // disini aflah
-                        <option data-tokens="mustard" value="{{ $employee->id }}">{{ $employee->nama }}</option>
+                        @foreach ($employees as $employee)
+                            @if (isset($project))
+                                <option data-tokens="mustard" value="{{ $employee->id }}" {{ $project->employees->contains($employee) ? 'selected' : '' }}>{{ $employee->nama }}</option>
+                            @else
+                                <option data-tokens="mustard" value="{{ $employee->id }}">{{ $employee->nama }}</option>
+                            @endif
                         @endforeach
                     </select>
                 </div>
@@ -41,7 +57,7 @@
                 <div class="form-group col-md-6">
                     <label>Date Range Picker</label>
                     <div class="input-group">
-                        <input name="deadline" type="date" class="form-control daterange-cus">
+                        <input name="deadline" type="date" class="form-control daterange-cus" id="inputDeadline">
                     </div>
                 </div>
             </div>
@@ -49,10 +65,13 @@
                 <div class="form-group col-md-6">
                     <label for="inputState">Project Manager</label>
                     <select name="pm_id" class="selectpicker form-control" id="inputState" data-live-search="true">
-                        <option data-tokens="">-- Select Your PM</option>
-                        @foreach ($employees as $employee) 
-                        // disini juga aflah
-                        <option data-tokens="mustard" value="{{ $employee->id }}">{{$employee->nama . ' (' . $employee->credit . ')'}}</option>
+                        <option data-tokens="">Select Your PM</option>
+                        @foreach ($employees as $employee)
+                            @if (isset($project))
+                                <option data-tokens="mustard" value="{{ $employee->id }}" {{ $employee->id == $project->pm->id ? 'selected' : ''}}>{{$employee->nama . ' (' . $employee->credit . ')'}}</option>
+                            @else
+                                <option data-tokens="mustard" value="{{ $employee->id }}">{{$employee->nama . ' (' . $employee->credit . ')'}}</option>
+                            @endif
                         @endforeach
                     </select>
                 </div>
@@ -60,10 +79,25 @@
             </div>
             <div class="row float-right">
                 <a href="{{ route('project.admin') }}" class="btn btn-outline-danger mr-3">Batal</a>
-                <button type="submit" class="btn btn-primary mr-3">Buat Projek</button>
+                <button type="submit" class="btn btn-primary mr-3" id="submit-btn">Buat Projek</button>
             </div>
         </form>
     </div>
 
 </div>
+@endsection
+
+@section('script')
+<script>
+    @if(isset($project))
+        $('#inputId').val("{{$project->id}}");
+        $('#inputNama').val("{{$project->nama}}");
+        $('#inputKlien').val("{{$project->klien}}");
+        $('#inputTipe').val("{{$project->tipe}}");
+        $('#inputDeadline').val("{{$project->deadline}}");
+        $('#inputDetail').val("{{$project->detail}}");
+        $('#submit-btn').text("Update");
+        $('#project-form').attr("action", "{{ route('project-update.admin') }}");
+    @endif
+</script>
 @endsection

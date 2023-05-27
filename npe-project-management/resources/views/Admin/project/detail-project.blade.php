@@ -42,7 +42,7 @@
     <div class="col p-0 mb-4">
       <p class="p2 mb-2">Programmer</p>
       <ul class="list-group list-group-flush">
-        @foreach ($project->users as $programmer)
+        @foreach ($project->employees as $programmer)
         <li class="list-group-item">
           <div class="row">
             <p class="p1 mr-3">{{ $programmer->nama }} <span class="p2">({{ $programmer->jabatan }})</span></p>

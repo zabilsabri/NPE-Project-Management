@@ -61,7 +61,7 @@ class DatabaseSeeder extends Seeder
         $user = User::all()->pluck('id');
 
         Project::factory(10)->create()->each(function ($project) use ($user) {
-            $project->users()->attach($user->random(rand(1, 19)));
+            $project->employees()->attach($user->random(rand(1, 19)));
         });
 
         Milestone::factory()->count(30)->create();
