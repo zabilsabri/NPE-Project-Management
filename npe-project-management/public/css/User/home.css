@@ -1,0 +1,25 @@
+@import './root.css';
+
+.table-responsive {
+    padding-inline: 50px;
+    padding-block: 40px;
+    border: 1px solid #c1c6cc;
+    border-radius: 12px;
+    width: 95% !important;
+    border-top-color: var(--primary-color);
+    border-top-width: 13px;
+}
+
+.section-header #header-line{
+    background-color: var(--primary-color);
+    width: .3rem;
+    height: 4rem;
+}
+
+.main-sidebar .sidebar-menu li.active a {
+    color: var(--primary-color) !important;
+}
+
+body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu>li.active>a:before {
+    background-color: var(--primary-color) !important;
+}

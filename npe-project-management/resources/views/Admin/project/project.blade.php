@@ -37,7 +37,7 @@
                         <td>{{ $project->nama }}</td>
                         <td>{{ $project->klien }}</td>
                         <td>{{ $project->tipe }}</td>
-                        <td>{{ $project->pm->nama }}</td>
+                        <td>{!! $project->pm->nama ?? '<b>No PM yet</b>' !!}</td>
                         <td>{{ $project->deadline }}</td>
                         @if ($project->status == 0)
                         <td>
@@ -69,7 +69,6 @@
                                     src="{{ asset('img/Admin/mata.png') }}" alt="pensil"></a>
                             <a href="#"><img src="{{ asset('img/Admin/zabil.png') }}" alt="pensil" data-toggle="modal"
                                     data-target="#modal-hapus"></a>
-
                         </td>
                     </tr>
                     @endforeach

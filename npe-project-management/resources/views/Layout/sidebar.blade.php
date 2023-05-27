@@ -61,9 +61,16 @@
             <li class="{{ Route::is('employee.admin') || Route::is('employee-create.admin') ? 'active' : '' }}"><a
                 class="nav-link" href="{{ route('employee.admin') }}"><i class="fas fa-users"></i>
                 <span>Employees</span></a></li>
-            <li class="{{ Route::is('employee.admin') || Route::is('employee-create.admin') ? 'active' : '' }}"><a
-                class="nav-link" href=""><i class="far fa-file"></i>
-                <span>Reports</span></a></li>
+
+            <!-- user sidebar -->
+            <li class="{{ Route::is('home.user') ? 'active' : '' }}"><a class="nav-link"
+                href="{{ route('home.user') }}"><i class="fas fa-home"></i> <span>Home</span></a></li>
+            <li class="{{ Route::is('user.projects') || Route::is('project-create.user') ? 'active' : '' }}"><a
+                class="nav-link" href="{{ route('user.projects') }}"><i class="fas fa-clipboard-list"></i>
+                <span>My Project</span></a></li>
+            <li class="{{ Route::is('employee.admin') ? 'active' : '' }}"><a class="nav-link"
+                href="{{ route('employee.admin') }}"><i class="fas fa-tasks"></i><span>My Task</span></a></li>
+
           </ul>
         </div>
         <ul class="sidebar-menu">
@@ -127,6 +134,18 @@
         });
         $('div.toolbar-project').html('<h5 class="float-left">Data manajemen projek NPE Digital</h5>');
 
+        $('#tableUserHomeProject').DataTable({
+          "dom": '<"toolbar-project-user">frt',
+          scrollX: true,
+          language: { search: '', searchPlaceholder: "Search...",
+              paginate: {
+                next: ">",
+                previous: "<"
+              }},
+          responsive: true,
+        });
+        $('div.toolbar-project-user').html('<h5 class="float-left">My Project</h5>');
+
         $('#tableHomeEmployee').DataTable({
           "dom": '<"toolbar">frt',
           scrollX: true,
@@ -138,6 +157,18 @@
           responsive: true,
         });
         $('div.toolbar').html('<h5 class="float-left">Daftar Karyawan NPE Digital</h5>');
+
+        $('#tableUserHomeTask').DataTable({
+          "dom": '<"toolbar-user">frt',
+          scrollX: true,
+          language: { search: '', searchPlaceholder: "Search...",
+              paginate: {
+                next: ">",
+                previous: "<"
+              }},
+          responsive: true,
+        });
+        $('div.toolbar-user').html('<h5 class="float-left">My Task</h5>');
     } );
     </script>
 
