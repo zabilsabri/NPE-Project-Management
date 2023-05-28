@@ -60,15 +60,16 @@
                 <span>Project</span></a></li>
             <li class="{{ Route::is('employee.admin') || Route::is('employee-create.admin') ? 'active' : '' }}"><a
                 class="nav-link" href="{{ route('employee.admin') }}"><i class="fas fa-users"></i>
-                <span>Employees</span></a></li>    
-                
+                <span>Employees</span></a></li>
+
             <!-- user sidebar -->
             <li class="{{ Route::is('home.user') ? 'active' : '' }}"><a class="nav-link"
                 href="{{ route('home.user') }}"><i class="fas fa-home"></i> <span>Home</span></a></li>
             <li class="{{ Route::is('user.projects') || Route::is('project-create.user') ? 'active' : '' }}"><a
                 class="nav-link" href="{{ route('user.projects') }}"><i class="fas fa-clipboard-list"></i>
                 <span>My Project</span></a></li>
-            <li class="{{ Route::is('employee.admin') ? 'active' : '' }}"><a class="nav-link" href="{{ route('employee.admin') }}"><i class="fas fa-tasks"></i><span>My Task</span></a></li>
+            <li class="{{ Route::is('employee.admin') ? 'active' : '' }}"><a class="nav-link"
+                href="{{ route('employee.admin') }}"><i class="fas fa-tasks"></i><span>My Task</span></a></li>
 
           </ul>
         </div>

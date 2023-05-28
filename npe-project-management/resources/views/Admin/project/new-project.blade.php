@@ -4,7 +4,7 @@
 
 <div class="card">
     <div class="card-body">
-        <form method="post" action="{{ route('project-store.admin') }}" >
+        <form method="post" action="{{ route('project-store.admin') }}">
             @csrf
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -13,8 +13,9 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputState">Employee</label>
-                    <select name="employees[]" class="selectpicker form-control" id="inputState" data-live-search="true" multiple>
-                        @foreach ($employees as $employee) 
+                    <select name="employees[]" class="selectpicker form-control" id="inputState" data-live-search="true"
+                        multiple>
+                        @foreach ($employees as $employee)
                         // disini aflah
                         <option data-tokens="mustard" value="{{ $employee->id }}">{{ $employee->nama }}</option>
                         @endforeach
@@ -34,7 +35,8 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputDetail" class="form-label">Detail Projek</label>
-                    <textarea name="detail" class="form-control" id="inputDetail" rows="4" placeholder="Detail Projek"></textarea>
+                    <textarea name="detail" class="form-control" id="inputDetail" rows="4"
+                        placeholder="Detail Projek"></textarea>
                 </div>
             </div>
             <div class="form-row">
@@ -50,9 +52,10 @@
                     <label for="inputState">Project Manager</label>
                     <select name="pm_id" class="selectpicker form-control" id="inputState" data-live-search="true">
                         <option data-tokens="">-- Select Your PM</option>
-                        @foreach ($employees as $employee) 
+                        @foreach ($employees as $employee)
                         // disini juga aflah
-                        <option data-tokens="mustard" value="{{ $employee->id }}">{{$employee->nama . ' (' . $employee->credit . ')'}}</option>
+                        <option data-tokens="mustard" value="{{ $employee->id }}">{{$employee->nama . ' (' .
+                            $employee->credit . ')'}}</option>
                         @endforeach
                     </select>
                 </div>

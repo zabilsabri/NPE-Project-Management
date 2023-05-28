@@ -33,6 +33,10 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], funct
 
 // });
 
+Route::get('/report', function () {
+    return view('Admin.report.report');
+});
+
 Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home.admin');
 
