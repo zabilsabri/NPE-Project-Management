@@ -1,0 +1,187 @@
+@import './root.css';
+
+.table-responsive {
+    padding-inline: 50px;
+    padding-block: 40px;
+    border: 1px solid #c1c6cc;
+    border-radius: 12px;
+    width: 95% !important;
+    border-top-color: var(--primary-color);
+    border-top-width: 13px;
+}
+
+.section-header #header-line{
+    background-color: var(--primary-color);
+    width: .3rem;
+    height: 3rem;
+    border-radius: 50px;
+}
+
+.project-type-section h6{
+    color: var(--secondary-text-color);
+}
+
+.project-type-section #square {
+    width: .8rem;
+    height: .8rem;
+    border-radius: 3px;
+    background-color: var(--secondary-text-color);
+}
+
+.main-sidebar .sidebar-menu li.active a {
+    color: var(--primary-color) !important;
+}
+
+body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu>li.active>a:before {
+    background-color: var(--primary-color) !important;
+}
+
+.project-description p {
+    max-width: 500px;
+    font-size: .8rem;
+}
+
+.status-section {
+    background-color: var(--secondary-color);
+    width: fit-content;
+    border-radius: 20px;
+    font-size: .6rem;
+}
+
+.status-section h6{
+    color: var(--primary-color);
+    font-size: .7rem;
+}
+
+.project-status-section p {
+    font-size: .8rem;
+    color: var(--secondary-text-color);
+}
+
+.success-button-section .btn{
+    border-radius: 12px;
+}
+
+.success-button-section .btn h6{
+    margin-bottom: 0;
+    font-size: .9rem;
+}
+
+.image-section #time-story-set {
+    max-width: 350px;
+    
+}
+
+.image-header-section{
+    width: 50%;
+}
+
+.image-header-section .date-status-section{
+    min-width: 350px;
+}
+
+.early-date-section {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 4px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px;
+}
+
+.due-date-section {
+    border: 1px solid var(--error-color);
+    color: var(--error-color);
+    border-radius: 4px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px;
+}
+
+.milestone-section {
+    border: 3px dashed var(--divider-color);
+    border-radius: 8px;
+}
+
+.add-milestone-btn {
+    background-color: white;
+    border-radius: 5px;
+    padding-inline: 1rem;
+    padding-block: .5rem;
+    font-weight: bold;
+    border: 1px solid var(--primary-text-color);
+    transition: .3s;
+}
+
+.add-milestone-btn:hover {
+    background-color: var(--primary-text-color);
+    color: white;
+    border: 1px solid var(--primary-text-color);
+}
+
+.milestone-item {
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+}
+
+.milestone-item a:hover{
+    text-decoration: none;
+}
+
+.milestone-item h5 {
+    color: var(--primary-color);
+    transition-duration: 1s;
+}
+
+.milestone-item h5:hover{
+    color: var(--primary-text-color);
+}
+
+
+/* task */
+
+.task-section {
+    border: 3px dashed var(--divider-color);
+    border-radius: 8px;
+}
+
+.description-task-container #flexCheckDisabled {
+    width: 1.8rem;
+    height: 1.8rem;
+}
+
+.description-task-container .desc-container {
+    width: 100%;
+    border-radius: 4px;
+    background-color: rgba(0, 97, 199, .1);
+}
+
+.dropdown-button {
+    position: relative;
+}
+
+.dropdown-button input {
+    position: absolute;
+    width: 1.4rem;
+    height: 1.3rem;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.dropdown-button i {
+    transition: all .3s;
+}
+
+.dropdown-button input:checked ~ i {
+    transform: rotate(180deg);
+}
+
+.description-section h6 {
+    width: fit-content;
+}
+
+.task-description-section {
+    display: none;
+}
+
+.checked .task-description-section{
+    display: block;
+    transition: all 1s;
+}
