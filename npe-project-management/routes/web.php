@@ -67,7 +67,16 @@ Route::group(['prefix' => '/user', 'namespace' => 'App\Http\Controllers\User'], 
     Route::group(['prefix' => 'project'], function () {
         Route::get('/', 'ProjectController@index')->name('user.projects');
         Route::get('/detail/id', 'ProjectController@detail')->name('user.projects.detail');
-        Route::get('/finished', 'ProjectController@finished')->name('user.projects.finished');
+        
+        // buat prefix baru /detail/id/milestone buat new milestone dan milestone detail
+        Route::get('/detail/id/milestone/new-milestone', function () {
+            return view('User.milestone.new-milestone');
+        })->name('user.projects.new-milestone');
 
+        Route::get('/detail/id/milestone/id', function () {
+            return view('User.milestone.detail-milestone');
+        })->name('user.projects.detail-milestone');
+
+        Route::get('/finished', 'ProjectController@finished')->name('user.projects.finished');
     });
 });

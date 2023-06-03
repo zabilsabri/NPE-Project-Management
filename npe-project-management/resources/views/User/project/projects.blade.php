@@ -19,7 +19,7 @@
         <div class="project-card d-flex p-3 justify-content-around align-items-center m-3">
             <img src="{{ asset('img/User/website-story-set.png') }}" id="card-story-set" alt="website-story-set">
             <div class="description-section d-flex flex-column ml-3">
-                <h5>Project Name<span>*</span></h5>
+                <a href="{{ route('user.projects.detail') }}"><h5>Project Name<span>*</span></h5></a>
                 <div class="ml-3">
                     <p class="h6">PM : <span>You</span></p>
                     <p class="h6 mb-0">Web Development</p>
@@ -40,13 +40,12 @@
             </div>
         </div>
         <!-- end single card design -->
-        <!-- single card design -->
         <div class="project-card d-flex p-3 justify-content-around align-items-center m-3">
             <img src="{{ asset('img/User/website-story-set.png') }}" id="card-story-set" alt="website-story-set">
             <div class="description-section d-flex flex-column ml-3">
-                <h5>Project Name<span>*</span></h5>
+                <a href="{{ route('user.projects.detail') }}"><h5>Project Name<span>*</span></h5></a>
                 <div class="ml-3">
-                    <p class="h6">PM : <span>Sabri bin Habib Al-Jamal</span></p>
+                    <p class="h6">PM : <span>You</span></p>
                     <p class="h6 mb-0">Web Development</p>
                 </div>
                 <div class="date-section d-flex justify-content-between mt-2">
@@ -65,13 +64,12 @@
             </div>
         </div>
         <!-- end single card design -->
-        <!-- single card design -->
         <div class="project-card d-flex p-3 justify-content-around align-items-center m-3">
             <img src="{{ asset('img/User/website-story-set.png') }}" id="card-story-set" alt="website-story-set">
             <div class="description-section d-flex flex-column ml-3">
-                <h5>Project Name<span>*</span></h5>
+                <a href="{{ route('user.projects.detail') }}"><h5>Project Name<span>*</span></h5></a>
                 <div class="ml-3">
-                    <p class="h6">PM : <span>Erwin bin Aflakhul Katiri</span></p>
+                    <p class="h6">PM : <span>You</span></p>
                     <p class="h6 mb-0">Web Development</p>
                 </div>
                 <div class="date-section d-flex justify-content-between mt-2">
@@ -90,6 +88,7 @@
             </div>
         </div>
         <!-- end single card design -->
+        
     </div>
 </div>
 @endsection

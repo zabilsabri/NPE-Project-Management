@@ -35,8 +35,12 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu>li.active>a:before {
     max-width: 140px;
 }
 
+
 .description-section {
     width: auto;
+}
+.description-section a:hover {
+    text-decoration: none;
 }
 
 .description-section h5 {
