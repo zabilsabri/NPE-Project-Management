@@ -113,7 +113,7 @@
 
 
         let delete_id;
-        $('.btn-delete').on('click', function() {
+        $(document).on('click', '.btn-delete', function() {
             delete_id = $(this).data('id');
             console.log(delete_id);
         });

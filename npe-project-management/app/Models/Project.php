@@ -12,6 +12,16 @@ class Project extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'nama',
+        'klien',
+        'pm_id',
+        'deadline',
+        'tipe',
+        'status',
+        'detail',
+    ];
+
     public function milestones(): HasMany
     {
         return $this->hasMany(Project::class);
@@ -22,7 +32,7 @@ class Project extends Model
         return $this->belongsTo(User::class, 'pm_id');
     }
 
-    public function users(): BelongsToMany
+    public function employees(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'project_user', 'project_id', 'employee_id');
     }
