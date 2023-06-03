@@ -68,7 +68,7 @@
                 <!-- Milestone item -->
                 <div class="milestone-item d-flex justify-content-between align-items-center py-3 px-4 mt-2">
                     <div>
-                        <a href="#">
+                        <a href="{{ route('user.projects.detail-milestone') }}">
                             <h5 class="mb-0">Milestone Name</h5>
                         </a>
                         <p class="mb-0">Due Date (DD/MM/YYY)</p>

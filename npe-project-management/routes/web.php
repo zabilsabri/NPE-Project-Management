@@ -83,7 +83,9 @@ Route::group(['prefix' => '/user', 'namespace' => 'App\Http\Controllers\User'], 
             return view('User.milestone.detail-milestone');
         })->name('user.projects.detail-milestone');
 
-        Route::get('/finished', 'ProjectController@finished')->name('user.projects.finished');
+        Route::get('/finished', function() {
+            return view('User.project.finished-project');
+        })->name('user.projects.finished');
     });
 
     Route::get('/my-task', function () {

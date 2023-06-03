@@ -24,3 +24,27 @@
 body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu>li.active>a:before {
     background-color: var(--primary-color) !important;
 }
+
+.finished-status-section {
+    background-color: rgba(30, 158, 82, .15);
+    width: fit-content;
+    border-radius: 20px;
+}
+
+.finished-status-section h6 ,
+.finished-status-section i {
+    font-size: .8rem;
+    color: rgba(30, 158, 82, 1);
+}
+
+.pending-status-section {
+    background-color: rgba(235, 69, 95, .15);
+    width: fit-content;
+    border-radius: 20px;
+}
+
+.pending-status-section h6 ,
+.pending-status-section i {
+    font-size: .8rem;
+    color: rgba(235, 69, 95, 1);
+}

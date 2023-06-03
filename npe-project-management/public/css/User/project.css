@@ -65,14 +65,14 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu>li.active>a:before {
     margin-right: -.5rem;
 }
 
-.status-container .status-section {
+.status-container .on-progress-status-section {
     background-color: var(--secondary-color);
     width: fit-content;
     border-radius: 20px;
 
 }
 
-.status-section h6 {
+.on-progress-status-section h6 {
     font-size: .6rem;
     color: var(--primary-color);
 }
