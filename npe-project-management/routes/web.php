@@ -85,4 +85,8 @@ Route::group(['prefix' => '/user', 'namespace' => 'App\Http\Controllers\User'], 
 
         Route::get('/finished', 'ProjectController@finished')->name('user.projects.finished');
     });
+
+    Route::get('/my-task', function () {
+        return view('User.my-task');
+    })->name('user.my-task');
 });
