@@ -11,13 +11,14 @@
       </ol>
     </nav>
     <p class="h4"> {{ $project->nama }}
-      <span class="status-op" id="statusProject"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-          xmlns="http://www.w3.org/2000/svg">
+      <span class="status-op" id="statusProject{{ $project->status }}"><svg width="12" height="12" viewBox="0 0 12 12"
+          fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="6" cy="6" r="6" fill="#0061C7" />
         </svg> {{ $project->status }}</span>
     </p>
-    <p class="mt-5" id="detail-project">
-        {{ $project->detail }}
+    <button class="btn btn-primary mt-4">Konfirmasi Projek</button>
+    <p class="mt-3" id="detail-project">
+      {{ $project->detail }}
     </p>
     <div class="col col-md-6 p-0 mb-4">
       <p class="p2">Klien</p>
