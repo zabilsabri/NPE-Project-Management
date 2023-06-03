@@ -15,6 +15,16 @@
             class="btn btn-lg btn-outline-dark btn-icon icon-left float-right"><i class="fas fa-plus"></i>Buat
             Projek</a>
     </div>
+    <div class="alert-container">
+    @if($msg = Session::get('success'))
+    <div class="alert alert-success alert-dismissible fade show m-3" role="alert">
+        {{ $msg }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
+    </div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table display nowrap" style="width:100%" id="tableProject">
@@ -32,7 +42,7 @@
                 </thead>
                 <tbody>
                     @foreach ($projects as $project)
-                    <tr class="project-row" data-id="{{ $project->id }}">
+                    <tr class="project-row" id="row-{{ $project->id }}">
                         <th></th>
                         <td>{{ $project->nama }}</td>
                         <td>{{ $project->klien }}</td>
@@ -67,8 +77,8 @@
                                     src="{{ asset('img/Admin/pensil.png') }}" alt="pensil"></a>
                             <a href="{{ route('project.detail', ['id' => $project->id]) }}"><img class="px-2"
                                     src="{{ asset('img/Admin/mata.png') }}" alt="pensil"></a>
-                            <a href="#"><img src="{{ asset('img/Admin/zabil.png') }}" alt="pensil" data-toggle="modal"
-                                    data-target="#modal-hapus"></a>
+                            <a href="#"><img src="{{ asset('img/Admin/zabil.png') }}" class="btn-delete" alt="pensil" data-toggle="modal"
+                                    data-target="#modal-hapus" data-id="{{ $project->id }}"></a>
                         </td>
                     </tr>
                     @endforeach
@@ -95,7 +105,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="btn-tambah">Hapus</button>
+                <button type="button" class="btn btn-primary" id="btn-hapus">Hapus</button>
             </div>
         </div>
         <!-- /.modal-content -->
@@ -127,6 +137,36 @@
                 this.data(i++);
             });
         }).draw();
+
+        let delete_id;
+        $(document).on('click', '.btn-delete', function() {
+            delete_id = $(this).data('id');
+            console.log('masuk ndak?');
+        });
+
+
+        $('#btn-hapus').on('click', function() {
+            $.ajax({
+                type: "POST",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    _method: "delete"
+                },
+                url: "/admin/project/delete/" + delete_id,
+                success: function(response) {
+                    t.row($('#row-' + delete_id)).remove().draw();
+                    $('#modal-hapus').modal('hide');
+                    var alert_html = '<div class="alert alert-success alert-dismissible fade show m-3" role="alert">' +
+                        'Projek berhasil dihapus' + 
+                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                        '<span aria-hidden="true">&times;</span>' + 
+                        '</button>'
+                        '</div>';
+                    $('.alert-container').html(alert_html);
+                },
+            });
+
+        });
     });
 </script>
 @endsection
