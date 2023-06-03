@@ -6,7 +6,7 @@
 <div class="card">
     <div class="section-header d-flex align-items-center">
         <a href="#"><i class="fas fa-chevron-left mt-4" style="font-size: 2rem; color:#0061C7;"></i></a>
-        <div class="d-flex flex-column header-title ml-5">
+        <div class="d-flex flex-column header-title ml-4">
             <div class="d-flex ml-5">
                 <p class="breadcrumb-item mb-0"><a href="#">Project</a></p>
                 <p class="breadcrumb-item mb-0"><a href="#">Project Name</a></p>
@@ -20,31 +20,31 @@
             </div>
         </div>
     </div>
-    <div class="card-body ml-4">
+    <div class="card-body ml-5">
         <form action="#">
-            <div class="milestone-section d-flex">
-                <div class="left-container col">
-                    <div class="row-3 form-group">
+            <div class="milestone-section row">
+                <div class="left-container col-md-6">
+                    <div class="form-group">
                         <label for="inputMilestoneName">Milestone Name <span style="color:red;">*</span></label>
                         <input type="text" class="form-control" id="inputMilestoneName" placeholder="Milestone Name">
                     </div>
-                    <div class="row-3 form-group">
+                    <div class="form-group">
                         <label for="inputDueDate">Due Date <span style="color:red;">*</span></label>
-                        <input type="text" class="form-control" id="inputDueDate" placeholder="Due Date">
+                        <input type="date" class="form-control" id="inputDueDate">
                     </div>
                 </div>
-                <div class="right-container col">
+                <div class="right-container col-md-6">
                     <div class="form-group">
-                        <label for="milestoneDetail">Miles Detail <span style="color:red;">*</span></label>
-                        <textarea class="form-control" id="milestoneDetail" rows="3"></textarea>
+                        <label for="milestoneDetail">Milestone Detail <span style="color:red;">*</span></label>
+                        <textarea class="form-control" id="milestoneDetail" rows="3" placeholder="Milestone Detail"></textarea>
                     </div>
                 </div>
             </div>
             <div class="row button-section justify-content-end m-4">
-                <div class="col-2 d-flex justify-content-center align-items-center">
+                <div class="col-md-1 d-flex justify-content-center align-items-center">
                     <a href="#" class="cancel-btn">Batal</a>
                 </div>
-                <div class="col-3 d-flex justify-content-center align-items-center">
+                <div class="col-md-3 d-flex justify-content-center align-items-center">
                     <button type="submit" class="btn btn-primary submit-btn">Buat Milestone</button>
                 </div>
             </div>
