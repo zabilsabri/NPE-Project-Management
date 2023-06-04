@@ -71,12 +71,12 @@
                         <li class="{{ Route::is('home.user') ? 'active' : '' }}"><a class="nav-link"
                                 href="{{ route('home.user') }}"><i class="fas fa-home"></i> <span>Home</span></a></li>
                         <li
-                            class="{{ Route::is('user.projects') || Route::is('user.projects.detail') ? 'active' : '' }}">
+                            class="{{ Route::is('user.projects') || Route::is('user.projects.detail') || Route::is('user.projects.finished') || Route::is('user.projects.new-milestone') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('user.projects') }}"><i
                                     class="fas fa-clipboard-list"></i>
                                 <span>My Project</span></a></li>
-                        <li class="{{ Route::is('employee.admin') ? 'active' : '' }}"><a class="nav-link"
-                                href="{{ route('employee.admin') }}"><i class="fas fa-tasks"></i><span>My
+                        <li class="{{ Route::is('user.my-task') ? 'active' : '' }}"><a class="nav-link"
+                                href="{{ route('user.my-task') }}"><i class="fas fa-tasks"></i><span>My
                                     Task</span></a></li>
 
                     </ul>
@@ -162,6 +162,36 @@
                     responsive: true,
                 });
                 $('div.toolbar-project-user').html('<h5 class="float-left">My Project</h5>');
+                
+                $('#tableMyTaskUser').DataTable({
+                    "dom": '<"toolbar-my-task-user">frt',
+                    scrollX: true,
+                    language: {
+                        search: '',
+                        searchPlaceholder: "Search...",
+                        paginate: {
+                            next: ">",
+                            previous: "<"
+                        }
+                    },
+                    responsive: true,
+                });
+                $('div.toolbar-my-task-user').html('<h5 class="float-left">Daftar Task</h5>');
+                
+                $('#tableFinishedProjectUser').DataTable({
+                    "dom": '<"toolbar-finished-project-user">frt',
+                    scrollX: true,
+                    language: {
+                        search: '',
+                        searchPlaceholder: "Search...",
+                        paginate: {
+                            next: ">",
+                            previous: "<"
+                        }
+                    },
+                    responsive: true,
+                });
+                $('div.toolbar-finished-project-user').html('<h5 class="float-left">Data Proyek yang Telah Selesai Dikerjakan</h5>');
 
                 $('#tableProgrammerProjectDetail').DataTable({
                     "dom": '<"toolbar-programmer-project-detail">frt',

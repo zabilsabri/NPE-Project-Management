@@ -11,10 +11,10 @@
 }
 
 .section-header #header-line{
-    border-radius: 20px;
     background-color: var(--primary-color);
     width: .3rem;
-    height: 4rem;
+    height: 3rem;
+    border-radius: 50px;
 }
 
 .main-sidebar .sidebar-menu li.active a {
@@ -24,3 +24,32 @@
 body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu>li.active>a:before {
     background-color: var(--primary-color) !important;
 }
+
+.header-title .d-flex .title h1 {
+    color: var(--primary-color);
+}
+
+.milestone-section .form-group label {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.right-container #milestoneDetail {
+    min-height: 40px;
+    height: 135px;
+}
+
+
+.button-section .cancel-btn {
+    color: var(--primary-color);
+}
+
+.button-section .cancel-btn:hover {
+    text-decoration: none;
+}
+
+.button-section .submit-btn {
+    background-color: var(--primary-color) !important;
+}
+
+

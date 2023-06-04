@@ -61,14 +61,14 @@
         <div class="milestone-section p-4 ">
             <div class="header d-flex align-items-center">
                 <h5 class="mb-0">Milestone</h5>
-                <Button class="add-milestone-btn ml-4"><i class="fas fa-plus"></i> &nbsp; Add Milestone</Button>
+                <a href="{{ route('user.projects.new-milestone') }}"><Button class="add-milestone-btn ml-4"><i class="fas fa-plus"></i> &nbsp; Add Milestone</Button></a>
             </div>
             <div class="body d-flex flex-column mt-3">
 
                 <!-- Milestone item -->
                 <div class="milestone-item d-flex justify-content-between align-items-center py-3 px-4 mt-2">
                     <div>
-                        <a href="#">
+                        <a href="{{ route('user.projects.detail-milestone') }}">
                             <h5 class="mb-0">Milestone Name</h5>
                         </a>
                         <p class="mb-0">Due Date (DD/MM/YYY)</p>
