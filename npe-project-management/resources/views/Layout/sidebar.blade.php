@@ -71,7 +71,7 @@
                         <li class="{{ Route::is('home.user') ? 'active' : '' }}"><a class="nav-link"
                                 href="{{ route('home.user') }}"><i class="fas fa-home"></i> <span>Home</span></a></li>
                         <li
-                            class="{{ Route::is('user.projects') || Route::is('user.projects.detail') || Route::is('user.projects.finished') || Route::is('user.projects.new-milestone') ? 'active' : '' }}">
+                            class="{{ Route::is('user.projects') || Route::is('user.projects.detail') || Route::is('user.projects.finished') || Route::is('user.projects.new-milestone') || Route::is('user.projects.detail-milestone') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('user.projects') }}"><i
                                     class="fas fa-clipboard-list"></i>
                                 <span>My Project</span></a></li>
