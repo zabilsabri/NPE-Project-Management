@@ -1,0 +1,72 @@
+@import './root.css';
+
+.table-responsive {
+    padding-inline: 50px;
+    padding-block: 40px;
+    border: 1px solid #c1c6cc;
+    border-radius: 12px;
+    width: 95% !important;
+    border-top-color: var(--primary-color);
+    border-top-width: 13px;
+}
+
+.section-header #header-line{
+    background-color: var(--primary-color);
+    width: .3rem;
+    height: 3rem;
+    border-radius: 50px;
+}
+
+.milestone-type-section h6{
+    color: var(--secondary-text-color);
+}
+
+.milestone-type-section #square {
+    width: .8rem;
+    height: .8rem;
+    border-radius: 3px;
+    background-color: var(--secondary-text-color);
+}
+
+.main-sidebar .sidebar-menu li.active a {
+    color: var(--primary-color) !important;
+}
+
+body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu>li.active>a:before {
+    background-color: var(--primary-color) !important;
+}
+
+.table-list, .table-list tr {
+    border: 1px solid;
+    border-color: #c1c6cc;
+    border-radius: 20px;
+}
+
+.table-list {
+    width: 100%;
+}
+
+.programmer-description h5 {
+    margin-bottom: .2rem;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+
+.programmer-description h6 {
+    margin-bottom: .2rem;
+    font-size: .9rem;
+    font-weight: 500;
+}
+
+.summary-section {
+    width: 250px;
+}
+
+.summary-section #milestoneDetail {
+    min-height: 40px;
+    height: 90px;
+}
+
+.summary-section .form-group {
+    margin: 0;
+}
