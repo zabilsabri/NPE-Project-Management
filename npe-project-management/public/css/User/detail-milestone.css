@@ -144,6 +144,14 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu>li.active>a:before {
     background-color: rgba(0, 97, 199, .1);
 }
 
+.right-section a .btn-edit {
+    width: 1.2rem;
+}
+
+.right-section a .btn-delete {
+    width: 1.4rem;
+}
+
 .dropdown-button {
     position: relative;
 }
@@ -176,4 +184,11 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu>li.active>a:before {
 .checked .task-description-section{
     display: block;
     transition: all 1s;
+}
+
+/* modal add */
+
+.right-container .form-group #taskDetailForm {
+    min-height: 2.2rem;
+    height: 8rem;
 }
