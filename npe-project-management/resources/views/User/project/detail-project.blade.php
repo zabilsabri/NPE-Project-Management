@@ -33,7 +33,7 @@
                         <p class="mb-0 ml-4">Not Finish Yet</p>
                     </div>
                     <div class="success-button-section">
-                        <a href="#"><button onclick="" class="btn btn-success mt-4 px-3 py-2">
+                        <a href="{{ route('user.projects.report') }}"><button onclick="" class="btn btn-success mt-4 px-3 py-2">
                                 <h6>Finish Project</h6>
                             </button></a>
                     </div>
@@ -64,6 +64,19 @@
                 <a href="{{ route('user.projects.new-milestone') }}"><Button class="add-milestone-btn ml-4"><i class="fas fa-plus"></i> &nbsp; Add Milestone</Button></a>
             </div>
             <div class="body d-flex flex-column mt-3">
+                <!-- Milestone item -->
+                <div class="milestone-item d-flex justify-content-between align-items-center py-3 px-4 mt-2">
+                    <div>
+                        <a href="{{ route('user.projects.detail-milestone') }}">
+                            <h5 class="mb-0">Milestone Name</h5>
+                        </a>
+                        <p class="mb-0">Due Date (DD/MM/YYY)</p>
+                    </div>
+                    <div class="action-button d-flex align-items-center">
+                        <a class="mr-3" href="{{ route('user.projects.new-milestone') }}"><img src="{{ asset('img/Admin/pensil.png') }}" alt=""></a>
+                        <a href="#"><img src="{{ asset('img/Admin/zabil.png') }}" class="btn-delete" alt="pensil" data-toggle="modal" data-target="#modal-hapus" alt="sampah"></a>
+                    </div>
+                </div>
 
                 <!-- Milestone item -->
                 <div class="milestone-item d-flex justify-content-between align-items-center py-3 px-4 mt-2">
@@ -74,22 +87,25 @@
                         <p class="mb-0">Due Date (DD/MM/YYY)</p>
                     </div>
                     <div class="action-button d-flex align-items-center">
-                        <a class="mr-3" href="#"><img src="{{ asset('img/Admin/pensil.png') }}" alt=""></a>
-                        <a href="#"><img src="{{ asset('img/Admin/zabil.png') }}" alt=""></a>
+                        <a class="mr-3" href="{{ route('user.projects.new-milestone') }}"><img src="{{ asset('img/Admin/pensil.png') }}" alt=""></a>
+                        <a href="#"><img src="{{ asset('img/Admin/zabil.png') }}" class="btn-delete" alt="pensil" data-toggle="modal" data-target="#modal-hapus" alt="sampah"></a>
                     </div>
                 </div>
+
+                <!-- Milestone item -->
                 <div class="milestone-item d-flex justify-content-between align-items-center py-3 px-4 mt-2">
                     <div>
-                        <a href="#">
+                        <a href="{{ route('user.projects.detail-milestone') }}">
                             <h5 class="mb-0">Milestone Name</h5>
                         </a>
                         <p class="mb-0">Due Date (DD/MM/YYY)</p>
                     </div>
                     <div class="action-button d-flex align-items-center">
-                        <a class="mr-3" href="#"><img src="{{ asset('img/Admin/pensil.png') }}" alt=""></a>
-                        <a href="#"><img src="{{ asset('img/Admin/zabil.png') }}" alt=""></a>
+                        <a class="mr-3" href="{{ route('user.projects.new-milestone') }}"><img src="{{ asset('img/Admin/pensil.png') }}" alt=""></a>
+                        <a href="#"><img src="{{ asset('img/Admin/zabil.png') }}" class="btn-delete" alt="pensil" data-toggle="modal" data-target="#modal-hapus" alt="sampah"></a>
                     </div>
                 </div>
+                
             </div>
         </div>
 
@@ -160,6 +176,31 @@
 
 </div>
 @endsection
+
+
+<div class="modal fade" id="modal-hapus" aria-modal="true" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="row">
+                    <span class="col align-self-center"><img src="{{ asset('img/Admin/icon.svg')}}" alt=""></span>
+                    <h4 class="modal-title ml-3 align-self-center">Hapus Data Projek</h4>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Data yang sudah dihapus tidak bisa dikembalikan</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="btn-hapus">Hapus</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
 
 @section('script')
 <script>
