@@ -1,4 +1,5 @@
-.sidebar-mini {
+.sidebar-mini .main-sidebar #sidebar-wrapper{
+    left: 10;
     position: fixed;
 }
 

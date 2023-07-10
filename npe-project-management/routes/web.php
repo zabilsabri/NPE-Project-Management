@@ -33,10 +33,6 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], funct
 
 // });
 
-Route::get('/report', function () {
-    return view('Admin.report.report');
-});
-
 Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home.admin');
 
@@ -64,6 +60,10 @@ Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin',
         Route::post('/edit', 'EmployeeController@update')->name('employee-update.admin');
 
         Route::delete('/delete/{id}', 'EmployeeController@destroy')->name('employee-destroy.admin');
+    });
+
+    Route::group(['prefix' => 'report'], function () {
+        Route::get('/', 'ReportController@index')->name('report.admin');
     });
 });
 

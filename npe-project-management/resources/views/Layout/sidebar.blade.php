@@ -7,6 +7,7 @@
     <title>{{ $title }}</title>
 
     <!-- General CSS Files -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -29,78 +30,110 @@
 </head>
 
 <body>
-    <div class="main-wrapper">
-        <nav class="navbar navbar-expand-lg main-navbar">
-            <ul class="navbar-nav d-inline mr-auto">
-                <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"
-                            style="color: #000"></i></a></li>
-            </ul>
-            <ul class="navbar-nav navbar-right">
-                <li>
-                    <a href="{{ route('logout') }}" class="btn btn-outline-danger">
-                        <i class="fas fa-sign-out-alt"></i> Logout
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <div class="main-sidebar sidebar-style-2">
-            <aside id="sidebar-wrapper">
-                <div>
-                    <div class="sidebar-brand">
-                        <a href="index.html"><img id="main-logo" src="{{ asset('img/Admin/main logo.jpg') }}"
-                                alt=""></a>
-                    </div>
-                    <div class="sidebar-brand sidebar-brand-sm">
-                        <img src="{{ asset('img/Admin/logo npe.svg') }}" alt="">
-                    </div>
-                    <ul class="sidebar-menu">
-                        <li class="{{ Route::is('home.admin') ? 'active' : '' }}"><a class="nav-link"
-                                href="{{ route('home.admin') }}"><i class="fas fa-home"></i> <span>Dashboard</span></a>
-                        </li>
-                        <li
-                            class="{{ Route::is('project.admin') || Route::is('project-create.admin') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('project.admin') }}"><i
-                                    class="fas fa-clipboard-list"></i>
-                                <span>Project</span></a></li>
-                        <li
-                            class="{{ Route::is('employee.admin') || Route::is('employee-create.admin') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('employee.admin') }}"><i class="fas fa-users"></i>
-                                <span>Employees</span></a></li>
-
-                        <!-- user sidebar -->
-                        <li class="{{ Route::is('home.user') ? 'active' : '' }}"><a class="nav-link"
-                                href="{{ route('home.user') }}"><i class="fas fa-home"></i> <span>Home</span></a></li>
-                        <li
-                            class="{{ Route::is('user.projects') || Route::is('user.projects.detail') || Route::is('user.projects.finished') || Route::is('user.projects.new-milestone') || Route::is('user.projects.detail-milestone') || Route::is('user.projects.report') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('user.projects') }}"><i
-                                    class="fas fa-clipboard-list"></i>
-                                <span>My Project</span></a></li>
-                        <li class="{{ Route::is('user.my-task') ? 'active' : '' }}"><a class="nav-link"
-                                href="{{ route('user.my-task') }}"><i class="fas fa-tasks"></i><span>My
-                                    Task</span></a></li>
-
-                    </ul>
-                </div>
-                <ul class="sidebar-menu">
+    <div id="app">
+        <div class="main-wrapper">
+            <nav class="navbar navbar-expand-lg main-navbar">
+                <ul class="navbar-nav d-inline mr-auto">
+                    <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"
+                                style="color: #000"></i></a></li>
+                </ul>
+                <ul class="navbar-nav navbar-right">
                     <li>
-                        <a class="nav-link" href="blank.html"><i class="fas fa-user" id="photo-profile"></i>
-                            <span>
-                                <p class="m-0" id="username">admin</p>
-                                <p class="m-0" id="email">admin@email.com</p>
-                            </span>
+                        <a href="{{ route('logout') }}" class="btn btn-outline-danger">
+                            <i class="fas fa-sign-out-alt"></i> Logout
                         </a>
                     </li>
                 </ul>
-        </div>
-        </aside>
-    </div>
-    <div class="main-content">
-        <section class="section">
-            <div class="section-body mt-0">
-                @yield('content')
+            </nav>
+            <div class="main-sidebar sidebar-style-2">
+                <aside id="sidebar-wrapper">
+                    <div>
+                        <div class="sidebar-brand mt-3">
+                            <a href="index.html"><img id="main-logo" src="{{ asset('img/Admin/main logo.jpg') }}"
+                                    alt=""></a>
+                        </div>
+                        <div class="sidebar-brand sidebar-brand-sm">
+                            <img src="{{ asset('img/Admin/logo npe.svg') }}" alt="">
+                        </div>
+                        <ul class="sidebar-menu">
+                            @if(Auth::user()->isAdmin == 0)
+                            <!-- user sidebar -->
+                            <li class="{{ Route::is('home.user') ? 'active' : '' }}"><a class="nav-link"
+                                    href="{{ route('home.user') }}"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                            <li
+                                class="{{ Route::is('user.projects') || Route::is('user.projects.detail') || Route::is('user.projects.finished') || Route::is('user.projects.new-milestone') || Route::is('user.projects.detail-milestone') || Route::is('user.projects.report') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('user.projects') }}"><i
+                                        class="fas fa-clipboard-list"></i>
+                                    <span>My Project</span></a></li>
+                            <li class="{{ Route::is('user.my-task') ? 'active' : '' }}"><a class="nav-link"
+                                    href="{{ route('user.my-task') }}"><i class="fas fa-tasks"></i><span>My
+                                        Task</span></a></li>
+                            @elseif(Auth::user()->isAdmin == 1)
+                                <li class="{{ Route::is('home.admin') ? 'active' : '' }}"><a class="nav-link"
+                                        href="{{ route('home.admin') }}"><i class="fas fa-home"></i> <span>Dashboard</span></a>
+                                </li>
+                                <li
+                                    class="{{ Route::is('project.admin') || Route::is('project-create.admin') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('project.admin') }}"><i
+                                            class="fas fa-clipboard-list"></i>
+                                        <span>Project</span></a></li>
+                                <li
+                                    class="{{ Route::is('employee.admin') || Route::is('employee-create.admin') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('employee.admin') }}"><i class="fas fa-users"></i>
+                                        <span>Employees</span></a></li>
+                                <li
+                                    class="{{ Route::is('report.admin') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('report.admin') }}"><i class="fas fa-file-signature"></i>
+                                        <span>Reports</span></a></li>
+                            @endif
+                        </ul>
+                    </div>
+                    <ul class="sidebar-menu">
+                        <li>
+                            <a class="nav-link" href="blank.html"><i class="fas fa-user" id="photo-profile"></i>
+                                <span>
+                                    <p class="m-0" id="username">{{ Auth::user()->nama }}</p>
+                                    <p class="m-0" id="email">{{ Auth::user()->email }}</p>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </aside>
             </div>
-        </section>
+            <div class="main-content">
+                <section class="section">
+                    @yield('content')
+                </section>
+            </div>
+        </div>
+    </div>
 
+    <!-- Modal Success -->
+    <div class="modal fade" id="modal-success" aria-modal="true" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0">
+                            <img src="{{ asset('img/Modal/confirm.png')}}" alt="">
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h4 class="modal-title ml-3 align-self-center">Data Berhasil Dihapus</h4>
+                        </div>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">x</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Data Yang Anda Pilih Telah Berhasil Dihapus!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
         <!-- General JS Scripts -->
