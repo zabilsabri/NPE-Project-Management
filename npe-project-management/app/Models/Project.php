@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -35,5 +36,10 @@ class Project extends Model
     public function employees(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'project_user', 'project_id', 'employee_id');
+    }
+
+    public function getDeadlineAttribute($value)
+    {
+        return Carbon::parse($value)->format('d-m-Y');
     }
 }

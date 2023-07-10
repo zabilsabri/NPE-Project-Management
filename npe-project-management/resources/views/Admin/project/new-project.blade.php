@@ -45,7 +45,13 @@
                     </div>
                     <div class="form-group">
                         <label for="inputEmail4">Tipe Projek</label>
-                        <input name="tipe" type="text" class="form-control" id="inputTipe" placeholder="Tipe Projek">
+                        <select class="form-select" name="tipe" id="inputTipe" aria-label="Default select example">
+                            <option value="{{ $project -> tipe ?? '' }}" selected>-- {{ $project -> tipe ?? 'Silahkan Masukkan Tipe Projek Ini' }}</option>
+                            <option value="Web">Web</option>
+                            <option value="Mobile">Mobile</option>
+                            <option value="Web & Mobile">Web & Mobile</option>
+                            <option value="Lainnya">Lainnya</option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group col-md-6">
@@ -66,7 +72,7 @@
                 <div class="form-group col-md-6">
                     <label for="inputState">Project Manager</label>
                     <select name="pm_id" class="selectpicker form-control" id="inputState" data-live-search="true">
-                        <option data-tokens="">Select Your PM</option>
+                        <option data-tokens="">Silahkan Pilih PM Anda</option>
                         @foreach ($employees as $employee)
                             @if (isset($project))
                                 <option data-tokens="mustard" value="{{ $employee->id }}" {{ $employee->id == $project->pm->id ? 'selected' : ''}}>{{$employee->nama . ' (' . $employee->credit . ')'}}</option>
@@ -78,9 +84,9 @@
                 </div>
 
             </div>
-            <div class="row float-right">
-                <a href="{{ route('project.admin') }}" class="btn btn-outline-danger mr-3">Batal</a>
-                <button type="submit" class="btn btn-primary mr-3" id="submit-btn">Buat Projek</button>
+            <div class="d-grid gap-3 d-md-flex justify-content-md-end">
+                <a href="{{ route('project.admin') }}" class="btn btn-outline-danger">Batal</a>
+                <button type="submit" class="btn btn-primary" id="submit-btn">Buat Projek</button>
             </div>
         </form>
     </div>
@@ -94,8 +100,7 @@
         $('#inputId').val("{{$project->id}}");
         $('#inputNama').val("{{$project->nama}}");
         $('#inputKlien').val("{{$project->klien}}");
-        $('#inputTipe').val("{{$project->tipe}}");
-        $('#inputDeadline').val("{{$project->deadline}}");
+        $('#inputDeadline').val("{{$project->getRawOriginal('deadline')}}");
         $('#inputDetail').val("{{$project->detail}}");
         $('#submit-btn').text("Update");
         $('#project-form').attr("action", "{{ route('project-update.admin') }}");

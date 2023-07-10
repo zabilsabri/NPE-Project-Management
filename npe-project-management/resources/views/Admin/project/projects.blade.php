@@ -88,13 +88,19 @@
     </div>
 </div>
 @endsection
+
+<!-- Modal Hapus -->
 <div class="modal fade" id="modal-hapus" aria-modal="true" role="dialog">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="row">
-                    <span class="col align-self-center"><img src="{{ asset('img/Admin/icon.svg')}}" alt=""></span>
-                    <h4 class="modal-title ml-3 align-self-center">Hapus Data Projek</h4>
+                <div class="d-flex align-items-center">
+                    <div class="flex-shrink-0">
+                        <img src="{{ asset('img/Admin/icon.svg')}}" alt="">
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                        <h4 class="modal-title ml-3 align-self-center">Hapus Data Projek</h4>
+                    </div>
                 </div>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">x</span>
@@ -156,13 +162,7 @@
                 success: function(response) {
                     t.row($('#row-' + delete_id)).remove().draw();
                     $('#modal-hapus').modal('hide');
-                    var alert_html = '<div class="alert alert-success alert-dismissible fade show m-3" role="alert">' +
-                        'Projek berhasil dihapus' + 
-                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
-                        '<span aria-hidden="true">&times;</span>' + 
-                        '</button>'
-                        '</div>';
-                    $('.alert-container').html(alert_html);
+                    $('#modal-success').modal('show');
                 },
             });
 

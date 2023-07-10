@@ -48,10 +48,10 @@
                     <td>{{ $employee->divisi }}</td>
                     <td>{{ $employee->jabatan }}</td>
                     <td>{{ $employee->credit }}</td>
-                    <td class="text-center">
+                    <td>
                         <!-- pensil -->
                         <a href="{{ route('employee-edit.admin', ['id' => $employee->id]) }}"><img src="{{ asset('img/Admin/pensil.png') }}" alt="pensil"></a>
-                        <a href="#"><img src="{{ asset('img/Admin/zabil.png') }}" class="btn-delete" alt="pensil" data-toggle="modal" data-target="#modal-hapus" data-id="{{ $employee->id }}"></a>
+                        <a href="#"><img src="{{ asset('img/Admin/zabil.png') }}" class="btn-delete ms-2" alt="pensil" data-toggle="modal" data-target="#modal-hapus" data-id="{{ $employee->id }}"></a>
                     </td>
                 </tr>
                 @endforeach
@@ -65,9 +65,13 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="row">
-                    <span class="col align-self-center"><img src="{{ asset('img/Admin/icon.svg')}}" alt=""></span>
-                    <h4 class="modal-title ml-3 align-self-center">Hapus Data Karwayan</h4>
+                <div class="d-flex align-items-center">
+                    <div class="flex-shrink-0">
+                        <img src="{{ asset('img/Admin/icon.svg')}}" alt="">
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                        <h4 class="modal-title ml-3 align-self-center">Hapus Data Karyawan</h4>
+                    </div>
                 </div>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">x</span>
@@ -81,7 +85,6 @@
                 <button type="button" class="btn btn-primary" id="btn-hapus">Hapus</button>
             </div>
         </div>
-        <!-- /.modal-content -->
     </div>
 </div>
 
@@ -130,13 +133,7 @@
                 success: function(response) {
                     t.row($('#row-' + delete_id)).remove().draw();
                     $('#modal-hapus').modal('hide');
-                    var alert_html = '<div class="alert alert-success alert-dismissible fade show m-3" role="alert">' +
-                        'Data berhasil dihapus' + 
-                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
-                        '<span aria-hidden="true">&times;</span>' + 
-                        '</button>'
-                        '</div>';
-                    $('.alert-container').html(alert_html);
+                    $('#modal-success').modal('show');
                 },
             });
 

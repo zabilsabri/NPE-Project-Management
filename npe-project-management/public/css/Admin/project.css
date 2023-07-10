@@ -108,3 +108,7 @@ span.p2 {
 #statusProject0 circle {
     fill: #0061c7;
 }
+
+.list-group-item{
+    background-color: #0061C708 !important;
+}

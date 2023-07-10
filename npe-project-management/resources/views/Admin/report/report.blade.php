@@ -15,13 +15,13 @@
             <h4 class="mb-3">On Pending <span id="span-ontime">2</span></h4>
             <div class="card">
                 <div class="card-header pb-0">
-                    <div class="row m-0 d-flex align-items-center">
+                    <div class="m-0 d-flex flex-row">
                         <h4>Sistem Informasi Farmasi</h4>
                         <span class="text-warning"><i class="fas fa-pause"></i> On-Pending</span>
                     </div>
                 </div>
-                <div class="card-body pt-0">
-                    <div class="row m-0">
+                <div class="card-body mt-0">
+                    <div class="m-0 d-flex flex-row">
                         <p class="mr-4"><i class="fas fa-building"></i> Farmasi Unhas</p>
                         <p class="mr-4"><i class="fas fa-user"></i> Aflah Alifu</p>
                         <p class="mr-4"><i class="fas fa-database"></i> Website</p>
@@ -31,13 +31,13 @@
             </div>
             <div class="card">
                 <div class="card-header pb-0">
-                    <div class="row m-0 d-flex align-items-center">
+                    <div class="m-0 d-flex flex-row">
                         <h4>Sistem Informasi Farmasi</h4>
                         <span class="text-warning"><i class="fas fa-pause"></i> On-Pending</span>
                     </div>
                 </div>
-                <div class="card-body pt-0">
-                    <div class="row m-0">
+                <div class="card-body mt-0">
+                    <div class="m-0 d-flex flex-row">
                         <p class="mr-4"><i class="fas fa-building"></i> Farmasi Unhas</p>
                         <p class="mr-4"><i class="fas fa-user"></i> Aflah Alifu</p>
                         <p class="mr-4"><i class="fas fa-database"></i> Website</p>
@@ -50,13 +50,13 @@
             <h4 class="mb-3">On Time <span id="span-ontime">2</span></h4>
             <div class="card">
                 <div class="card-header pb-0">
-                    <div class="row m-0 d-flex align-items-center">
+                    <div class="m-0 d-flex flex-row d-flex align-items-center">
                         <h4>Sistem Informasi Farmasi</h4>
                         <span class="text-success"><i class="fas fa-clock"></i> On-Time</span>
                     </div>
                 </div>
-                <div class="card-body pt-0">
-                    <div class="row m-0">
+                <div class="card-body mt-0">
+                    <div class="m-0 d-flex flex-row">
                         <p class="mr-4"><i class="fas fa-building"></i> Farmasi Unhas</p>
                         <p class="mr-4"><i class="fas fa-user"></i> Aflah Alifu</p>
                         <p class="mr-4"><i class="fas fa-database"></i> Website</p>
@@ -66,13 +66,13 @@
             </div>
             <div class="card">
                 <div class="card-header pb-0">
-                    <div class="row m-0 d-flex align-items-center">
+                    <div class="m-0 d-flex flex-row d-flex align-items-center">
                         <h4>Sistem Informasi Farmasi</h4>
                         <span class="text-success"><i class="fas fa-clock"></i> On-Time</span>
                     </div>
                 </div>
-                <div class="card-body pt-0">
-                    <div class="row m-0">
+                <div class="card-body mt-0">
+                    <div class="m-0 d-flex flex-row">
                         <p class="mr-4"><i class="fas fa-building"></i> Farmasi Unhas</p>
                         <p class="mr-4"><i class="fas fa-user"></i> Aflah Alifu</p>
                         <p class="mr-4"><i class="fas fa-database"></i> Website</p>
@@ -85,13 +85,13 @@
             <h4 class="mb-3">Late <span id="span-late">2</span></h4>
             <div class="card">
                 <div class="card-header pb-0">
-                    <div class="row m-0 d-flex align-items-center">
+                    <div class="m-0 d-flex flex-row d-flex align-items-center">
                         <h4>Sistem Informasi Farmasi</h4>
                         <span class="text-danger"><i class="fas fa-clock"></i> Late</span>
                     </div>
                 </div>
-                <div class="card-body pt-0">
-                    <div class="row m-0">
+                <div class="card-body mt-0">
+                    <div class="m-0 d-flex flex-row">
                         <p class="mr-4"><i class="fas fa-building"></i> Farmasi Unhas</p>
                         <p class="mr-4"><i class="fas fa-user"></i> Aflah Alifu</p>
                         <p class="mr-4"><i class="fas fa-database"></i> Website</p>
@@ -101,13 +101,13 @@
             </div>
             <div class="card">
                 <div class="card-header pb-0">
-                    <div class="row m-0 d-flex align-items-center">
+                    <div class="m-0 d-flex flex-row d-flex align-items-center">
                         <h4>Sistem Informasi Farmasi</h4>
                         <span class="text-danger"><i class="fas fa-clock"></i> Late</span>
                     </div>
                 </div>
-                <div class="card-body pt-0">
-                    <div class="row m-0">
+                <div class="card-body mt-0">
+                    <div class="m-0 d-flex flex-row">
                         <p class="mr-4"><i class="fas fa-building"></i> Farmasi Unhas</p>
                         <p class="mr-4"><i class="fas fa-user"></i> Aflah Alifu</p>
                         <p class="mr-4"><i class="fas fa-database"></i> Website</p>

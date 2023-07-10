@@ -64,11 +64,12 @@
                 <div class="form-group col-md-6">
                     <label for="inputPassword">Password</label>
                     <input name="password" type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    <small class="text-danger">* Silahkan Kosongkan Jika Anda Tidak Ingin Mengubah Password!</small>
                 </div>
             </div>
-            <div class="row float-right">
-                <a href="{{ route('employee.admin') }}" class="btn btn-outline-danger mr-3">Batal</a>
-                <button class="btn btn-primary mr-3" type="submit">Konfirmasi</button>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a href="{{ route('employee.admin') }}" class="btn btn-outline-danger">Batal</a>
+                <button class="btn btn-primary" type="submit">Konfirmasi</button>
             </div>
         </form>
     </div>
