@@ -22,9 +22,6 @@
       @endif
       </span>
     </p>
-    @if($project -> status == 1)
-      <button class="btn btn-primary mt-4">Konfirmasi Projek</button>
-    @endif
     <p class="mt-3" id="detail-project">
       {{ $project->detail }}
     </p>

@@ -67,12 +67,8 @@ h4 {
     background-color: #0061c708 !important;
 }
 
-.accordion .accordion-header:hover {
-    background-color: #0061c7 !important;
-}
-
 .accordion .accordion-header:hover h4 {
-    color: #94a3b8 !important;
+    color: #11141a !important;
 }
 
 .accordion .accordion-header,
@@ -83,6 +79,7 @@ h4 {
 .accordion .accordion-header[aria-expanded="true"] {
     box-shadow: 0 2px 6px #acb5f6;
     background-color: #0061c71a !important;
+    color: black !important;
 }
 
 .accordion .accordion-header h4 {

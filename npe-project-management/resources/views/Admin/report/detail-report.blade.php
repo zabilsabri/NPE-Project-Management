@@ -26,7 +26,7 @@
             <div class="accordion">
                 <div class="accordion-header collapsed" role="button" data-toggle="collapse" data-target="#panel-body-1"
                     aria-expanded="false">
-                    <h4>Salim Maulana (UI/UX)</h4>
+                    <h6>Salim Maulana (UI/UX)</h6>
                 </div>
                 <div class="accordion-body collapse" id="panel-body-1" data-parent="#accordion" style="">
                     <p class="acc-title">Summary</p>
@@ -41,7 +41,7 @@
             <div class="accordion">
                 <div class="accordion-header collapsed" role="button" data-toggle="collapse" data-target="#panel-body-2"
                     aria-expanded="false">
-                    <h4>Chindy Febryan (Frontend Web)</h4>
+                    <h6>Chindy Febryan (Frontend Web)</h6>
                 </div>
                 <div class="accordion-body collapse" id="panel-body-2" data-parent="#accordion" style="">
                     <p class="acc-title">Summary</p>
@@ -55,7 +55,7 @@
             </div>
             <div class="accordion">
                 <div class="accordion-header" role="button" data-toggle="collapse" data-target="#panel-body-3">
-                    <h4>Erwin Arif (Backend)</h4>
+                    <h6>Erwin Arif (Backend)</h6>
                 </div>
                 <div class="accordion-body collapse" id="panel-body-3" data-parent="#accordion">
                     <p class="acc-title">Summary</p>
@@ -69,7 +69,7 @@
             </div>
             <div class="accordion">
                 <div class="accordion-header" role="button" data-toggle="collapse" data-target="#panel-body-4">
-                    <h4>Mukram Mustamin (Frontend Web)</h4>
+                    <h6>Mukram Mustamin (Frontend Web)</h6>
                 </div>
                 <div class="accordion-body collapse" id="panel-body-4" data-parent="#accordion">
                     <p class="acc-title">Summary</p>
@@ -82,12 +82,14 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-primary mt-4 w-100" data-toggle="modal" data-target="#modal-hapus">Penilaian</button>
+        <button class="btn btn-primary mt-4 w-100" data-toggle="modal" data-target="#modal-penilaian">Penilaian</button>
+        <button class="btn btn-danger mt-2 w-100" data-toggle="modal" data-target="#modal-kembalikan">Kembalikan</button>
     </div>
 </div>
 @endsection
 
-<div class="modal fade" id="modal-hapus" aria-modal="true" role="dialog">
+<!-- Modal Penilaian -->
+<div class="modal fade" id="modal-penilaian" aria-modal="true" role="dialog">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -100,9 +102,9 @@
             </div>
             <div class="modal-body">
                 <h5>Project Manager</h5>
-                <div class="row g-3 align-items-center">
+                <div class="row g-2 align-items-center">
                     <div class="col-auto">
-                        <label class="col-form-label">Aflah Alifu</label>
+                        <label class="col-form-label">Aflah Alifu (100)</label>
                     </div>
                     <div class="col-auto">
                         <input type="number" class="form-control" placeholder="Input Credit">
@@ -111,25 +113,25 @@
                 <h5 class="mt-4">Programmer</h5>
                 <div class="row">
                     <div class="col-6">
-                        <div class="row g-3 align-items-center mb-1">
+                        <div class="row g-2 align-items-center mb-1">
                             <div class="col-auto">
-                                <label class="col-form-label">Aflah Alifu</label>
+                                <label class="col-form-label">Aflah Alifu (100)</label>
                             </div>
                             <div class="col-auto">
                                 <input type="number" class="form-control" placeholder="Input Credit">
                             </div>
                         </div>
-                        <div class="row g-3 align-items-center mb-1">
+                        <div class="row g-2 align-items-center mb-1">
                             <div class="col-auto">
-                                <label class="col-form-label">Aflah Alifu</label>
+                                <label class="col-form-label">Aflah Alifu (100)</label>
                             </div>
                             <div class="col-auto">
                                 <input type="number" class="form-control" placeholder="Input Credit">
                             </div>
                         </div>
-                        <div class="row g-3 align-items-center mb-1">
+                        <div class="row g-2 align-items-center mb-1">
                             <div class="col-auto">
-                                <label class="col-form-label">Aflah Alifu</label>
+                                <label class="col-form-label">Aflah Alifu (100)</label>
                             </div>
                             <div class="col-auto">
                                 <input type="number" class="form-control" placeholder="Input Credit">
@@ -137,25 +139,25 @@
                         </div>
                     </div>
                     <div class="col-6">
-                        <div class="row g-3 align-items-center mb-1">
+                        <div class="row g-2 align-items-center mb-1">
                             <div class="col-auto">
-                                <label class="col-form-label">Aflah Alifu</label>
+                                <label class="col-form-label">Aflah Alifu (100)</label>
                             </div>
                             <div class="col-auto">
                                 <input type="number" class="form-control" placeholder="Input Credit">
                             </div>
                         </div>
-                        <div class="row g-3 align-items-center mb-1">
+                        <div class="row g-2 align-items-center mb-1">
                             <div class="col-auto">
-                                <label class="col-form-label">Aflah Alifu</label>
+                                <label class="col-form-label">Aflah Alifu (100)</label>
                             </div>
                             <div class="col-auto">
                                 <input type="number" class="form-control" placeholder="Input Credit">
                             </div>
                         </div>
-                        <div class="row g-3 align-items-center mb-1">
+                        <div class="row g-2 align-items-center mb-1">
                             <div class="col-auto">
-                                <label class="col-form-label">Aflah Alifu</label>
+                                <label class="col-form-label">Aflah Alifu (100)</label>
                             </div>
                             <div class="col-auto">
                                 <input type="number" class="form-control" placeholder="Input Credit">
@@ -168,6 +170,33 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
                 <button type="button" class="btn btn-primary" id="btn-tambah">Konfirmasi</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
+
+<!-- Modal Kembalikan -->
+<div class="modal fade" id="modal-kembalikan" aria-modal="true" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="row">
+                    <h4 class="modal-title ml-3 align-self-center">Kembalikan Projek Ke Developer</h4>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Alasan</label>
+            </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                <button type="button" class="btn btn-primary" id="btn-tambah">Kirim</button>
             </div>
         </div>
         <!-- /.modal-content -->

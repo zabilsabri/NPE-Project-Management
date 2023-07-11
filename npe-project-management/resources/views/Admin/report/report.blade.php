@@ -1,5 +1,12 @@
 @extends('Layout.sidebar', ['title' => 'Report'])
 <link rel="stylesheet" href="{{ asset('css/Admin/report.css') }}">
+
+<style>
+    a{
+        text-decoration: none !important;
+    }
+</style>
+
 @section('content')
 
 <div class="card">
@@ -12,42 +19,8 @@
     </div>
     <div class="card-body">
         <div class="col" id="col-report">
-            <h4 class="mb-3">On Pending <span id="span-ontime">2</span></h4>
-            <div class="card">
-                <div class="card-header pb-0">
-                    <div class="m-0 d-flex flex-row">
-                        <h4>Sistem Informasi Farmasi</h4>
-                        <span class="text-warning"><i class="fas fa-pause"></i> On-Pending</span>
-                    </div>
-                </div>
-                <div class="card-body mt-0">
-                    <div class="m-0 d-flex flex-row">
-                        <p class="mr-4"><i class="fas fa-building"></i> Farmasi Unhas</p>
-                        <p class="mr-4"><i class="fas fa-user"></i> Aflah Alifu</p>
-                        <p class="mr-4"><i class="fas fa-database"></i> Website</p>
-                        <p class="mr-4"><i class="fas fa-calendar-week"></i> 28 April 2023</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header pb-0">
-                    <div class="m-0 d-flex flex-row">
-                        <h4>Sistem Informasi Farmasi</h4>
-                        <span class="text-warning"><i class="fas fa-pause"></i> On-Pending</span>
-                    </div>
-                </div>
-                <div class="card-body mt-0">
-                    <div class="m-0 d-flex flex-row">
-                        <p class="mr-4"><i class="fas fa-building"></i> Farmasi Unhas</p>
-                        <p class="mr-4"><i class="fas fa-user"></i> Aflah Alifu</p>
-                        <p class="mr-4"><i class="fas fa-database"></i> Website</p>
-                        <p class="mr-4"><i class="fas fa-calendar-week"></i> 28 April 2023</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col" id="col-report">
             <h4 class="mb-3">On Time <span id="span-ontime">2</span></h4>
+            <a href="{{ route('report-detail.admin') }}">
             <div class="card">
                 <div class="card-header pb-0">
                     <div class="m-0 d-flex flex-row d-flex align-items-center">
@@ -64,6 +37,7 @@
                     </div>
                 </div>
             </div>
+            </a>
             <div class="card">
                 <div class="card-header pb-0">
                     <div class="m-0 d-flex flex-row d-flex align-items-center">

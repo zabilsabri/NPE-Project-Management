@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('tipe');
             $table->unsignedBigInteger('pm_id')->nullable();
             $table->date('deadline');
+            $table->date('tgl_selesai')->nullable();
             $table->boolean('status')->default(0);
             $table->string('detail');
             $table->timestamps();

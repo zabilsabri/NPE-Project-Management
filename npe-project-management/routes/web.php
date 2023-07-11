@@ -64,6 +64,7 @@ Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin',
 
     Route::group(['prefix' => 'report'], function () {
         Route::get('/', 'ReportController@index')->name('report.admin');
+        Route::get('/detail', 'ReportController@detail')->name('report-detail.admin');
     });
 });
 
