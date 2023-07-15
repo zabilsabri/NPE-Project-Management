@@ -11,9 +11,9 @@ class Task extends Model
 {
     use HasFactory;
 
-    public function project(): BelongsTo
+    public function milestone(): BelongsTo
     {
-        return $this->belongsTo(Project::class, 'milestone_id');
+        return $this->belongsTo(Milestone::class, 'milestone_id');
     }
 
     public function user(): BelongsTo

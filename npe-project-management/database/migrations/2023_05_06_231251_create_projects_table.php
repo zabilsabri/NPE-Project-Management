@@ -19,7 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('pm_id')->nullable();
             $table->date('deadline');
             $table->date('tgl_selesai')->nullable();
-            $table->boolean('status')->default(0);
+            $table->unsignedTinyInteger('status')->default(0); // 0 -> On Progress | 1 -> Selesai | 2 -> revisi | 3 -> pending
             $table->boolean('isReviewed')->default(0); // Untuk Cek Apakah Projek Sudah Direview Oleh Admin Atau Belum
             $table->string('detail');
             $table->timestamps();
