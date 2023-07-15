@@ -20,6 +20,7 @@ return new class extends Migration
             $table->date('deadline');
             $table->date('tgl_selesai')->nullable();
             $table->boolean('status')->default(0);
+            $table->boolean('isReviewed')->default(0); // Untuk Cek Apakah Projek Sudah Direview Oleh Admin Atau Belum
             $table->string('detail');
             $table->timestamps();
 

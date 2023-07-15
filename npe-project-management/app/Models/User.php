@@ -64,4 +64,27 @@ class User extends Authenticatable
         return $this->belongsToMany(Project::class, 'project_user', 'employee_id', 'project_id');
     }
 
+    public function getDivisiAttribute($value){
+        if($value == 0){
+            return "Web";
+        }
+        elseif($value == 1){
+            return "Mobile";
+        }
+        elseif($value == 2){
+            return "UI/UX";
+        }
+    }
+
+    function getJabatanAttribute($value) {
+        if($value == 0){
+            return "Senior";
+        }
+        elseif($value == 1){
+            return "Junior";
+        }
+        elseif($value == 2){
+            return "Trainee";
+        }
+    }
 }

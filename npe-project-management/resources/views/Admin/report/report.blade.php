@@ -19,76 +19,30 @@
     </div>
     <div class="card-body">
         <div class="col" id="col-report">
-            <h4 class="mb-3">On Time <span id="span-ontime">2</span></h4>
-            <a href="{{ route('report-detail.admin') }}">
+            @foreach($reports as $report)
+            <a href="{{ route('report-detail.admin', [$report -> id]) }}">
             <div class="card">
                 <div class="card-header pb-0">
                     <div class="m-0 d-flex flex-row d-flex align-items-center">
-                        <h4>Sistem Informasi Farmasi</h4>
+                        <h4>{{ $report -> nama }}</h4>
+                        @if($report -> checkStatus() == 1)
                         <span class="text-success"><i class="fas fa-clock"></i> On-Time</span>
+                        @elseif($report -> checkstatus() == 0)
+                        <span class="text-danger"><i class="fas fa-clock"></i> Late</span>
+                        @endif
                     </div>
                 </div>
                 <div class="card-body mt-0">
                     <div class="m-0 d-flex flex-row">
-                        <p class="mr-4"><i class="fas fa-building"></i> Farmasi Unhas</p>
-                        <p class="mr-4"><i class="fas fa-user"></i> Aflah Alifu</p>
-                        <p class="mr-4"><i class="fas fa-database"></i> Website</p>
-                        <p class="mr-4"><i class="fas fa-calendar-week"></i> 28 April 2023</p>
+                        <p class="mr-4"><i class="fas fa-building me-1"></i>{{ $report -> klien }}</p>
+                        <p class="mr-4"><i class="fas fa-user me-1"></i>{{ $report -> pm -> nama }}</p>
+                        <p class="mr-4"><i class="fas fa-database me-1"></i>{{ $report -> tipe }}</p>
+                        <p class="mr-4"><i class="fas fa-calendar-week me-1"></i>{{ $report -> tgl_selesai }}</p>
                     </div>
                 </div>
             </div>
             </a>
-            <div class="card">
-                <div class="card-header pb-0">
-                    <div class="m-0 d-flex flex-row d-flex align-items-center">
-                        <h4>Sistem Informasi Farmasi</h4>
-                        <span class="text-success"><i class="fas fa-clock"></i> On-Time</span>
-                    </div>
-                </div>
-                <div class="card-body mt-0">
-                    <div class="m-0 d-flex flex-row">
-                        <p class="mr-4"><i class="fas fa-building"></i> Farmasi Unhas</p>
-                        <p class="mr-4"><i class="fas fa-user"></i> Aflah Alifu</p>
-                        <p class="mr-4"><i class="fas fa-database"></i> Website</p>
-                        <p class="mr-4"><i class="fas fa-calendar-week"></i> 28 April 2023</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col" id="col-report">
-            <h4 class="mb-3">Late <span id="span-late">2</span></h4>
-            <div class="card">
-                <div class="card-header pb-0">
-                    <div class="m-0 d-flex flex-row d-flex align-items-center">
-                        <h4>Sistem Informasi Farmasi</h4>
-                        <span class="text-danger"><i class="fas fa-clock"></i> Late</span>
-                    </div>
-                </div>
-                <div class="card-body mt-0">
-                    <div class="m-0 d-flex flex-row">
-                        <p class="mr-4"><i class="fas fa-building"></i> Farmasi Unhas</p>
-                        <p class="mr-4"><i class="fas fa-user"></i> Aflah Alifu</p>
-                        <p class="mr-4"><i class="fas fa-database"></i> Website</p>
-                        <p class="mr-4"><i class="fas fa-calendar-week"></i> 28 April 2023</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header pb-0">
-                    <div class="m-0 d-flex flex-row d-flex align-items-center">
-                        <h4>Sistem Informasi Farmasi</h4>
-                        <span class="text-danger"><i class="fas fa-clock"></i> Late</span>
-                    </div>
-                </div>
-                <div class="card-body mt-0">
-                    <div class="m-0 d-flex flex-row">
-                        <p class="mr-4"><i class="fas fa-building"></i> Farmasi Unhas</p>
-                        <p class="mr-4"><i class="fas fa-user"></i> Aflah Alifu</p>
-                        <p class="mr-4"><i class="fas fa-database"></i> Website</p>
-                        <p class="mr-4"><i class="fas fa-calendar-week"></i> 28 April 2023</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('nama');
             $table->string('email')->unique();
             $table->string('nomorTelpon');
-            $table->unsignedTinyInteger('divisi')->nullable();
-            $table->unsignedTinyInteger('jabatan')->nullable();
+            $table->unsignedTinyInteger('divisi')->nullable(); // 0 -> Web | 1 -> Mobile | 2 -> UI/IX
+            $table->unsignedTinyInteger('jabatan')->nullable(); // 0 -> Senior | 1 -> Junior | 2 -> Trainee
             $table->string('password');
             $table->integer('credit')->default(10);
             $table->boolean('isAdmin')->default(0);

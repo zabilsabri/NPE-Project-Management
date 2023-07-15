@@ -6,82 +6,36 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Report</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Sistem Informasi Farmasi</li>
+            <li class="breadcrumb-item active" aria-current="page">{{ $report_detail -> nama }}</li>
         </ol>
     </nav>
     <div class="section-header mb-0 d-flex justify-content-between">
         <div class="title">
-            <h1>Sistem Informasi Farmasi</h1>
+            <h1>{{ $report_detail -> nama }}</h1>
         </div>
     </div>
     <div class="card-body">
         <div class="col col-md-6 p-0 mb-4">
             <p class="p2">Project Manager</p>
-            <p class="p1">Aflah Alifu Na</p>
+            <p class="p1">{{ $report_detail -> pm -> nama }}</p>
         </div>
         <div class="col col-md-6 p-0 mb-4">
             <p class="p2">Programmer</p>
         </div>
+        @foreach($report_detail -> employees as $selvi)
         <div id="accordion">
             <div class="accordion">
-                <div class="accordion-header collapsed" role="button" data-toggle="collapse" data-target="#panel-body-1"
+                <div class="accordion-header collapsed" role="button" data-toggle="collapse" data-target="#panel-body-{{ $selvi -> id }}"
                     aria-expanded="false">
-                    <h6>Salim Maulana (UI/UX)</h6>
+                    <h6>{{ $selvi -> nama }} ({{ $selvi -> jabatan }} {{ $selvi -> divisi }})</h6>
                 </div>
-                <div class="accordion-body collapse" id="panel-body-1" data-parent="#accordion" style="">
+                <div class="accordion-body collapse" id="panel-body-{{ $selvi -> id }}" data-parent="#accordion">
                     <p class="acc-title">Summary</p>
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-            </div>
-            <div class="accordion">
-                <div class="accordion-header collapsed" role="button" data-toggle="collapse" data-target="#panel-body-2"
-                    aria-expanded="false">
-                    <h6>Chindy Febryan (Frontend Web)</h6>
-                </div>
-                <div class="accordion-body collapse" id="panel-body-2" data-parent="#accordion" style="">
-                    <p class="acc-title">Summary</p>
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-            </div>
-            <div class="accordion">
-                <div class="accordion-header" role="button" data-toggle="collapse" data-target="#panel-body-3">
-                    <h6>Erwin Arif (Backend)</h6>
-                </div>
-                <div class="accordion-body collapse" id="panel-body-3" data-parent="#accordion">
-                    <p class="acc-title">Summary</p>
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-            </div>
-            <div class="accordion">
-                <div class="accordion-header" role="button" data-toggle="collapse" data-target="#panel-body-4">
-                    <h6>Mukram Mustamin (Frontend Web)</h6>
-                </div>
-                <div class="accordion-body collapse" id="panel-body-4" data-parent="#accordion">
-                    <p class="acc-title">Summary</p>
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p class="mb-0">{{ $selvi -> performance_review ?? '-'}}</p>
                 </div>
             </div>
         </div>
+        @endforeach
         <button class="btn btn-primary mt-4 w-100" data-toggle="modal" data-target="#modal-penilaian">Penilaian</button>
         <button class="btn btn-danger mt-2 w-100" data-toggle="modal" data-target="#modal-kembalikan">Kembalikan</button>
     </div>
@@ -90,7 +44,7 @@
 
 <!-- Modal Penilaian -->
 <div class="modal fade" id="modal-penilaian" aria-modal="true" role="dialog">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">
                 <div class="row">
@@ -100,77 +54,42 @@
                     <span aria-hidden="true">x</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <h5>Project Manager</h5>
-                <div class="row g-2 align-items-center">
-                    <div class="col-auto">
-                        <label class="col-form-label">Aflah Alifu (100)</label>
-                    </div>
-                    <div class="col-auto">
-                        <input type="number" class="form-control" placeholder="Input Credit">
-                    </div>
-                </div>
-                <h5 class="mt-4">Programmer</h5>
-                <div class="row">
-                    <div class="col-6">
-                        <div class="row g-2 align-items-center mb-1">
-                            <div class="col-auto">
-                                <label class="col-form-label">Aflah Alifu (100)</label>
-                            </div>
-                            <div class="col-auto">
-                                <input type="number" class="form-control" placeholder="Input Credit">
-                            </div>
+            <form method="POST" action="{{ route('report-credit-update.admin') }}">
+                @csrf
+                <div class="modal-body">
+                    <h5>Project Manager</h5>
+                    <div class="row g-2 align-items-center">
+                        <div class="col-auto">
+                            <label class="col-form-label">{{ $report_detail -> pm -> nama }}</label>
                         </div>
-                        <div class="row g-2 align-items-center mb-1">
-                            <div class="col-auto">
-                                <label class="col-form-label">Aflah Alifu (100)</label>
-                            </div>
-                            <div class="col-auto">
-                                <input type="number" class="form-control" placeholder="Input Credit">
-                            </div>
-                        </div>
-                        <div class="row g-2 align-items-center mb-1">
-                            <div class="col-auto">
-                                <label class="col-form-label">Aflah Alifu (100)</label>
-                            </div>
-                            <div class="col-auto">
-                                <input type="number" class="form-control" placeholder="Input Credit">
-                            </div>
+                        <div class="col-auto">
+                            <input type="number" class="form-control" name="creditPM" placeholder="Input Credit" value="{{ $report_detail->pm->credit }}">
+                            <input type="hidden" name="pm_ids" value="{{ $report_detail -> pm -> id }}">
+                            <input type="hidden" name="ids_project" value="{{ $report_detail -> id }}">
                         </div>
                     </div>
-                    <div class="col-6">
-                        <div class="row g-2 align-items-center mb-1">
-                            <div class="col-auto">
-                                <label class="col-form-label">Aflah Alifu (100)</label>
-                            </div>
-                            <div class="col-auto">
-                                <input type="number" class="form-control" placeholder="Input Credit">
-                            </div>
+                    <h5 class="mt-4">Programmer</h5>
+                    <div class="row">
+                        @foreach($report_detail -> employees as $amalia)
+                        <div class="col-md-6 mb-2">
+                            <table class="w-75">
+                                <tr>
+                                    <td><label class="col-form-label">{{ $amalia -> nama }}</label></td>
+                                    <td class="w-50">
+                                        <input type="hidden" name="row_ids[]" value="{{ $amalia -> id }}">
+                                        <input type="number" class="form-control" name="credit[]" placeholder="Input Credit" value="{{ $amalia -> credit }}" required>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
-                        <div class="row g-2 align-items-center mb-1">
-                            <div class="col-auto">
-                                <label class="col-form-label">Aflah Alifu (100)</label>
-                            </div>
-                            <div class="col-auto">
-                                <input type="number" class="form-control" placeholder="Input Credit">
-                            </div>
-                        </div>
-                        <div class="row g-2 align-items-center mb-1">
-                            <div class="col-auto">
-                                <label class="col-form-label">Aflah Alifu (100)</label>
-                            </div>
-                            <div class="col-auto">
-                                <input type="number" class="form-control" placeholder="Input Credit">
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                <button type="button" class="btn btn-primary" id="btn-tambah">Konfirmasi</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Konfirmasi</button>
+                </div>
+            </form>
         </div>
         <!-- /.modal-content -->
     </div>

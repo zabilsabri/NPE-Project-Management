@@ -42,4 +42,14 @@ class Project extends Model
     {
         return Carbon::parse($value)->format('d-m-Y');
     }
+
+    function checkStatus(){
+        $deadline = $this -> deadline;
+        $tgl_selesai = $this -> tgl_selesai;
+        if($tgl_selesai > $deadline){
+            return 0;
+        } else {
+            return 1;
+        }
+    }
 }
