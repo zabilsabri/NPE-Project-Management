@@ -26,37 +26,25 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($finished_projects as $finished_project)
                     <tr>
-                        <td>Project Name</td>
-                        <td>Client Name</td>
-                        <td>Project Type</td>
-                        <td>PM Name</td>
-                        <td>Deadline</td>
+                        <td>{{ $finished_project -> nama }}</td>
+                        <td>{{ $finished_project -> klien }}</td>
+                        <td>{{ $finished_project -> tipe }}</td>
+                        <td>{{ $finished_project -> checkPM() }}</td>
+                        <td>{{ $finished_project -> deadline }}</td>
                         <td>
+                            @if($finished_project -> status == 1)
                             <div class="finished-status-section d-flex align-items-center px-3 py-2">
                                 <i class="fas fa-check"></i>
                                 <h6 class="mb-0 ml-2">Finished</h6>
                             </div>
-                        </td>
-                        <td>
-                            <p class="status-op m-0">
-                                <a href="{{ route('user.projects') }}">
-                                    <img src="{{ asset('img/Admin/mata.png') }}" alt="mata">
-                                </a>
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Project Name</td>
-                        <td>Client Name</td>
-                        <td>Project Type</td>
-                        <td>PM Name</td>
-                        <td>Deadline</td>
-                        <td>
+                            @elseif($finished_project -> status == 3)
                             <div class="pending-status-section d-flex align-items-center px-3 py-2">
                                 <i class="far fa-clock"></i>
                                 <h6 class="mb-0 ml-2">Pending</h6>
                             </div>
+                            @endif
                         </td>
                         <td>
                             <p class="status-op m-0">
@@ -66,7 +54,7 @@
                             </p>
                         </td>
                     </tr>
-
+                    @endforeach
                 </tbody>
             </table>
         </div>

@@ -24,11 +24,12 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($tasks as $task)
                     <tr>
-                        <td>Task Name</td>
-                        <td>Project Name</td>
-                        <td>Milestone Name</td>
-                        <td>12 Juni 2023</td>
+                        <td>{{ $task -> nama }}</td>
+                        <td>{{ $task -> milestone -> project -> nama }}</td>
+                        <td>{{ $task -> milestone -> nama }}</td>
+                        <td>{{ $task -> deadline }}</td>
                         <td>
                             <p class="status-op m-0">
                                 <a href="{{ route('user.projects') }}">
@@ -37,8 +38,7 @@
                             </p>
                         </td>
                     </tr>
-                    
-
+                    @endforeach
                 </tbody>
             </table>
         </div>

@@ -20,4 +20,12 @@ class Milestone extends Model
     {
         return $this->belongsTo(Project::class, 'project_id');
     }
+
+    public function getStatusAttribute($value){
+        if($value == 0){
+            return "Belum Selesai";
+        } else{
+            return "Selesai";
+        }
+    }
 }

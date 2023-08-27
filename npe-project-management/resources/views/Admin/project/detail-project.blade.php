@@ -17,8 +17,12 @@
         </svg> 
       @if($project -> status == 0)
         In Progress
-      @else
+      @elseif($project -> status == 1)
         Completed
+      @elseif($project -> status == 2)
+        Revision Needed
+      @elseif($project -> status == 3)
+        Pending
       @endif
       </span>
     </p>

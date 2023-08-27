@@ -67,11 +67,6 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu>li.active>a:before {
     font-size: .9rem;
 }
 
-.image-section #time-story-set {
-    max-width: 350px;
-    
-}
-
 .image-header-section{
     width: 50%;
 }
@@ -85,6 +80,9 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu>li.active>a:before {
     color: var(--primary-color);
     border-radius: 4px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .due-date-section {
@@ -92,6 +90,9 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu>li.active>a:before {
     color: var(--error-color);
     border-radius: 4px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .milestone-section {
@@ -114,6 +115,11 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu>li.active>a:before {
     color: white;
     border: 1px solid var(--primary-text-color);
 }
+
+.scrollbox {
+    max-height: 400px;
+    overflow: scroll;
+  }
 
 .milestone-item {
     border: 1px solid var(--primary-color);

@@ -109,6 +109,32 @@ span.p2 {
     fill: #0061c7;
 }
 
+#statusProject2 {
+    background-color: #EB455F26;
+    color: #fc544b;
+}
+#statusProject2 circle {
+    fill: #fc544b;
+}
+
+#statusProject3 {
+    background-color: #eeff0063;
+    color: #E4A11B;
+}
+#statusProject3 circle {
+    fill: #E4A11B;
+}
+
 .list-group-item{
     background-color: #0061C708 !important;
+}
+
+.revisi-status-section {
+    background-color: #EB455F26;
+    border-radius: 20px;
+}
+
+.pending-status-section {
+    background-color: #eeff0063;
+    border-radius: 20px;
 }

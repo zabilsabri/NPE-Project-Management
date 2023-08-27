@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Auth;
 
 class Project extends Model
 {
@@ -43,13 +44,22 @@ class Project extends Model
         return Carbon::parse($value)->format('d-m-Y');
     }
 
-    function checkStatus(){
+    public function checkStatus(){
         $deadline = $this -> deadline;
         $tgl_selesai = $this -> tgl_selesai;
         if($tgl_selesai > $deadline){
             return 0;
         } else {
             return 1;
+        }
+    }
+
+    public function checkPM(){
+        $pm_id = $this -> pm_id;
+        if($pm_id == Auth::user()->id){
+            return "You";
+        } else {
+            return $this -> pm -> nama;
         }
     }
 }

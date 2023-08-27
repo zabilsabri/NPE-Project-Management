@@ -10,7 +10,7 @@
         <div class="title d-flex flex-column ml-5">
             <h1>Home</h1>
             <div class="welcome-section">
-                <h6>Welcome, <span>username</span></h6>
+                <h6>Welcome, <span>{{ Auth::user()->nama }}</span></h6>
             </div>
         </div>
     </div>
@@ -28,12 +28,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($projects as $project)
                     <tr>
-                        <td>Project Name</td>
-                        <td>Klien 1</td>
-                        <td>Website / Mobile</td>
-                        <td>You</td>
-                        <td>12 Agustus 2023</td>
+                        <td>{{ $project -> nama }}</td>
+                        <td>{{ $project -> klien }}</td>
+                        <td>{{ $project -> tipe }}</td>
+                        <td>{{ $project -> checkPM() }}</td>
+                        <td>{{ $project -> deadline }}</td>
                         <td>
                             <p class="status-op m-0">
                                 <a href="{{ route('user.projects') }}">
@@ -42,35 +43,7 @@
                             </p>
                         </td>
                     </tr>
-                    <tr>
-                        <td>Project Name</td>
-                        <td>Klien 2</td>
-                        <td>Website / Mobile</td>
-                        <td>You</td>
-                        <td>20 Agustus 2023</td>
-                        <td>
-                            <p class="status-op m-0">
-                                <a href="{{ route('user.projects') }}">
-                                    <img src="{{ asset('img/Admin/mata.png') }}" alt="mata">
-                                </a>
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Project Name</td>
-                        <td>Klien 1</td>
-                        <td>Website / Mobile</td>
-                        <td>You</td>
-                        <td>30 Agustus 2023</td>
-                        <td>
-                            <p class="status-op m-0">
-                                <a href="{{ route('user.projects') }}">
-                                    <img src="{{ asset('img/Admin/mata.png') }}" alt="mata">
-                                </a>
-                            </p>
-                        </td>
-                    </tr>
-
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -92,11 +65,12 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($tasks as $task)
                     <tr>
-                        <td>Task Name</td>
-                        <td>Project 1</td>
-                        <td>Milestone Name</td>
-                        <td>30 Agustus 2023</td>
+                        <td>{{ $task -> nama }}</td>
+                        <td>{{ $task -> milestone -> project -> nama }}</td>
+                        <td>{{ $task -> milestone -> nama }}</td>
+                        <td>{{ $task -> milestone -> deadline }}</td>
                         <td>
                             <p class="status-op m-0">
                                 <a href="#">
@@ -105,45 +79,7 @@
                             </p>
                         </td>
                     </tr>
-                    <tr>
-                        <td>Task Name</td>
-                        <td>Project 2</td>
-                        <td>Milestone Name</td>
-                        <td>30 September 2023</td>
-                        <td>
-                            <p class="status-op m-0">
-                                <a href="#">
-                                    <img src="{{ asset('img/Admin/mata.png') }}" alt="mata">
-                                </a>
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Task Name</td>
-                        <td>Project 3</td>
-                        <td>Milestone Name</td>
-                        <td>12 Oktober 2023</td>
-                        <td>
-                            <p class="status-op m-0">
-                                <a href="#">
-                                    <img src="{{ asset('img/Admin/mata.png') }}" alt="mata">
-                                </a>
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Task Name</td>
-                        <td>Project 4</td>
-                        <td>Milestone Name</td>
-                        <td>20 Oktober 2023</td>
-                        <td>
-                            <p class="status-op m-0">
-                                <a href="#">
-                                    <img src="{{ asset('img/Admin/mata.png') }}" alt="mata">
-                                </a>
-                            </p>
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         

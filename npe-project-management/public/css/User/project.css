@@ -6,6 +6,12 @@ span#header-line{
     height: 4rem;
 }
 
+.card-body #p1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .main-sidebar .sidebar-menu li.active a {
     color: var(--primary-color) !important;
 }
@@ -72,7 +78,13 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu>li.active>a:before {
 
 }
 
-.on-progress-status-section h6 {
+.status-container .pending-status-section {
+    background-color: #EB455F26;
+    width: fit-content;
+    border-radius: 20px;
+}
+
+.on-progress-status-section h6, .pending-status-section h6 {
     font-size: .6rem;
     color: var(--primary-color);
 }

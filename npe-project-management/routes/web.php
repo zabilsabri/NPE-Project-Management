@@ -74,27 +74,23 @@ Route::group(['prefix' => '/user', 'namespace' => 'App\Http\Controllers\User'], 
 
     Route::group(['prefix' => 'project'], function () {
         Route::get('/', 'ProjectController@index')->name('user.projects');
-        Route::get('/detail/id', 'ProjectController@detail')->name('user.projects.detail');
+        Route::get('/detail/{id}', 'ProjectController@detail')->name('user.projects.detail');
+        Route::get('/finished', 'ProjectController@finish')->name('user.projects.finished');
+
+        Route::get('/detail-milestone/{id}', 'ProjectController@detailMilestone')->name('user.projects.detail-milestone');
+
         
         // buat prefix baru /detail/id/milestone buat new milestone dan milestone detail
         Route::get('/detail/id/milestone/new-milestone', function () {
             return view('User.milestone.new-milestone');
         })->name('user.projects.new-milestone');
 
-        Route::get('/detail/id/milestone/id', function () {
-            return view('User.milestone.detail-milestone');
-        })->name('user.projects.detail-milestone');
-
-        Route::get('/finished', function() {
-            return view('User.project.finished-project');
-        })->name('user.projects.finished');
-
         Route::get('/report', function() {
             return view('User.project.report-project');
         })->name('user.projects.report');
     });
 
-    Route::get('/my-task', function () {
-        return view('User.my-task');
-    })->name('user.my-task');
+    Route::group(['prefix' => 'task'], function () {
+        Route::get('/', 'TaskController@index')->name('user.my-task');
+    });
 });

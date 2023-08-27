@@ -10,8 +10,8 @@ use App\Models\User;
 class ReportController extends Controller
 {
     public function index() {
-        $reports = Project::where('isReviewed', 0)->where('tgl_selesai', '!=', NULL)->get();
-        $reports_count = Project::where('isReviewed', 0)->where('tgl_selesai', '!=', NULL)->count();
+        $reports = Project::where('status', 3)->get();
+        $reports_count = Project::where('status', 3)->count();
         if($reports_count == 0){
             return view('Admin.report.empty-report');
         } else {
@@ -34,7 +34,7 @@ class ReportController extends Controller
         $pm->update();
 
         $project = Project::find($request->ids_project);
-        $project->isReviewed = 1;
+        $project->status = 1;
         $project->update();
 
         foreach ($data['row_ids'] as $key => $rowId) {

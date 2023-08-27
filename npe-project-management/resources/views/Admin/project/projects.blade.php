@@ -58,7 +58,7 @@
                                 In Progress
                             </p>
                         </td>
-                        @else
+                        @elseif($project -> status == 1)
                         <td>
                             <p class="status-f m-0">
                                 <svg width="17" height="13" viewBox="0 0 17 13" fill="none"
@@ -69,6 +69,26 @@
                                 </svg>
                                 Completed
                             </p>
+                        </td>
+                        @elseif($project -> status == 2)
+                        <td>
+                            <div class="revisi-status-section d-flex align-items-center justify-content-center px-3 py-2">    
+                                <svg width="10" height="10" viewBox="0 0 12 12" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="6" cy="6" r="6" fill="#fc544b" />
+                                </svg>
+                                <h6 class="mb-0 ml-2 text-danger">Revision Needed</h6>
+                            </div>
+                        </td>
+                        @elseif($project -> status == 3)
+                        <td>
+                            <div class="pending-status-section d-flex align-items-center justify-content-center px-3 py-2">    
+                                <svg width="10" height="10" viewBox="0 0 12 12" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="6" cy="6" r="6" fill="#E4A11B" />
+                                </svg>
+                                <h6 class="mb-0 ml-2 text-warning">Pending</h6>
+                            </div>
                         </td>
                         @endif
                         <td class="text-center">
