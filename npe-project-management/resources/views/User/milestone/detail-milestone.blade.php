@@ -38,9 +38,63 @@
             <div class="header d-flex align-items-center">
                 <h5 class="mb-0">Task List</h5>
             </div>
-            <div class="body d-flex flex-column mt-3">
+            <div class="body d-flex flex-column gap-1 mt-3">
 
                 <!-- Task item -->
+                <div class="description-task-container d-flex">
+                    <input class="form-check mt-2" type="checkbox" id="flexCheckDisabled">
+                    <div class="desc-container ml-3 py-2 px-4">
+                        <div class="header-description-section d-flex justify-content-between">
+                            <div class="header-title d-flex align-items-center">
+                                <h6 class="mb-0" style="color:black;">Task Name</h6>
+                                <p class="mb-0 ml-3">Programmer Name</p>
+                            </div>
+                            <div class="right-section d-flex align-items-center">
+                                <a class="mr-3" href="#"><img src="{{ asset('img/Admin/pensil.png') }}" class="btn-edit" data-toggle="modal" data-target="#modal-new-task" alt="pencil"></a>
+                                <a class="mr-3" href="#"><img src="{{ asset('img/Admin/zabil.png') }}" class="btn-delete" alt="pensil" data-toggle="modal" data-target="#modal-hapus" alt="sampah"></a>
+                                <div class="dropdown-button d-flex align-items-center">
+                                    <input type="checkbox">
+                                    <i class="fas fa-chevron-down" style="font-size: 1.5rem; color:black;"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-description-section mt-2">
+                            <div class="desc">
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis quis, explicabo placeat neque facilis natus inventore suscipit consequatur! Dolore, modi?</p>
+                            </div>
+                            <div class="due-date d-flex justify-content-end">
+                                <h6 class="mb-0">Due Date</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="description-task-container d-flex">
+                    <input class="form-check mt-2" type="checkbox" id="flexCheckDisabled">
+                    <div class="desc-container ml-3 py-2 px-4">
+                        <div class="header-description-section d-flex justify-content-between">
+                            <div class="header-title d-flex align-items-center">
+                                <h6 class="mb-0" style="color:black;">Task Name</h6>
+                                <p class="mb-0 ml-3">Programmer Name</p>
+                            </div>
+                            <div class="right-section d-flex align-items-center">
+                                <a class="mr-3" href="#"><img src="{{ asset('img/Admin/pensil.png') }}" class="btn-edit" data-toggle="modal" data-target="#modal-new-task" alt="pencil"></a>
+                                <a class="mr-3" href="#"><img src="{{ asset('img/Admin/zabil.png') }}" class="btn-delete" alt="pensil" data-toggle="modal" data-target="#modal-hapus" alt="sampah"></a>
+                                <div class="dropdown-button d-flex align-items-center">
+                                    <input type="checkbox">
+                                    <i class="fas fa-chevron-down" style="font-size: 1.5rem; color:black;"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-description-section mt-2">
+                            <div class="desc">
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis quis, explicabo placeat neque facilis natus inventore suscipit consequatur! Dolore, modi?</p>
+                            </div>
+                            <div class="due-date d-flex justify-content-end">
+                                <h6 class="mb-0">Due Date</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="description-task-container d-flex">
                     <input class="form-check mt-2" type="checkbox" id="flexCheckDisabled">
                     <div class="desc-container ml-3 py-2 px-4">
@@ -160,11 +214,13 @@
 
 @section('script')
 <script>
-    const arrowInput = document.querySelector('.dropdown-button input');
-    const descContainer = document.querySelector('.desc-container');
+    const arrowInputs = document.querySelectorAll('.dropdown-button input');
+    const descContainer = document.querySelectorAll('.desc-container');
 
-    arrowInput.addEventListener('click', function() {
-        descContainer.classList.toggle('checked');
+    arrowInputs.forEach(function(arrowInput, index) {
+        arrowInput.addEventListener('click', function(){
+            descContainer[index].classList.toggle('checked');
+        });
     });
 </script>
 @endsection
