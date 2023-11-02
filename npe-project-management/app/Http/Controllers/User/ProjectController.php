@@ -14,7 +14,7 @@ class ProjectController extends Controller
     public function index() {
         $projects = Project::whereHas('employees', function ($query) {
                         return $query->where('employee_id', '=', Auth::user()->id)->where('status', 0)->orWhere('status', 2);
-                    })->get();
+                    })->orWhere('pm_id', Auth::user()->id)->get();
         $projects_count = Project::whereHas('employees', function ($query) {
                         return $query->where('employee_id', '=', Auth::user()->id)->where('status', 0)->orWhere('status', 2);
                     })->count();

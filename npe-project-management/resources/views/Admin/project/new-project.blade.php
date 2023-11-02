@@ -62,7 +62,7 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label>Date Range Picker</label>
+                    <label>Deadline</label>
                     <div class="input-group">
                         <input name="deadline" type="date" class="form-control daterange-cus" id="inputDeadline">
                     </div>
