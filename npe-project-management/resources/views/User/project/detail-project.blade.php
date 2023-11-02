@@ -92,7 +92,7 @@
             <div class="header d-flex align-items-center">
                 <h5 class="mb-0">My Task</h5>
             </div>
-            <div class="body d-flex flex-column mt-3">
+            <div class="body d-flex flex-column gap-1 mt-3">
                 @foreach($tasks as $task)
                 <!-- Task item -->
                 <div class="description-task-container d-flex">
@@ -101,7 +101,7 @@
                         <div class="header-description-section d-flex justify-content-between">
                             <div class="header-title d-flex align-items-center">
                                 <h6 class="mb-0" style="color:black;">{{ $task -> nama }}</h6>
-                                <p class="mb-0 ml-3">Programmer Name</p>
+                                <p class="mb-0 ml-3">{{ $task -> user -> nama }}</p>
                             </div>
                             <div id="test" class="dropdown-button d-flex align-items-center">
                                 <input type="checkbox">
@@ -179,11 +179,13 @@
 
 @section('script')
 <script>
-    const arrowInput = document.querySelector('.dropdown-button input');
-    const descContainer = document.querySelector('.desc-container');
+    const arrowInputs = document.querySelectorAll('.dropdown-button input');
+    const descContainer = document.querySelectorAll('.desc-container');
 
-    arrowInput.addEventListener('click', function() {
-        descContainer.classList.toggle('checked');
+    arrowInputs.forEach(function(arrowInput, index) {
+        arrowInput.addEventListener('click', function(){
+            descContainer[index].classList.toggle('checked');
+        });
     });
 </script>
 @endsection
