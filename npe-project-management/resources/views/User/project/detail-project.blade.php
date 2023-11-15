@@ -28,7 +28,15 @@
                             <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="6" cy="6" r="6" fill="#0061C7" />
                             </svg>
+                            @if($project -> status == 0)
                             <h6 class="mb-0 ml-2">On Progress</h6>
+                            @elseif($project -> status == 1)
+                            <h6 class="mb-0 ml-2">Finished</h6>
+                            @elseif($project -> status == 2)
+                            <h6 class="mb-0 ml-2">Revision Needed</h6>
+                            @elseif($project -> status == 3)
+                            <h6 class="mb-0 ml-2">Pending</h6>
+                            @endif
                         </div>
                     </div>
                     @if($project -> pm -> nama == Auth::user()->nama)
@@ -77,10 +85,12 @@
                         <h6 class="mb-0">Status: <span> {{ $milestone -> status }} </span></h6>
                         <p class="mb-0">Due Date ({{ $milestone -> deadline }})</p>
                     </div>
+                    @if($project -> pm -> id == Auth::user()->id)
                     <div class="action-button d-flex align-items-center">
                         <a class="mr-3" href="{{ route('user.projects.new-milestone') }}"><img src="{{ asset('img/Admin/pensil.png') }}" alt=""></a>
                         <a href="#"><img src="{{ asset('img/Admin/zabil.png') }}" class="btn-delete" alt="pensil" data-toggle="modal" data-target="#modal-hapus" alt="sampah"></a>
                     </div>
+                    @endif
                 </div>
             @endforeach
             </div>
