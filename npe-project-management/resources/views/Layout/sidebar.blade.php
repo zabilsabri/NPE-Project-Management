@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="{{ asset('Stisla/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('Stisla/assets/css/components.css') }}">
     <link rel="stylesheet" href="{{ asset('css/Layout/sidebar.css') }}">
+
+
 </head>
 
 <body>
@@ -227,7 +229,7 @@
                 $('div.toolbar-finished-project-user').html('<h5 class="float-left">Data Proyek yang Telah Selesai Dikerjakan</h5>');
 
                 $('#tableProgrammerProjectDetail').DataTable({
-                    "dom": '<"toolbar-programmer-project-detail">frt',
+                    "dom": '<"toolbar-programmer-project-detail">frtlp',
                     scrollX: true,
                     language: {
                         search: '',
