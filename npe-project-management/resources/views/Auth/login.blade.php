@@ -52,7 +52,7 @@
                             <div class="row justify-content-between mt-2 container-mid">
                                 <div class="col">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                        <input class="form-check-input" type="checkbox" name="remember_me" value="true" id="flexCheckChecked" checked>
                                         <label class="form-check-label" for="flexCheckChecked">
                                             Remember me
                                         </label>
