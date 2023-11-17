@@ -27,6 +27,7 @@
 
         <div class="image-header-section d-flex mx-5 pr-5">
             <div class="due-date-section py-2 px-4 d-flex flex-column align-items-center">
+                <h6 class="mb-0">Deadline</h6>
                 <h6 class="mb-0">{{ $milestone -> deadline }}</h6>
             </div>
         </div>
@@ -42,7 +43,11 @@
                 <!-- Task item -->
                 @foreach($milestone -> tasks as $task)
                 <div class="description-task-container d-flex">
-                    <input class="form-check mt-2" type="checkbox" id="flexCheckDisabled">
+                    @if($task -> status == 0)
+                    <input class="form-check mt-2" type="checkbox" id="flexCheckDisabled" disabled>
+                    @else
+                    <input class="form-check mt-2" type="checkbox" id="flexCheckDisabled" disabled checked>
+                    @endif
                     <div class="desc-container ml-3 py-2 px-4">
                         <div class="header-description-section d-flex justify-content-between">
                             <div class="header-title d-flex align-items-center">
@@ -88,7 +93,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" id="btn-hapus">Hapus</button>
+                                <a type="button" href="#" class="btn btn-primary" id="btn-hapus">Hapus</a>
                             </div>
                         </div>
                         <!-- /.modal-content -->

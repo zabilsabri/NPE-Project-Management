@@ -53,4 +53,56 @@ class ProjectController extends Controller
         return view('User.milestone.detail-milestone')
             ->with(compact('milestone'));
     }
+
+    public function newMilestone($id) {
+        $project = Project::find($id);
+        return view('User.milestone.new-milestone', compact('project'));
+    }
+
+    public function storeMilestone(Request $request) {
+        $validated = $request->validate([
+            'nama' => 'required',
+            'deadline' => 'required',
+            'detail' => 'required',
+        ]);
+
+        $milestone = new Milestone;
+        $milestone->nama = $request->nama;
+        $milestone->deadline = $request->deadline;
+        $milestone->detail = $request->detail;
+        $milestone->status = 0;
+        $milestone->project_id = $request->project_id;
+        $milestone->save();
+
+        return redirect()->route('user.projects.detail', [$request->project_id]);
+    }
+
+    public function editMilestone(Request $request, $id) {
+        $project = Milestone::find($id);
+        return view('User.milestone.new-milestone', compact('project'));
+    }
+
+    public function updateMilestone(Request $request, $id) {
+        $validated = $request->validate([
+            'nama' => 'required',
+            'deadline' => 'required',
+            'detail' => 'required',
+        ]);
+
+        $milestone = Milestone::find($id);
+        $milestone->nama = $request->nama;
+        $milestone->deadline = $request->deadline;
+        $milestone->detail = $request->detail;
+        $milestone->status = 0;
+        $milestone->project_id = $request->project_id;
+        $milestone->save();
+
+        return redirect()->route('user.projects.detail', [$request->project_id]);
+    }
+
+    public function deleteMilestone($id) {
+        $milestone = Milestone::find($id)->delete();
+
+        return redirect()->back();
+    }
 }

@@ -77,12 +77,14 @@ Route::group(['prefix' => '/user', 'namespace' => 'App\Http\Controllers\User'], 
         Route::get('/detail/{id}', 'ProjectController@detail')->name('user.projects.detail');
         Route::get('/finished', 'ProjectController@finish')->name('user.projects.finished');
         
-        Route::group(['prefix' => 'detail-milestone/{id}'], function () {
-            Route::get('/', 'ProjectController@detailMilestone')->name('user.projects.detail-milestone');
+        Route::group(['prefix' => '/milestone'], function () {
+            Route::get('/detail/{id}', 'ProjectController@detailMilestone')->name('user.projects.detail-milestone');
+            Route::get('/detail/{id}/new-milestone', 'ProjectController@newMilestone')->name('user.projects.new-milestone');
+            Route::post('/store-milestone', 'ProjectController@storeMilestone')->name('user.projects.store-milestone');
+            Route::get('/detail/{id}/edit-milestone', 'ProjectController@editMilestone')->name('user.projects.edit-milestone');
+            Route::post('/update-milestone/{id}', 'ProjectController@updateMilestone')->name('user.projects.update-milestone');
+            Route::get('/delete-milestone/{id}', 'ProjectController@deleteMilestone')->name('user.projects.delete-milestone');
         });
-        Route::get('/detail/id/milestone/new-milestone', function () {
-            return view('User.milestone.new-milestone');
-        })->name('user.projects.new-milestone');
 
         Route::get('/report', function() {
             return view('User.project.report-project');
