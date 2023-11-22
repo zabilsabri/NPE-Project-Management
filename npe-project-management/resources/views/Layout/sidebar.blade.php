@@ -137,6 +137,7 @@
         </div>
     </div>
 
+    @stack('modal')
 
         <!-- General JS Scripts -->
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
@@ -152,6 +153,7 @@
 
         <!-- Datatables -->
         <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+
 
         <script>
             $(document).ready(function() {

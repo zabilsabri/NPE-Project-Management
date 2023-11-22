@@ -2,12 +2,6 @@
 <link rel="stylesheet" href="{{ asset('css/User/detail-project.css') }}">
 <link rel="stylesheet" href="{{ asset('css/Layout/datatables.css') }}">
 
-<style>
-   .modal-backdrop{
-        display: none
-   }
-</style>
-
 @section('content')
 <div class="card">
     <div class="section-header d-flex justify-content-between">
@@ -93,13 +87,13 @@
                     @if($project -> pm -> id == Auth::user()->id)
                     <div class="action-button d-flex align-items-center">
                         <a class="mr-3" href="{{ route('user.projects.edit-milestone', ['id' => $milestone -> id]) }}"><img src="{{ asset('img/Admin/pensil.png') }}" alt=""></a>
-                        <a href="#"><img src="{{ asset('img/Admin/zabil.png') }}" class="btn-delete" alt="pensil" data-toggle="modal" data-target="#modal-hapus{{ $milestone -> id }}" alt="sampah"></a>
+                        <a href="#"><img src="{{ asset('img/Admin/zabil.png') }}" class="btn-delete" alt="pensil" data-toggle="modal" data-target="#modal-hapus-milestone{{ $milestone -> id }}" alt="sampah"></a>
                     </div>
                     @endif
                 </div>
 
-
-                <div class="modal fade" id="modal-hapus{{ $milestone -> id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                @push('modal')
+                <div class="modal fade" id="modal-hapus-milestone{{ $milestone -> id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -121,6 +115,7 @@
                         </div>
                     </div>
                 </div>
+                @endpush
 
 
             @endforeach

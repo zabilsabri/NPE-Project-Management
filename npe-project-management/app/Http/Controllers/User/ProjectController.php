@@ -105,4 +105,44 @@ class ProjectController extends Controller
 
         return redirect()->back();
     }
+
+    public function storeTask(Request $request) {
+        $task = new Task;
+        $task->nama = $request->nama;
+        $task->deadline = $request->deadline;
+        $task->detail = $request->detail;
+        $task->status = 0;
+        $task->milestone_id = $request->milestone_id;
+        $task->assign_to_id = $request->assign_to_id;
+        $task->save();
+
+        return redirect()->back();
+    }
+
+    public function updateTask(Request $request, $id) {
+        $task = Task::find($id);
+        $task->nama = $request->nama;
+        $task->deadline = $request->deadline;
+        $task->detail = $request->detail;
+        $task->status = 0;
+        $task->milestone_id = $request->milestone_id;
+        $task->assign_to_id = $request->assign_to_id;
+        $task->save();
+
+        return redirect()->back();
+    }
+
+    public function deleteTask($id) {
+        $task = Task::find($id)->delete();
+
+        return redirect()->back();
+    }
+
+    public function updateMilestoneStatus($id, $status) {
+        $milestone = Milestone::find($id);
+        $milestone->status = $status;
+        $milestone->save();
+
+        return redirect()->back();
+    }
 }

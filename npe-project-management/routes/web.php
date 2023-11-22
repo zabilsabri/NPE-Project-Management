@@ -84,6 +84,11 @@ Route::group(['prefix' => '/user', 'namespace' => 'App\Http\Controllers\User'], 
             Route::get('/detail/{id}/edit-milestone', 'ProjectController@editMilestone')->name('user.projects.edit-milestone');
             Route::post('/update-milestone/{id}', 'ProjectController@updateMilestone')->name('user.projects.update-milestone');
             Route::get('/delete-milestone/{id}', 'ProjectController@deleteMilestone')->name('user.projects.delete-milestone');
+            Route::get('/update-milestone-status/{id}/{status}', 'ProjectController@updateMilestoneStatus')->name('user.projects.update-milestone-status');
+
+            Route::post('/store-task', 'ProjectController@storeTask')->name('user.projects.store-task');
+            Route::post('/update-task/{id}', 'ProjectController@updateTask')->name('user.projects.update-task');
+            Route::get('/delete-task/{id}', 'ProjectController@deleteTask')->name('user.projects.delete-task');
         });
 
         Route::get('/report', function() {
