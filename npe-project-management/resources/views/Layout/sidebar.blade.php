@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="{{ asset('Stisla/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('Stisla/assets/css/components.css') }}">
     <link rel="stylesheet" href="{{ asset('css/Layout/sidebar.css') }}">
+
+
 </head>
 
 <body>
@@ -135,6 +137,7 @@
         </div>
     </div>
 
+    @stack('modal')
 
         <!-- General JS Scripts -->
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
@@ -150,6 +153,7 @@
 
         <!-- Datatables -->
         <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+
 
         <script>
             $(document).ready(function() {
@@ -227,7 +231,7 @@
                 $('div.toolbar-finished-project-user').html('<h5 class="float-left">Data Proyek yang Telah Selesai Dikerjakan</h5>');
 
                 $('#tableProgrammerProjectDetail').DataTable({
-                    "dom": '<"toolbar-programmer-project-detail">frt',
+                    "dom": '<"toolbar-programmer-project-detail">frtlp',
                     scrollX: true,
                     language: {
                         search: '',

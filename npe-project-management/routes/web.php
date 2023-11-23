@@ -76,14 +76,20 @@ Route::group(['prefix' => '/user', 'namespace' => 'App\Http\Controllers\User'], 
         Route::get('/', 'ProjectController@index')->name('user.projects');
         Route::get('/detail/{id}', 'ProjectController@detail')->name('user.projects.detail');
         Route::get('/finished', 'ProjectController@finish')->name('user.projects.finished');
-
-        Route::get('/detail-milestone/{id}', 'ProjectController@detailMilestone')->name('user.projects.detail-milestone');
-
         
-        // buat prefix baru /detail/id/milestone buat new milestone dan milestone detail
-        Route::get('/detail/id/milestone/new-milestone', function () {
-            return view('User.milestone.new-milestone');
-        })->name('user.projects.new-milestone');
+        Route::group(['prefix' => '/milestone'], function () {
+            Route::get('/detail/{id}', 'ProjectController@detailMilestone')->name('user.projects.detail-milestone');
+            Route::get('/detail/{id}/new-milestone', 'ProjectController@newMilestone')->name('user.projects.new-milestone');
+            Route::post('/store-milestone', 'ProjectController@storeMilestone')->name('user.projects.store-milestone');
+            Route::get('/detail/{id}/edit-milestone', 'ProjectController@editMilestone')->name('user.projects.edit-milestone');
+            Route::post('/update-milestone/{id}', 'ProjectController@updateMilestone')->name('user.projects.update-milestone');
+            Route::get('/delete-milestone/{id}', 'ProjectController@deleteMilestone')->name('user.projects.delete-milestone');
+            Route::get('/update-milestone-status/{id}/{status}', 'ProjectController@updateMilestoneStatus')->name('user.projects.update-milestone-status');
+
+            Route::post('/store-task', 'ProjectController@storeTask')->name('user.projects.store-task');
+            Route::post('/update-task/{id}', 'ProjectController@updateTask')->name('user.projects.update-task');
+            Route::get('/delete-task/{id}', 'ProjectController@deleteTask')->name('user.projects.delete-task');
+        });
 
         Route::get('/report', function() {
             return view('User.project.report-project');

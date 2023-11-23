@@ -48,7 +48,7 @@
                         </td>
                         <td>
                             <p class="status-op m-0">
-                                <a href="{{ route('user.projects') }}">
+                                <a href="{{ route('user.projects.detail', ['id' => $finished_project -> id]) }}">
                                     <img src="{{ asset('img/Admin/mata.png') }}" alt="mata">
                                 </a>
                             </p>
