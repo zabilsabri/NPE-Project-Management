@@ -44,10 +44,15 @@ class Project extends Model
         return Carbon::parse($value)->format('d-m-Y');
     }
 
+    public function review(){
+        return $this->hasMany(ProjectUser::class, 'project_id');
+    }
+
     public function checkStatus(){
-        $deadline = $this -> deadline;
-        $tgl_selesai = $this -> tgl_selesai;
-        if($tgl_selesai > $deadline){
+        $deadline = Carbon::parse($this -> deadline);
+        $tgl_selesai = Carbon::parse($this -> tgl_selesai);
+
+        if($tgl_selesai->greaterThan($deadline)){
             return 0;
         } else {
             return 1;
