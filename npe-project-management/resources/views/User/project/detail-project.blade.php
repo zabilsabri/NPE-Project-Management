@@ -40,7 +40,7 @@
                     </div>
                     @if($project -> pm -> nama == Auth::user()->nama)
                     <div class="success-button-section">
-                        <a href="{{ route('user.projects.report') }}"><button onclick="" class="btn btn-success mt-4 px-3 py-2">
+                        <a href="{{ route('user.projects.report', ['id' => $project->id]) }}"><button onclick="" class="btn btn-success mt-4 px-3 py-2">
                                 <h6>Finish Project</h6>
                             </button></a>
                     </div>
@@ -125,37 +125,53 @@
         @if($project -> pm -> nama != Auth::user()->nama)
         <!-- My Task Section for User -->
         <div class="Task-section p-4 mt-5">
-            <div class="header d-flex align-items-center">
-                <h5 class="mb-0">My Task</h5>
-            </div>
-            <div class="body d-flex flex-column gap-1 mt-3">
-                @foreach($tasks as $task)
-                <!-- Task item -->
-                <div class="description-task-container d-flex">
-                    <input class="form-check mt-2" type="checkbox" id="flexCheckDisabled">
-                    <div class="desc-container ml-3 py-2 px-4">
-                        <div class="header-description-section d-flex justify-content-between">
-                            <div class="header-title d-flex align-items-center">
-                                <h6 class="mb-0" style="color:black;">{{ $task -> nama }}</h6>
-                                <p class="mb-0 ml-3">{{ $task -> user -> nama }}</p>
+            <form action="{{ route('user.update-done-task') }}" method="POST">
+                @csrf
+                <div class="header d-flex align-items-center justify-content-between">
+                    <h5 class="mb-0">My Task</h5>
+                    <button onclick="" type="submit" class="btn btn-success">
+                        Update Task
+                    </button>
+                </div>
+                <div class="body d-flex flex-column gap-1 mt-3">
+                    @forelse($tasks as $task)
+                    <!-- Task item -->
+                    <div class="description-task-container d-flex">
+                        <input class="form-check mt-2" value="{{ $task->id }}" name="task_status[]" type="checkbox" id="flexCheckDisabled">
+                        <div class="desc-container ml-3 py-2 px-4">
+                            <div class="header-description-section d-flex justify-content-between">
+                                <div class="header-title d-flex align-items-center">
+                                    <h6 class="mb-0" style="color:black;">{{ $task -> nama }}</h6>
+                                    <p class="mb-0 ml-3">{{ $task -> user_nama }}</p>
+                                </div>
+                                <div id="test" class="dropdown-button d-flex align-items-center">
+                                    <input type="checkbox">
+                                    <i class="fas fa-chevron-down" style="font-size: 1.5rem; color:black;"></i>
+                                </div>
                             </div>
-                            <div id="test" class="dropdown-button d-flex align-items-center">
-                                <input type="checkbox">
-                                <i class="fas fa-chevron-down" style="font-size: 1.5rem; color:black;"></i>
-                            </div>
-                        </div>
-                        <div class="task-description-section mt-2">
-                            <div class="desc">
-                                <p>{{ $task -> detail }}</p>
-                            </div>
-                            <div class="due-date d-flex justify-content-end">
-                                <h6 class="mb-0">{{ $task -> deadline }}</h6>
+                            <div class="task-description-section mt-2">
+                                <div class="desc">
+                                    <p>{{ $task -> detail }}</p>
+                                </div>
+                                <div class="due-date d-flex justify-content-end">
+                                    <h6 class="mb-0">{{ $task -> deadline }}</h6>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    @empty
+                    <div class="description-task-container d-flex">
+                        <div class="desc-container ml-3 py-2 px-4">
+                            <div class="header-description-section d-flex justify-content-between">
+                                <div class="header-title d-flex align-items-center">
+                                    <h6 class="mb-0" style="color:black;">Anda Belum Memiliki Task!</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforelse
                 </div>
-                @endforeach
-            </div>
+            </form>
         </div>
         @endif
 

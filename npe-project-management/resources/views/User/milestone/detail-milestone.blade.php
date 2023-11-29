@@ -17,20 +17,22 @@
                 <div class="title d-flex flex-column ml-5">
                     <h1 class="mt-0">{{ $milestone -> nama }}</h1>
                     
-                    @if($milestone -> project -> pm -> nama == Auth::user()->nama)
-                    <div class="success-button-section">
-                        @if($milestone -> status == 'Belum Selesai')
-                        <a href="{{ route('user.projects.update-milestone-status', ['id' => $milestone -> id, 'status' => 1]) }}"><button onclick="" class="btn btn-success mt-4 px-3 py-2">
-                                <h6>Finish Milestone</h6>
+                    @if($milestoneStatus == true)
+                        @if($milestone -> project -> pm -> nama == Auth::user()->nama)
+                        <div class="success-button-section">
+                            @if($milestone -> status == 'Belum Selesai')
+                            <a href="{{ route('user.projects.update-milestone-status', ['id' => $milestone -> id, 'status' => 1]) }}"><button onclick="" class="btn btn-success mt-4 px-3 py-2">
+                                    <h6>Finish Milestone</h6>
+                                </button>
+                            </a>
+                            @elseif($milestone -> status == 'Selesai')
+                            <a href="{{ route('user.projects.update-milestone-status', ['id' => $milestone -> id, 'status' => 0]) }}"><button onclick="" class="btn btn-danger mt-4 px-3 py-2">
+                                    <h6>Unfinish Milestone</h6>
                             </button>
-                        </a>
-                        @elseif($milestone -> status == 'Selesai')
-                        <a href="{{ route('user.projects.update-milestone-status', ['id' => $milestone -> id, 'status' => 0]) }}"><button onclick="" class="btn btn-danger mt-4 px-3 py-2">
-                                <h6>Unfinish Milestone</h6>
-                        </button>
-                        </a>
+                            </a>
+                            @endif
+                        </div>
                         @endif
-                    </div>
                     @endif
 
                     <div class="milestone-description mt-3">
@@ -50,21 +52,28 @@
         </div>
     </div>
     <div class="card-body ml-5">
-        <!-- My Task Section for User -->
-        <div class="Task-section p-4">
-            <div class="header d-flex align-items-center">
+        @if($milestone -> status == 'Belum Selesai')
+        <div class="Task-section p-4 mb-5">
+            <div class="header d-flex align-items-center mx-3 justify-content-between">
                 <h5 class="mb-0">Task List</h5>
+                <form action="{{ route('user.verify-task') }}" method="post">
+                @csrf
+                @if($milestone -> project -> pm_id == Auth::user()->id)
+                <button onclick="" type="submit" class="btn btn-success">
+                    <h6 class="m-0 p-2">Validate Task</h6>
+                </button>
+                @endif
             </div>
             <div class="body d-flex flex-column gap-1 mt-3">
 
                 <!-- Task item -->
                 @foreach($milestone -> tasks as $task)
                 <div class="description-task-container d-flex">
-                    @if($task -> status == 0)
-                    <input class="form-check mt-2" type="checkbox" id="flexCheckDisabled" disabled>
-                    @else
-                    <input class="form-check mt-2" type="checkbox" id="flexCheckDisabled" disabled checked>
+                    @if($task -> is_reviewed == 0)
+                    @if($task -> milestone -> project -> pm_id == Auth::user()->id && $task)
+                        <input class="form-check mt-2" type="checkbox" name="task_status[]" value="{{ $task->id }}" id="flexCheckDisabled" {{ $task->is_reviewed ? 'checked' : '' }}>
                     @endif
+                    </form>
                     <div class="desc-container ml-3 py-2 px-4">
                         <div class="header-description-section d-flex justify-content-between">
                             <div class="header-title d-flex align-items-center">
@@ -72,6 +81,13 @@
                                 <p class="mb-0 ml-3">{{ $task -> user -> nama }}</p>
                             </div>
                             <div class="right-section d-flex align-items-center">
+                                <p class="mb-0 ml-3 me-2">
+                                    @if($task -> is_reviewed == 0 && $task -> status == 0)
+                                        <span class="badge badge-danger">Belum Selesai</span>
+                                    @elseif($task -> is_reviewed == 0 && $task -> status == 1)
+                                        <span class="badge badge-warning">Sedang Direview</span>
+                                    @endif
+                                </p>
                                 @if($milestone -> project -> pm_id == Auth::user()->id)
                                 <a class="mr-3" href="#"><img src="{{ asset('img/Admin/pensil.png') }}" class="btn-edit" data-toggle="modal" data-target="#modal-edit-task{{ $task -> id }}" alt="pencil"></a>
                                 <a class="mr-3" href="#"><img src="{{ asset('img/Admin/zabil.png') }}" class="btn-delete" alt="pensil" data-toggle="modal" data-target="#modal-hapus-task{{ $task -> id }}" alt="sampah"></a>
@@ -91,6 +107,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                 </div>
 
                 @push('modal')
@@ -184,6 +201,74 @@
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-new-task" style="width: 100%; height: 2rem;"><i class="fas fa-plus"></i></button>
                 </div>
                 @endif
+            </div>
+        </div>
+        @endif
+        <div class="Task-section p-4">
+            <div class="header d-flex align-items-center justify-content-between">
+                <h5 class="mb-0">Completed Task List</h5>
+            </div>
+            <div class="body d-flex flex-column gap-1 mt-3">
+
+                <!-- Task item -->
+                @forelse($completedTask as $task)
+                <div class="description-task-container d-flex">
+                    <div class="desc-container ml-3 py-2 px-4">
+                        <div class="header-description-section d-flex justify-content-between">
+                            <div class="header-title d-flex align-items-center">
+                                <h6 class="mb-0" style="color:black;">{{ $task -> nama }}</h6>
+                                <p class="mb-0 ml-3">{{ $task -> user -> nama }}</p>
+                            </div>
+                            <div class="right-section d-flex align-items-center">
+                                @if($milestone -> project -> pm_id == Auth::user()->id && $milestone -> status == 'Belum Selesai')
+                                <a class="mr-3" href="#"><img src="{{ asset('img/Admin/zabil.png') }}" class="btn-delete" alt="pensil" data-toggle="modal" data-target="#modal-unverify-task{{ $task -> id }}" alt="sampah"></a>
+                                @endif
+                                <div class="dropdown-button d-flex align-items-center">
+                                    <input type="checkbox">
+                                    <i class="fas fa-chevron-down" style="font-size: 1.5rem; color:black;"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-description-section mt-2">
+                            <div class="desc">
+                                <p>{{ $task -> detail }}</p>
+                            </div>
+                            <div class="due-date d-flex justify-content-end">
+                                <h6 class="mb-0">{{ $task -> deadline }}</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @push('modal')
+                <div class="modal fade" id="modal-unverify-task{{ $task -> id }}" aria-modal="true" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <div class="row">
+                                    <span class="col align-self-center"><img src="{{ asset('img/Admin/icon.svg')}}" alt=""></span>
+                                    <h4 class="modal-title ml-3 align-self-center">Tandai Task Ini Belum Selesai?</h4>
+                                </div>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">x</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Task ini akan ditandai bahwa belum selesai</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <a type="button" href="{{ route('user.unverify-task', ['id' => $task -> id]) }}" class="btn btn-primary" id="btn-hapus">Ok</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endpush
+                @empty
+                <div class="text-center">
+                    <h6 class="mb-0" style="color:black;">Belum ada task yang selesai!</h6>
+                </div>
+                @endforelse              
             </div>
         </div>
 
