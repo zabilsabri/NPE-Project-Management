@@ -22,11 +22,11 @@ class ReportController extends Controller
 
         if (!empty($summaries)) {
             foreach ($summaries as $itemId => $itemName) {
-                ProjectUser::where('employee_id', $itemId)->update(['performance_review' => $itemName]);
+                ProjectUser::where('project_id', $id)->where('employee_id', $itemId)->update(['performance_review' => $itemName]);
             }
         }
 
-        Project::where('id', $id)->update(['status' => 1]);
+        Project::where('id', $id)->update(['status' => 3, 'tgl_selesai' => date('Y-m-d')]);
     
         return redirect()->route('user.projects');
     }

@@ -21,7 +21,7 @@ class ReportController extends Controller
     }
 
     public function detail($id) {
-        $report_detail = Project::find($id);
+        $report_detail = Project::with('review')->find($id);
         return view('Admin.report.detail-report')
             ->with(compact('report_detail'));
     }
@@ -43,6 +43,14 @@ class ReportController extends Controller
                 'credit' => $credit,
             ]);
         }
+
+        return redirect()->route('report.admin');
+    }
+
+    public function revisionProject($id) {
+        Project::where('id', $id)->update([
+            'status' => 2,
+        ]);
 
         return redirect()->route('report.admin');
     }

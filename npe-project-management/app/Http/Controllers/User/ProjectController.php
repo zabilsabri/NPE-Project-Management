@@ -13,9 +13,18 @@ use DB;
 class ProjectController extends Controller
 {
     public function index() {
-        $projects = Project::whereHas('employees', function ($query) {
-                        return $query->where('employee_id', '=', Auth::user()->id)->where('status', 0)->orWhere('status', 2);
-                    })->orWhere('pm_id', Auth::user()->id)->get();
+
+        $loggedInUserId = Auth::user()->id;
+
+        $projects = Project::whereHas('employees', function ($query) use ($loggedInUserId) {
+            return $query->where(function ($subQuery) use ($loggedInUserId) {
+                $subQuery->where('employee_id', $loggedInUserId)
+                          ->orWhere('pm_id', $loggedInUserId);
+            })->where(function ($subQuery) {
+                $subQuery->where('status', 0)
+                          ->orWhere('status', 2);
+            });
+        })->get();
         $projects_count = Project::whereHas('employees', function ($query) {
                         return $query->where('employee_id', '=', Auth::user()->id)->where('status', 0)->orWhere('status', 2);
                     })->count();
@@ -52,10 +61,20 @@ class ProjectController extends Controller
         ->select('tasks.*', 'milestones.nama as milestone_nama', 'projects.nama as project_nama', 'users.nama as user_nama')
         ->get();
 
+        $totalMilestone = Milestone::where('project_id', $id)->count();
+        $rowsWithTrueStatus = Milestone::where('project_id', $id)->where('status', true)->count();
+
+        if ($totalMilestone > 0 && $totalMilestone === $rowsWithTrueStatus) {
+            $milestoneStatus = true;
+        } else {
+            $milestoneStatus = false;
+        }
+
         return view('User.project.detail-project')
             ->with(compact('project'))
             ->with(compact('milestones'))
-            ->with(compact('tasks'));
+            ->with(compact('tasks'))
+            ->with(compact('milestoneStatus'));
     }
 
     public function detailMilestone($id){
