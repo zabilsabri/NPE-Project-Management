@@ -91,12 +91,16 @@ Route::group(['prefix' => '/user', 'namespace' => 'App\Http\Controllers\User'], 
             Route::get('/delete-task/{id}', 'ProjectController@deleteTask')->name('user.projects.delete-task');
         });
 
-        Route::get('/report', function() {
-            return view('User.project.report-project');
-        })->name('user.projects.report');
+        Route::group(['prefix' => 'report'], function () {
+            Route::get('/{id}', 'ReportController@indexUser')->name('user.projects.report');
+            Route::post('/store/{id}', 'ReportController@store')->name('user.projects.store-report');
+        });
     });
 
     Route::group(['prefix' => 'task'], function () {
         Route::get('/', 'TaskController@index')->name('user.my-task');
+        Route::post('/update-done-task', 'TaskController@updateDoneTask')->name('user.update-done-task');
+        Route::post('/verify-task', 'TaskController@verifyTask')->name('user.verify-task');
+        Route::get('/unverify-task/{id}', 'TaskController@unverifyTask')->name('user.unverify-task');
     });
 });

@@ -8,6 +8,7 @@ use App\Models\Project;
 use App\Models\Milestone;
 use App\Models\Task;
 use Auth;
+use DB;
 
 class ProjectController extends Controller
 {
@@ -41,7 +42,16 @@ class ProjectController extends Controller
     public function detail($id) {
         $project = Project::find($id);
         $milestones = Milestone::where('project_id', $id)->get();
-        $tasks = Task::with('milestone')->where('assign_to_id', Auth::user()->id)->get();
+        $tasks = DB::table('tasks')
+        ->join('users', 'users.id', '=', 'tasks.assign_to_id')
+        ->join('milestones', 'milestones.id', '=', 'tasks.milestone_id')
+        ->join('projects', 'projects.id', '=', 'milestones.project_id')  
+        ->where('tasks.assign_to_id', Auth::user()->id)
+        ->where('tasks.status', 0)  
+        ->where('projects.id', $id)
+        ->select('tasks.*', 'milestones.nama as milestone_nama', 'projects.nama as project_nama', 'users.nama as user_nama')
+        ->get();
+
         return view('User.project.detail-project')
             ->with(compact('project'))
             ->with(compact('milestones'))
@@ -50,8 +60,19 @@ class ProjectController extends Controller
 
     public function detailMilestone($id){
         $milestone = Milestone::find($id);
+        $completedTask = Task::where('milestone_id', $id)->where('status', 1)->where('is_reviewed', 1)->get();
+
+        $totalTask = Task::where('milestone_id', $id)->count();
+        $rowsWithTrueStatus = Task::where('milestone_id', $id)->where('is_reviewed', true)->count();
+
+        if ($totalTask > 0 && $totalTask === $rowsWithTrueStatus) {
+            $milestoneStatus = true;
+        } else {
+            $milestoneStatus = false;
+        }
+
         return view('User.milestone.detail-milestone')
-            ->with(compact('milestone'));
+            ->with(compact('milestone', 'completedTask', 'milestoneStatus'));
     }
 
     public function newMilestone($id) {
