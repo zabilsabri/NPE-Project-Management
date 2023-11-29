@@ -5,7 +5,7 @@
 <div class="card">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Report</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('report.admin') }}">Report</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ $report_detail -> nama }}</li>
         </ol>
     </nav>
@@ -22,12 +22,12 @@
         <div class="col col-md-6 p-0 mb-4">
             <p class="p2">Programmer</p>
         </div>
-        @foreach($report_detail -> employees as $selvi)
+        @foreach($report_detail -> review as $selvi)
         <div id="accordion">
             <div class="accordion">
                 <div class="accordion-header collapsed" role="button" data-toggle="collapse" data-target="#panel-body-{{ $selvi -> id }}"
                     aria-expanded="false">
-                    <h6>{{ $selvi -> nama }} ({{ $selvi -> jabatan }} {{ $selvi -> divisi }})</h6>
+                    <h6>{{ $selvi -> employee -> nama }} ({{ $selvi -> employee -> jabatan }} {{ $selvi -> employee -> divisi }})</h6>
                 </div>
                 <div class="accordion-body collapse" id="panel-body-{{ $selvi -> id }}" data-parent="#accordion">
                     <p class="acc-title">Summary</p>
@@ -108,14 +108,11 @@
                 </button>
             </div>
             <div class="modal-body">
-            <div class="form-floating">
-                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                <label for="floatingTextarea2">Alasan</label>
-            </div>
+                <p>Projek ini akan dikembalikan ke programmer dengan status "Revision"</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                <button type="button" class="btn btn-primary" id="btn-tambah">Kirim</button>
+                <a class="btn btn-primary" href="{{ route('report-revision.admin', ['id' => $report_detail -> id]) }}" role="button">Kirim</a>
             </div>
         </div>
         <!-- /.modal-content -->

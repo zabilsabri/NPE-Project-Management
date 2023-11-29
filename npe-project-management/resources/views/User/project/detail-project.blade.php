@@ -38,7 +38,7 @@
                             @endif
                         </div>
                     </div>
-                    @if($project -> pm -> nama == Auth::user()->nama)
+                    @if($project -> pm -> nama == Auth::user()->nama && $project -> status != 1 && $project -> status != 3  && $milestoneStatus == true)
                     <div class="success-button-section">
                         <a href="{{ route('user.projects.report', ['id' => $project->id]) }}"><button onclick="" class="btn btn-success mt-4 px-3 py-2">
                                 <h6>Finish Project</h6>
@@ -69,7 +69,7 @@
         <div class="milestone-section p-4 ">
             <div class="header d-flex align-items-center">
                 <h5 class="mb-0">Milestone</h5>
-                @if($project -> pm -> nama == Auth::user()->nama)
+                @if($project -> pm -> nama == Auth::user()->nama && $project -> status != 1 && $project -> status != 3)
                 <a href="{{ route('user.projects.new-milestone', ['id' => $project -> id]) }}"><Button class="add-milestone-btn ml-4"><i class="fas fa-plus"></i> &nbsp; Add Milestone</Button></a>
                 @endif
             </div>
@@ -84,7 +84,7 @@
                         <h6 class="mb-0">Status: <span> {{ $milestone -> status }} </span></h6>
                         <p class="mb-0">Due Date ({{ $milestone -> deadline }})</p>
                     </div>
-                    @if($project -> pm -> id == Auth::user()->id)
+                    @if($project -> pm -> id == Auth::user()->id && $project -> status != 1 && $project -> status != 3)
                     <div class="action-button d-flex align-items-center">
                         <a class="mr-3" href="{{ route('user.projects.edit-milestone', ['id' => $milestone -> id]) }}"><img src="{{ asset('img/Admin/pensil.png') }}" alt=""></a>
                         <a href="#"><img src="{{ asset('img/Admin/zabil.png') }}" class="btn-delete" alt="pensil" data-toggle="modal" data-target="#modal-hapus-milestone{{ $milestone -> id }}" alt="sampah"></a>

@@ -18,7 +18,7 @@
                     <h1 class="mt-0">{{ $milestone -> nama }}</h1>
                     
                     @if($milestoneStatus == true)
-                        @if($milestone -> project -> pm -> nama == Auth::user()->nama)
+                        @if($milestone -> project -> pm -> nama == Auth::user()->nama && $milestone -> project -> status != 1 && $milestone -> project -> status != 3)
                         <div class="success-button-section">
                             @if($milestone -> status == 'Belum Selesai')
                             <a href="{{ route('user.projects.update-milestone-status', ['id' => $milestone -> id, 'status' => 1]) }}"><button onclick="" class="btn btn-success mt-4 px-3 py-2">
@@ -70,8 +70,10 @@
                 @foreach($milestone -> tasks as $task)
                 <div class="description-task-container d-flex">
                     @if($task -> is_reviewed == 0)
-                    @if($task -> milestone -> project -> pm_id == Auth::user()->id && $task)
+                    @if($task -> milestone -> project -> pm_id == Auth::user()->id && $task -> status == 1)
                         <input class="form-check mt-2" type="checkbox" name="task_status[]" value="{{ $task->id }}" id="flexCheckDisabled" {{ $task->is_reviewed ? 'checked' : '' }}>
+                    @elseif($task -> milestone -> project -> pm_id == Auth::user()->id && $task -> status == 0)
+                        <input class="form-check mt-2" type="checkbox" name="task_status[]" value="{{ $task->id }}" id="flexCheckDisabled" disabled>
                     @endif
                     </form>
                     <div class="desc-container ml-3 py-2 px-4">
