@@ -17,7 +17,8 @@ return new class extends Migration
             $table->unsignedBigInteger('milestone_id');
             $table->unsignedBigInteger('assign_to_id')->nullable();
             $table->date('deadline');
-            $table->boolean('status');
+            $table->boolean('status')->default(0);
+            $table->boolean('is_reviewed')->default(0);
             $table->string('detail');
             $table->timestamps();
 
