@@ -3,6 +3,15 @@
 
 
 @section('content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <div class="card">
     <div class="section-header d-flex align-items-center">
         <a href="{{ route('user.projects.detail', ['id' => $project -> project -> id ?? $project -> id]) }}"><i class="fas fa-chevron-left mt-4" style="font-size: 2rem; color:#0061C7;"></i></a>
@@ -27,17 +36,17 @@
                 <div class="left-container col-md-6">
                     <div class="form-group">
                         <label for="inputMilestoneName">Milestone Name <span style="color:red;">*</span></label>
-                        <input type="text" class="form-control" name="nama" value="{{ isset($project -> project -> id) ? $project -> nama : '' }}" id="inputMilestoneName" placeholder="Milestone Name">
+                        <input type="text" class="form-control" name="nama" value="{{ isset($project -> project -> id) ? $project -> nama : '' }}" id="inputMilestoneName" placeholder="Milestone Name" required>
                     </div>
                     <div class="form-group">
                         <label for="inputDueDate">Due Date <span style="color:red;">*</span></label>
-                        <input type="date" class="form-control" name="deadline" value="{{ isset($project -> project -> id) ? $project -> deadline : '' }}" id="inputDueDate">
+                        <input type="date" class="form-control" name="deadline" value="{{ isset($project -> project -> id) ? $project -> deadline : '' }}" id="inputDueDate" required> 
                         <input type="hidden" value="{{ $project -> project -> id ?? $project -> id }}" name="project_id">
                     </div>
                 </div>
                 <div class="right-container col-md-6">
                     <div class="form-group">
-                        <label for="milestoneDetail">Milestone Detail <span style="color:red;">*</span></label>
+                        <label for="milestoneDetail">Milestone Detail</label>
                         <textarea class="form-control" id="milestoneDetail" name="detail" rows="3" placeholder="Milestone Detail">{{ isset($project -> project -> id) ? $project -> detail : '' }}</textarea>
                     </div>
                 </div>
