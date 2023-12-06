@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nama');
             $table->unsignedBigInteger('project_id');
             $table->date('deadline');
-            $table->string('detail');
+            $table->string('detail')->nullable();
             $table->boolean('status');
             $table->timestamps();
 

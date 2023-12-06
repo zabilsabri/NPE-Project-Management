@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('deadline');
             $table->boolean('status')->default(0);
             $table->boolean('is_reviewed')->default(0);
-            $table->string('detail');
+            $table->string('detail')->nullable();
             $table->timestamps();
 
             $table->foreign('milestone_id')

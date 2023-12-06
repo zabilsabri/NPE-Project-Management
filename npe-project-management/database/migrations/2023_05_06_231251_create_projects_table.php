@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('deadline');
             $table->date('tgl_selesai')->nullable();
             $table->unsignedTinyInteger('status')->default(0); // 0 -> On Progress | 1 -> Selesai | 2 -> revisi | 3 -> pending (Menunggu Review Dari Admin)
-            $table->string('detail');
+            $table->string('detail')->nullable();
             $table->timestamps();
 
             $table->foreign('pm_id')
