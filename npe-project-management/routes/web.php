@@ -80,9 +80,9 @@ Route::group(['prefix' => '/user', 'namespace' => 'App\Http\Controllers\User'], 
         
         Route::group(['prefix' => '/milestone'], function () {
             Route::get('/detail/{id}', 'ProjectController@detailMilestone')->name('user.projects.detail-milestone');
-            Route::get('/detail/{id}/new-milestone', 'ProjectController@newMilestone')->name('user.projects.new-milestone');
+            Route::get('/detail/{id}/new-milestone', 'ProjectController@newMilestone')->middleware('pm')->name('user.projects.new-milestone');
             Route::post('/store-milestone', 'ProjectController@storeMilestone')->name('user.projects.store-milestone');
-            Route::get('/detail/{id}/edit-milestone', 'ProjectController@editMilestone')->name('user.projects.edit-milestone');
+            Route::get('{id}/detail/{m_id}/edit-milestone', 'ProjectController@editMilestone')->middleware('pm')->name('user.projects.edit-milestone');
             Route::post('/update-milestone/{id}', 'ProjectController@updateMilestone')->name('user.projects.update-milestone');
             Route::get('/delete-milestone/{id}', 'ProjectController@deleteMilestone')->name('user.projects.delete-milestone');
             Route::get('/update-milestone-status/{id}/{status}', 'ProjectController@updateMilestoneStatus')->name('user.projects.update-milestone-status');
@@ -93,7 +93,7 @@ Route::group(['prefix' => '/user', 'namespace' => 'App\Http\Controllers\User'], 
         });
 
         Route::group(['prefix' => 'report'], function () {
-            Route::get('/{id}', 'ReportController@indexUser')->name('user.projects.report');
+            Route::get('/{id}', 'ReportController@indexUser')->middleware('pm')->name('user.projects.report');
             Route::post('/store/{id}', 'ReportController@store')->name('user.projects.store-report');
         });
     });

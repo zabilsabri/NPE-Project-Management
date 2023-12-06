@@ -13,7 +13,7 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::orderBy('created_at', 'DESC')->get();
         // dd($project->get(0)->users()->get());
         return view('Admin.project.projects', compact('projects'));
     }

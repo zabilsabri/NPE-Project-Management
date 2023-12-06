@@ -102,8 +102,7 @@ class ProjectController extends Controller
     public function storeMilestone(Request $request) {
         $validated = $request->validate([
             'nama' => 'required',
-            'deadline' => 'required',
-            'detail' => 'required',
+            'deadline' => 'required'
         ]);
 
         $milestone = new Milestone;
@@ -117,8 +116,8 @@ class ProjectController extends Controller
         return redirect()->route('user.projects.detail', [$request->project_id]);
     }
 
-    public function editMilestone(Request $request, $id) {
-        $project = Milestone::find($id);
+    public function editMilestone(Request $request, $id, $m_id) {
+        $project = Milestone::find($m_id);
         return view('User.milestone.new-milestone', compact('project'));
     }
 

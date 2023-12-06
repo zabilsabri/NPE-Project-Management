@@ -25,6 +25,12 @@
                     <div class="text-center container-head">
                         <h4 class="login-title">Login</h4>
                         <p class="login-desc">Welcome to NPE Digital Project Management</p>
+                        @if($msg = Session::get('loginError'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Login Gagal!</strong> Email atau password anda salah.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        @endif
                     </div>
                     <div class="container-body mt-4">
                         <form method="POST" action="{{ route('login.post') }}">

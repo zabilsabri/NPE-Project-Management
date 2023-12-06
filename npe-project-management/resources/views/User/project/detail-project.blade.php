@@ -86,7 +86,7 @@
                     </div>
                     @if($project -> pm -> id == Auth::user()->id && $project -> status != 1 && $project -> status != 3)
                     <div class="action-button d-flex align-items-center">
-                        <a class="mr-3" href="{{ route('user.projects.edit-milestone', ['id' => $milestone -> id]) }}"><img src="{{ asset('img/Admin/pensil.png') }}" alt=""></a>
+                        <a class="mr-3" href="{{ route('user.projects.edit-milestone', ['m_id' => $milestone -> id, 'id' => $project -> id]) }}"><img src="{{ asset('img/Admin/pensil.png') }}" alt=""></a>
                         <a href="#"><img src="{{ asset('img/Admin/zabil.png') }}" class="btn-delete" alt="pensil" data-toggle="modal" data-target="#modal-hapus-milestone{{ $milestone -> id }}" alt="sampah"></a>
                     </div>
                     @endif

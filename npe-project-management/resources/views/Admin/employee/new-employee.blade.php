@@ -34,7 +34,7 @@
                 <div class="form-group col-md-6">
                     <label for="inputDivisi">Divisi</label>
                     <select id="inputDivisi" class="form-control" name="divisi" aria-placeholder="">
-                        <option selected="">Pilih Divisi</option>
+                        <option id="inputDivisi2" selected="">Pilih Divisi</option>
                         <option value="0">Web</option>
                         <option value="1">Mobile</option>
                         <option value="2">UI/UX</option>
@@ -49,7 +49,7 @@
                 <div class="form-group col-md-6">
                     <label for="inputJabatan">Jabatan</label>
                     <select name="jabatan" id="inputJabatan" class="form-control" aria-placeholder="">
-                        <option selected="">Pilih Jabatan</option>
+                        <option id="inputJabatan2" selected="">Pilih Jabatan</option>
                         <option value="0">Senior</option>
                         <option value="1">Junior</option>
                         <option value="2">Trainee</option>
@@ -64,7 +64,9 @@
                 <div class="form-group col-md-6">
                     <label for="inputPassword">Password</label>
                     <input name="password" type="password" class="form-control" id="inputPassword" placeholder="Password">
-                    <small class="text-danger">* Silahkan Kosongkan Jika Anda Tidak Ingin Mengubah Password!</small>
+                    @if(isset($employee))
+                        <small class="text-danger">* Silahkan Kosongkan Jika Anda Tidak Ingin Mengubah Password!</small>
+                    @endif
                 </div>
             </div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -85,9 +87,9 @@
     $('#inputNama').val("{{ $employee->nama }}");
     $('#inputEmail').val("{{ $employee->email }}");
     $('#inputTelp').val("{{ $employee->nomorTelpon }}");
-    $('#inputDivisi').val("{{ $employee->divisi }}");
+    $('#inputDivisi').val("{{ $employee->getAttributes()['divisi'] }}");
     $('#inputId').val("{{ $employee->id }}");
-    $('#inputJabatan').val("{{ $employee->jabatan }}");
+    $('#inputJabatan').val("{{ $employee->getAttributes()['jabatan'] }}");
     $('#employee-form').attr('action', '{{ route('employee-update.admin')}}');
     @endif
 </script>
