@@ -17,7 +17,6 @@
         </section>
 
         <section class="card-body">
-            {{-- make a good profile inside this card body (by bootstrap) to show $profile that contains 'nama', 'email', 'nomorTelpon', 'divisi', 'jabatan', 'credit', 'isAdmin' variables --}}
             <div class="d-flex">
                 <div class="fw-bold fs-4 my-auto">
                     Nama
