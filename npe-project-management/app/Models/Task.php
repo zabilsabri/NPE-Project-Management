@@ -20,4 +20,12 @@ class Task extends Model
     {
         return $this->belongsTo(User::class, 'assign_to_id');
     }
+
+    public function taskStatus($status){
+        if($status == 0){
+            return 'Belum selesai';
+        } else if ($status == 1){
+            return 'Menunggu revisi';
+        } 
+    }
 }

@@ -166,6 +166,7 @@ class ProjectController extends Controller
         $task->status = 0;
         $task->milestone_id = $request->milestone_id;
         $task->assign_to_id = $request->assign_to_id;
+        $task->status = $request->status;
         $task->save();
 
         return redirect()->back();

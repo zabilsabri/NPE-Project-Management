@@ -38,7 +38,7 @@ class TaskController extends Controller
 
     public function unVerifyTask($id) {
         $task = Task::find($id);
-
+        $task->status = 0;
         $task->is_reviewed = 0;
         $task->save();
 
