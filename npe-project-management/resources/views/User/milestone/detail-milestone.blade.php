@@ -159,6 +159,16 @@
                                             <input type="hidden" value="{{ $milestone -> id }}" name="milestone_id">
                                         </div>
                                     </div>
+                                    <div class="select-programmer-section mt-1">
+                                        <div class="form-group col m-0 p-0">
+                                            <label for="inputState">Status</label>
+                                            <select class="form-select" name="status" aria-label="Default select example">
+                                                <option selected value="{{ $task -> status }}">-- {{ $task -> taskStatus($task -> status) }}</option>
+                                                <option value="0">Belum selesai</option>
+                                                <option value="1">Sedang direvisi</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
