@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "npe-project-management-g"
+version = "0.1.0"
+description = ""
+authors = ["Sofyan Pujas <gaero38@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pyleniumio = "^1.20.0"
+
+[tool.poetry.group.dev.dependencies]
+autopep8 = "^2.0.4"
+flake8 = "^6.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
