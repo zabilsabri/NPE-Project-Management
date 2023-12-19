@@ -33,7 +33,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], funct
 
 // });
 
-Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['auth', 'history.state']], function () {
     Route::get('/', 'HomeController@index')->name('home.admin');
 
     Route::group(['prefix' => 'project'], function () {
@@ -77,7 +77,7 @@ Route::group(['prefix' => '/user', 'namespace' => 'App\Http\Controllers\User'], 
         Route::get('/', 'ProjectController@index')->name('user.projects');
         Route::get('/detail/{id}', 'ProjectController@detail')->name('user.projects.detail');
         Route::get('/finished', 'ProjectController@finish')->name('user.projects.finished');
-        
+
         Route::group(['prefix' => '/milestone'], function () {
             Route::get('/detail/{id}', 'ProjectController@detailMilestone')->name('user.projects.detail-milestone');
             Route::get('/detail/{id}/new-milestone', 'ProjectController@newMilestone')->middleware('pm')->name('user.projects.new-milestone');
