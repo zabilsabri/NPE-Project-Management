@@ -92,7 +92,8 @@
                     </div>
                     <ul class="sidebar-menu">
                         <li>
-                            <a class="nav-link" href="blank.html"><i class="fas fa-user" id="photo-profile"></i>
+                            <a class="nav-link" href="blank.html" style="min-height: 5rem">
+                                <i class="fas fa-user" id="photo-profile"></i>
                                 <span>
                                     <p class="m-0" id="username">{{ Auth::user()->nama }}</p>
                                     <p class="m-0" id="email">{{ Auth::user()->email }}</p>
@@ -199,7 +200,7 @@
                     responsive: true,
                 });
                 $('div.toolbar-project-user').html('<h5 class="float-left">My Project</h5>');
-                
+
                 $('#tableMyTaskUser').DataTable({
                     "dom": '<"toolbar-my-task-user">frt',
                     scrollX: true,
@@ -214,7 +215,7 @@
                     responsive: true,
                 });
                 $('div.toolbar-my-task-user').html('<h5 class="float-left">Daftar Task</h5>');
-                
+
                 $('#tableFinishedProjectUser').DataTable({
                     "dom": '<"toolbar-finished-project-user">frt',
                     scrollX: true,
