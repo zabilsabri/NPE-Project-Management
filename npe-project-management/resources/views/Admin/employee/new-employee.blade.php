@@ -34,7 +34,7 @@
                 <div class="form-group col-md-6">
                     <label for="inputDivisi">Divisi</label>
                     <select id="inputDivisi" class="form-control" name="divisi" aria-placeholder="">
-                        <option id="inputDivisi2" selected="">Pilih Divisi</option>
+                        <option id="inputDivisi2" selected="" value="">Pilih Divisi</option>
                         <option value="0">Web</option>
                         <option value="1">Mobile</option>
                         <option value="2">UI/UX</option>
@@ -49,7 +49,7 @@
                 <div class="form-group col-md-6">
                     <label for="inputJabatan">Jabatan</label>
                     <select name="jabatan" id="inputJabatan" class="form-control" aria-placeholder="">
-                        <option id="inputJabatan2" selected="">Pilih Jabatan</option>
+                        <option id="inputJabatan2" selected value="">Pilih Jabatan</option>
                         <option value="0">Senior</option>
                         <option value="1">Junior</option>
                         <option value="2">Trainee</option>

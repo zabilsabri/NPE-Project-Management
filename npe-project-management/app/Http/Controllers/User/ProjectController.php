@@ -124,8 +124,7 @@ class ProjectController extends Controller
     public function updateMilestone(Request $request, $id) {
         $validated = $request->validate([
             'nama' => 'required',
-            'deadline' => 'required',
-            'detail' => 'required',
+            'deadline' => 'required'
         ]);
 
         $milestone = Milestone::find($id);
