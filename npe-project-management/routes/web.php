@@ -13,7 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], function () {
+Route::group([
+    'prefix' => '',
+    'namespace' => 'App\Http\Controllers\Auth'
+], function () {
     Route::get('/', 'LoginController@index')->name('login');
     Route::post('/login', 'LoginController@authenticate')->name('login.post');
     Route::get('/logout', 'LoginController@logout')->name('logout');
@@ -33,7 +36,12 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], funct
 
 // });
 
-Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['auth', 'history.state']], function () {
+Route::group([
+    'prefix' => '/admin',
+    'namespace' => 'App\Http\Controllers\Admin',
+    'middleware' => ['auth', 'history.state']
+], function () {
+
     Route::get('/', 'HomeController@index')->name('home.admin');
 
     Route::group(['prefix' => 'project'], function () {
@@ -70,7 +78,11 @@ Route::group(['prefix' => '/admin', 'namespace' => 'App\Http\Controllers\Admin',
     });
 });
 
-Route::group(['prefix' => '/user', 'namespace' => 'App\Http\Controllers\User'], function () {
+Route::group([
+    'prefix' => '/user',
+    'namespace' => 'App\Http\Controllers\User'
+], function () {
+    
     Route::get('/', 'HomeController@index')->name('home.user');
 
     Route::group(['prefix' => 'project'], function () {

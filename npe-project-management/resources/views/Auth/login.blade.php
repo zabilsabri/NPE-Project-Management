@@ -15,9 +15,9 @@
 
 <body>
     <div class="m-5">
-        <img src="{{ asset('img/login/Logo.png') }}" class="img-fluid" alt="">
+        <img src="{{ asset('img/login/Logo.png') }}" class="img-fluid" alt="" id="main-logo">
         <div class="row justify-content-between">
-            <div class="col-md-6">
+            <div class="col-md-6" id="vector-img">
                 <img src="{{ asset('img/login/amico.png') }}" class="img-fluid mx-auto d-block mt-5" alt="">
             </div>
             <div class="col-md-4 m-auto">
@@ -79,6 +79,10 @@
     </div>
 
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous">
+</script>
 
 </html>

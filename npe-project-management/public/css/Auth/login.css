@@ -49,3 +49,17 @@
     border-right: 0 !important;
     background-color: white !important;
 }
+
+/* Responsive */
+@media screen and (max-width: 992px) {
+    #vector-img  {
+        display: none !important;
+    }
+    #main-logo {
+        margin: 0 auto 2rem auto !important;
+    }
+
+    #vector-img + .col-md-4 {
+        width: 100% !important;
+    }
+}
