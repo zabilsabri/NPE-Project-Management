@@ -37,6 +37,13 @@ Route::group([
 // });
 
 Route::group([
+    'namespace' => 'App\Http\Controllers\Common',
+], function() {
+    Route::get('/profile', 'ProfileController@index')->name('common.profile');
+});
+
+
+Route::group([
     'prefix' => '/admin',
     'namespace' => 'App\Http\Controllers\Admin',
     'middleware' => ['auth', 'history.state']
@@ -82,7 +89,7 @@ Route::group([
     'prefix' => '/user',
     'namespace' => 'App\Http\Controllers\User'
 ], function () {
-    
+
     Route::get('/', 'HomeController@index')->name('home.user');
 
     Route::group(['prefix' => 'project'], function () {

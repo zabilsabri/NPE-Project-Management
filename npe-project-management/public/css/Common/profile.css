@@ -1,0 +1,19 @@
+.card-body .d-flex {
+    margin-bottom: 12px;
+}
+
+.card-body .d-flex .fs-4 {
+    width: 20%;
+    font-size: 20px !important;
+}
+
+@media screen and (max-width: 768px) {
+    .card-body .d-flex .fs-4 {
+        width: 100%;
+    }
+
+    .card-body .d-flex .fs-4 + span {
+        width: 100%;
+    }
+
+}
