@@ -327,7 +327,7 @@
                         <div class="form-group col m-0 p-0">
                             <label for="inputState">Programmer</label>
                             <select class="selectpicker form-control" name="assign_to_id" id="inputState" data-live-search="true" required>
-                                <option data-tokens="mustard" value="0">Select Programmer</option>
+                                <option data-tokens="mustard" value="">Select Programmer</option>
                                 @foreach($milestone -> project -> employees as $programmer)
                                     <option data-tokens="mustard" value="{{ $programmer -> id }}">{{ $programmer -> nama }}</option>
                                 @endforeach
