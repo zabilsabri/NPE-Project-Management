@@ -1,0 +1,27 @@
+{
+  "driver": {
+    "browser": "edge",
+    "remote_url": "117.0.2045.55:9515",
+    "wait_time": 10,
+    "page_load_wait_time": 0,
+    "options": [],
+    "capabilities": {},
+    "experimental_options": null,
+    "extension_paths": [],
+    "webdriver_kwargs": {},
+    "seleniumwire_enabled": false,
+    "seleniumwire_options": {},
+    "local_path": "/usr/bin/msedgedriver"
+  },
+  "logging": {
+    "screenshots_on": true
+  },
+  "viewport": {
+    "maximize": true,
+    "width": 1440,
+    "height": 900,
+    "orientation": "portrait"
+  },
+
+  "customer": {}
+}
