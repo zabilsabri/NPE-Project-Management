@@ -15,29 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::group([
     'prefix' => '',
-    'namespace' => 'App\Http\Controllers\Auth'
+    'namespace' => 'App\Http\Controllers\Auth',
 ], function () {
     Route::get('/', 'LoginController@index')->name('login');
     Route::post('/login', 'LoginController@authenticate')->name('login.post');
     Route::get('/logout', 'LoginController@logout')->name('logout');
 });
 
-// Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['auth', 'Admin']], function () {
-
-//     Route::group(['prefix' => 'admin'], function(){
-//         Route::get('/', 'HomeController@index')->name('home.admin');
-
-//         Route::group(['prefix' => 'project'], function(){
-//             Route::get('/', 'ProjectController@index')->name('project.admin');
-//             Route::get('/create', 'ProjectController@create')->name('project-create.admin');
-//         });
-
-//     });
-
-// });
-
 Route::group([
     'namespace' => 'App\Http\Controllers\Common',
+    'middleware' => ['auth', 'history.state']
 ], function() {
     Route::get('/profile', 'ProfileController@index')->name('common.profile');
 });
