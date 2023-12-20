@@ -6,7 +6,9 @@
   <div class="card-body">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb p-2">
-        <li class="breadcrumb-item"><a href="#">Project</a></li>
+        <li class="breadcrumb-item">
+            <a href="../">Project</a>
+        </li>
         <li class="breadcrumb-item active" aria-current="page">Sistem Informasi Farmasi</li>
       </ol>
     </nav>
@@ -14,7 +16,7 @@
       <span class="status-op p-2" id="statusProject{{ $project->status }}"><svg width="12" height="12" viewBox="0 0 12 12"
           fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="6" cy="6" r="6" fill="#0061C7" />
-        </svg> 
+        </svg>
       @if($project -> status == 0)
         In Progress
       @elseif($project -> status == 1)
